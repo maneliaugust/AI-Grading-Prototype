@@ -271,9 +271,9 @@ def main() -> None:
     args = parse_args()
 
     # ---- API key ----
-    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    api_key = os.getenv("GEMINI_API_KEY") 
     if not api_key:
-        log.error("No API key found. Set GEMINI_API_KEY or GOOGLE_API_KEY environment variable.")
+        log.error("No API key found. Set GEMINI_API_KEY.")
         sys.exit(1)
 
     client = genai.Client(api_key=api_key)
