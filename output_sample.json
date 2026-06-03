@@ -9,14 +9,14 @@
   },
   "results": [
     {
-      "student_id": "u12345678",
+      "learner_id": "u12345678",
       "status": "graded",
       "grading": {
         "score": 24,
         "max_grade": 30,
         "percentage": 80.0,
         "grade_label": "Excellent",
-        "feedback": "This is a well-structured and informed response that demonstrates a solid grasp of Porter's Five Forces and their relevance to the South African retail banking sector. The student correctly identifies all five forces and provides relevant, specific examples such as TymeBank, Discovery Bank, Capitec, and the Big Four incumbents. The analysis of the threat of new entrants is particularly strong, noting both regulatory barriers and the disruption from digital entrants. Strategic recommendations are logical and grounded in the analysis. The response would benefit from deeper critical engagement and more rigorous referencing.",
+        "feedback": "This is a well-structured and informed response that demonstrates a solid grasp of Porter's Five Forces and their relevance to the South African retail banking sector. The learner correctly identifies all five forces and provides relevant, specific examples such as TymeBank, Discovery Bank, Capitec, and the Big Four incumbents. The analysis of the threat of new entrants is particularly strong, noting both regulatory barriers and the disruption from digital entrants. Strategic recommendations are logical and grounded in the analysis. The response would benefit from deeper critical engagement and more rigorous referencing.",
         "strengths": [
           "Correctly identifies and explains all five forces with appropriate banking-sector framing.",
           "Strong use of SA-specific examples: TymeBank, Discovery Bank, Capitec, Big Four, SARB, FSCA.",
@@ -66,7 +66,7 @@
       }
     },
     {
-      "student_id": "u98765432",
+      "learner_id": "u98765432",
       "status": "graded",
       "grading": {
         "score": 8,
