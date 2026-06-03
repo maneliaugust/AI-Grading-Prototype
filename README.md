@@ -1,4 +1,4 @@
-AI Grading Prototype
+# AI Grading Prototype
 
 A standalone Python prototype that reads Moodle long-format assessment data from `input.json`, grades each submission using the Google Gemini AI model, and writes structured results to `output.json`.
 
