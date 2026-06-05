@@ -12,11 +12,10 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
-
 
 from google import genai
 from google.genai import types
@@ -171,8 +170,19 @@ def build_prompt(course_name: str, submission: dict, top: dict) -> str:
 
 
 def grade_submission(client: genai.Client, prompt: str, config: types.GenerateContentConfig, model_name: str) -> dict:
-    """Send the prompt to Gemini and parse the JSON response."""
-    response = client.models.generate_content(model=model_name, contents=prompt, config=config)
+    """Send the prompt to Gemini and parse the JSON response. Retries on 503."""
+    max_retries = 5
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(model=model_name, contents=prompt, config=config)
+            break
+        except Exception as e:
+            if "503" in str(e) and attempt < max_retries - 1:
+                wait = 10 * (attempt + 1)
+                log.warning("Model overloaded, retrying in %ds (attempt %d/%d)...", wait, attempt + 1, max_retries)
+                time.sleep(wait)
+            else:
+                raise
     raw_text = response.text.strip()
 
     # Strip markdown fences if the model wraps output anyway
@@ -201,28 +211,28 @@ def process_all(input_data: dict, client: genai.Client, config: types.GenerateCo
     errors = []
 
     for i, submission in enumerate(input_data["submissions"]):
-        student_id = submission["learner_id"]
-        log.info("Grading submission %d/%d — student: %s", i + 1, len(input_data["submissions"]), student_id)
+        learner_id = submission["learner_id"]
+        log.info("Grading submission %d/%d — learner: %s", i + 1, len(input_data["submissions"]), learner_id)
 
         try:
             prompt = build_prompt(course, submission, input_data)
             grading = grade_submission(client, prompt, config, model_name)
             results.append({
-                "learner_id": student_id,
+                "learner_id": learner_id,
                 "status": "graded",
                 "grading": grading,
             })
             log.info("  ✓ %s → %s/%s (%s%%)",
-                     student_id,
+                     learner_id,
                      grading.get("score"),
                      grading.get("max_grade"),
                      grading.get("percentage"))
         except json.JSONDecodeError as e:
-            log.error("  ✗ %s — failed to parse AI response as JSON: %s", student_id, e)
-            errors.append({"learner_id": student_id, "error": f"JSON parse error: {e}"})
+            log.error("  ✗ %s — failed to parse AI response as JSON: %s", learner_id, e)
+            errors.append({"learner_id": learner_id, "error": f"JSON parse error: {e}"})
         except Exception as e:  # pylint: disable=broad-except
-            log.error("  ✗ %s — unexpected error: %s", student_id, e)
-            errors.append({"learner_id": student_id, "error": str(e)})
+            log.error("  ✗ %s — unexpected error: %s", learner_id, e)
+            errors.append({"learner_id": learner_id, "error": str(e)})
 
         # Small delay to stay within free-tier rate limits
         if i < len(input_data["submissions"]) - 1:
@@ -232,7 +242,7 @@ def process_all(input_data: dict, client: genai.Client, config: types.GenerateCo
         "metadata": {
             "course_name": course,
             "assignment_name": input_data.get("assignment_name", ""),
-            "graded_at": datetime.utcnow().isoformat() + "Z",
+            "graded_at": datetime.now(timezone.utc).isoformat() + "Z",
             "total_submissions": len(input_data["submissions"]),
             "graded_count": len(results),
             "error_count": len(errors),
@@ -261,7 +271,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--input",  default="input.json",  help="Path to input JSON file  (default: input.json)")
     parser.add_argument("--output", default="output.json", help="Path to output JSON file (default: output.json)")
-    parser.add_argument("--model",  default="gemini-2.0-flash", help="Gemini model name (default: gemini-2.0-flash)")
+    parser.add_argument("--model",  default="gemini-2.5-flash", help="Gemini model name (default: gemini-2.5-flash)")
     parser.add_argument("--temperature", type=float, default=0.2,
                         help="Generation temperature 0–1 (default: 0.2, lower = more deterministic)")
     return parser.parse_args()
@@ -271,9 +281,9 @@ def main() -> None:
     args = parse_args()
 
     # ---- API key ----
-    api_key = os.getenv("GEMINI_API_KEY") 
+    api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        log.error("No API key found. Set GEMINI_API_KEY.")
+        log.error("No API key found. Set GEMINI_API_KEY environment variable.")
         sys.exit(1)
 
     client = genai.Client(api_key=api_key)
