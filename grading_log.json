@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-06-11T14:00:06.257300+00:00Z",
+    "status": "success",
+    "learner_id": "u12345678",
+    "course_name": "BUSA 301 – Business Strategy",
+    "assignment_name": "Essay: Porter's Five Forces Analysis",
+    "score": 29.5,
+    "max_grade": 30,
+    "grade_label": "Excellent",
+    "requires_human_review": false,
+    "error": null
+  },
+  {
+    "timestamp": "2026-06-11T14:00:24.700792+00:00Z",
+    "status": "success",
+    "learner_id": "u98765432",
+    "course_name": "BUSA 301 – Business Strategy",
+    "assignment_name": "Essay: Porter's Five Forces Analysis",
+    "score": 7,
+    "max_grade": 30,
+    "grade_label": "Very Poor",
+    "requires_human_review": false,
+    "error": null
+  }
+]
