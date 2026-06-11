@@ -38,29 +38,64 @@ log = logging.getLogger(__name__)
 QUEUE_NAME = "grading_jobs"
 
 
-def save_result(result: dict, output_path: str) -> None:
-    """Append a grading result to the output JSON file."""
-    existing = []
+from datetime import datetime, timezone # Make sure this is at the top of your file!
+
+from datetime import datetime, timezone  # Make sure this is at the top of your file!
+
+def save_result(result: dict, output_path: str, course_name: str = "", assignment_name: str = "") -> None:
+    """
+    Append a grading result to the output JSON file.
+    Guarantees the schema: { "metadata": {...}, "results": [...], "errors": [...] }
+    Keeps course_name and assignment_name ONLY in the metadata block.
+    """
     try:
         with open(output_path, encoding="utf-8") as f:
             data = json.load(f)
-            
-            # FIX: Ensure we are always working with a list
-            if isinstance(data, list):
-                existing = data
-            elif isinstance(data, dict):
-                # If the file accidentally contains a dictionary, wrap it in a list
-                existing = [data]
-            else:
-                existing = []
-                
     except (FileNotFoundError, json.JSONDecodeError):
-        pass  # start fresh if file doesn't exist or is empty
+        data = {}
 
-    existing.append(result)
+    # Normalize data: Force it into the correct schema if it isn't already
+    if not isinstance(data, dict):
+        data = {}
+    
+    if "metadata" not in data or not isinstance(data["metadata"], dict):
+        data["metadata"] = {
+            "course_name": "",
+            "assignment_name": "",
+            "graded_at": "",
+            "total_submissions": 0,
+            "graded_count": 0,
+            "error_count": 0
+        }
+    
+    if "results" not in data or not isinstance(data["results"], list):
+        data["results"] = []
+        
+    if "errors" not in data or not isinstance(data["errors"], list):
+        data["errors"] = []
 
+    # Update metadata with course/assignment if provided and currently empty
+    if course_name and not data["metadata"].get("course_name"):
+        data["metadata"]["course_name"] = course_name
+    if assignment_name and not data["metadata"].get("assignment_name"):
+        data["metadata"]["assignment_name"] = assignment_name
+
+    # Append to the correct list based on status
+    status = result.get("status", "graded")
+    if status == "error":
+        data["errors"].append(result)
+        data["metadata"]["error_count"] = data["metadata"].get("error_count", 0) + 1
+    else:
+        data["results"].append(result)
+        data["metadata"]["graded_count"] = data["metadata"].get("graded_count", 0) + 1
+
+    # Update metadata totals and timestamps
+    data["metadata"]["total_submissions"] = len(data["results"]) + len(data["errors"])
+    data["metadata"]["graded_at"] = datetime.now(timezone.utc).isoformat()
+
+    # Write back to file
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(existing, f, indent=2, ensure_ascii=False)
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
 
 def make_callback(client, gen_config, model_name, output_path, log_path):
@@ -74,7 +109,7 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
         submission  = message["submission"]
         learner_id  = submission.get("learner_id", "unknown")
         course_name = message.get("course_name", "")
-        assignment  = message.get("assignment_name", "")
+        assignment_name = message.get("assignment_name", "")
 
         log.info("[->] Received grading job for learner: %s", learner_id)
 
@@ -82,7 +117,7 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
             # Build prompt and call Gemini using grader.py functions directly
             top_level = {
                 "subject_area":    message.get("subject_area", ""),
-                "assignment_name": assignment,
+                "assignment_name": assignment_name,
             }
             prompt  = build_prompt(course_name, submission, top_level)
             grading = grade_submission(client, prompt, gen_config, model_name)
@@ -90,18 +125,16 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
             # Save result to output file
             result = {
                 "learner_id":   learner_id,
-                "course_name":  course_name,
-                "assignment":   assignment,
                 "status":       "graded",
                 "grading":      grading,
             }
-            save_result(result, output_path)
+            save_result(result, output_path, course_name=course_name, assignment_name=assignment_name)
 
             # Log success
             log_success(
                 learner_id=learner_id,
                 course_name=course_name,
-                assignment_name=assignment,
+                assignment_name=assignment_name,
                 score=grading.get("score"),
                 max_grade=grading.get("max_grade"),
                 grade_label=grading.get("grade_label"),
@@ -126,17 +159,15 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
             # Save failed result to output file
             save_result({
                 "learner_id":  learner_id,
-                "course_name": course_name,
-                "assignment":  assignment,
                 "status":      "error",
                 "error":       error_msg,
-            }, output_path)
+            }, output_path, course_name=course_name, assignment_name=assignment_name)
 
             # Log failure
             log_failure(
                 learner_id=learner_id,
                 course_name=course_name,
-                assignment_name=assignment,
+                assignment_name=assignment_name,
                 error_message=error_msg,
                 log_path=log_path,
             )
