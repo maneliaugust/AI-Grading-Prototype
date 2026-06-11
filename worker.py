@@ -38,19 +38,6 @@ log = logging.getLogger(__name__)
 QUEUE_NAME = "grading_jobs"
 
 
-# def save_result(result: dict, output_path: str) -> None:
-#     """Append a grading result to the output JSON file."""
-#     existing = []
-#     try:
-#         with open(output_path, encoding="utf-8") as f:
-#             existing = json.load(f)
-#     except (FileNotFoundError, json.JSONDecodeError):
-#         pass  # start fresh if file doesn't exist or is empty
-
-#     existing.append(result)
-
-#     with open(output_path, "w", encoding="utf-8") as f:
-#         json.dump(existing, f, indent=2, ensure_ascii=False)
 def save_result(result: dict, output_path: str) -> None:
     """Append a grading result to the output JSON file."""
     existing = []
