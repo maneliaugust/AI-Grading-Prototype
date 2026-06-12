@@ -2,9 +2,9 @@
   "metadata": {
     "course_name": "BUSA 301 – Business Strategy",
     "assignment_name": "Essay: Porter's Five Forces Analysis",
-    "graded_at": "2026-06-11T15:13:44.977130+00:00",
-    "total_submissions": 2,
-    "graded_count": 1,
+    "graded_at": "2026-06-12T07:21:25.677870+00:00",
+    "total_submissions": 4,
+    "graded_count": 3,
     "error_count": 1
   },
   "results": [
@@ -58,6 +58,113 @@
             "marks_awarded": 3,
             "marks_available": 4,
             "comment": "Reasonably well-organised and clearly written. Three references included but not in full academic format (missing full bibliographic details)."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 26.0,
+        "max_grade": 30,
+        "percentage": 86.67,
+        "grade_label": "Excellent",
+        "feedback": "Your application of Porter's Five Forces to the South African retail banking industry is strong and demonstrates a solid understanding of the framework. You effectively identified key aspects of each force and linked them to the competitive dynamics within the industry. To further enhance your analysis, consider exploring the interplay between the forces and providing more detailed South African context for all five areas. Additionally, refining your referencing to a complete academic format will strengthen the scholarly presentation of your work.",
+        "strengths": [
+          "You effectively contextualized the Threat of New Entrants and Rivalry Among Existing Competitors with specific South African examples, including key institutions (e.g., Big Four, Capitec, TymeBank) and regulatory bodies (SARB, FSCA).",
+          "Your strategic recommendations are concrete, well-justified, and directly derived from your analysis of the forces, demonstrating clear strategic thinking."
+        ],
+        "improvements": [
+          "While you competently analyzed each force individually, consider exploring how these forces interact with each other. For example, how does increased buyer power (due to low switching costs) intensify rivalry among existing competitors, or how does the threat of new digital entrants influence incumbent banks' strategic responses to buyer demands?",
+          "You provided excellent South African context for several forces. To further strengthen your analysis, try to incorporate more specific SA examples for the Bargaining Power of Suppliers (e.g., specific local IT providers or labour market dynamics) and the Threat of Substitutes (e.g., local informal lending practices or specific mobile money initiatives relevant to SA).",
+          "Ensure your references are presented in a consistent and complete academic format (e.g., APA, Harvard). This includes providing full details such as the title of the work, publisher, and specific page numbers or URLs where applicable, beyond just author and year."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Understanding of Porter's Five Forces",
+            "marks_awarded": 5.5,
+            "marks_available": 6,
+            "comment": "All five forces are correctly identified and explained with good accuracy and contextualisation to retail banking. Minor gaps in precision or thoroughness prevent a full score."
+          },
+          {
+            "criterion": "Application to South African Banking Context",
+            "marks_awarded": 7.0,
+            "marks_available": 8,
+            "comment": "Strong contextualisation with multiple SA-specific examples applied accurately to most forces (New Entrants, Buyers, Rivalry). Some forces (Suppliers, Substitutes) could benefit from more specific SA context."
+          },
+          {
+            "criterion": "Depth of Analysis",
+            "marks_awarded": 6.0,
+            "marks_available": 8,
+            "comment": "Competent analysis with evidence of critical thinking for most forces, exploring their implications for competitive dynamics. However, the analysis does not explicitly explore the interactions or competing tensions between the forces."
+          },
+          {
+            "criterion": "Strategic Implications",
+            "marks_awarded": 4.0,
+            "marks_available": 4,
+            "comment": "Concrete, well-justified strategic actions are directly derived from the force analysis, demonstrating strong strategic thinking."
+          },
+          {
+            "criterion": "Structure, Clarity and Referencing",
+            "marks_awarded": 3.5,
+            "marks_available": 4,
+            "comment": "The response is well-organised, professionally written, and logically structured. Three credible references are included, but the formatting is not in a full academic style, which slightly reduces the score from maximum."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 9,
+        "max_grade": 30,
+        "percentage": 30,
+        "grade_label": "Needs Significant Improvement",
+        "feedback": "Your response correctly identifies all five forces of Porter's framework, which is a good starting point for your analysis. To improve, focus on deepening your understanding and application of each force. For instance, when discussing 'suppliers,' consider who the key suppliers to a bank are (e.g., technology providers, capital sources) and explain *why* their power might be high or low, rather than just stating a conclusion. Additionally, integrate specific examples from the South African retail banking industry, such as naming specific banks (e.g., Standard Bank, FNB, Capitec) or relevant regulations (e.g., from the South African Reserve Bank), to demonstrate a more contextual and nuanced understanding. Finally, ensure your strategic recommendations are concrete and directly derived from your force analysis, providing clear justification for each proposed action.",
+        "strengths": [
+          "Successfully identified all five forces of Porter's framework."
+        ],
+        "improvements": [
+          "Enhance your explanation of each force by providing more precise definitions and elaborating on how each specifically impacts the competitive landscape within the banking industry.",
+          "Strengthen your application by integrating specific examples from the South African retail banking industry, including named institutions, regulations, and market dynamics.",
+          "Develop more concrete and justified strategic recommendations that directly stem from your analysis of each force, demonstrating clear strategic thinking."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Understanding of Porter's Five Forces",
+            "marks_awarded": 3,
+            "marks_available": 6,
+            "comment": "The learner correctly named all five forces. However, the explanations for each force were superficial and lacked precision, only offering basic observations rather than detailed definitions or clear contextualisation to banking beyond very general statements."
+          },
+          {
+            "criterion": "Application to South African Banking Context",
+            "marks_awarded": 2,
+            "marks_available": 8,
+            "comment": "The response made a single, brief reference to 'many banks in South Africa' for rivalry. Beyond this, the application to the banking sector was generic, lacking specific South African institutions, regulations, or market dynamics, which limited the contextual relevance."
+          },
+          {
+            "criterion": "Depth of Analysis",
+            "marks_awarded": 2,
+            "marks_available": 8,
+            "comment": "The response was largely descriptive, stating basic observations about each force (e.g., 'suppliers are not that powerful'). There was no exploration of the implications of these forces, their nuances, or how they might interact to shape competitive dynamics, indicating a lack of analytical depth."
+          },
+          {
+            "criterion": "Strategic Implications",
+            "marks_awarded": 1,
+            "marks_available": 4,
+            "comment": "The strategic recommendation, 'Banks should try to be competitive by offering good products,' was very vague and generic. It was not clearly linked or justified by the preceding analysis of Porter's Five Forces."
+          },
+          {
+            "criterion": "Structure, Clarity and Referencing",
+            "marks_awarded": 1,
+            "marks_available": 4,
+            "comment": "The response had a basic, albeit simplistic, structure and was clearly written. However, the writing style was very rudimentary, and no academic references were provided, which significantly impacts the score for this criterion."
           }
         ]
       }
