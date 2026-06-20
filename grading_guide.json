@@ -1,0 +1,148 @@
+[
+  {
+    "criterion": "Understanding of Porter's Five Forces",
+    "marks": 6,
+    "grade_bands": [
+      {
+        "range": "0",
+        "description": "No attempt made, or response is completely irrelevant to Porter's Five Forces."
+      },
+      {
+        "range": "1",
+        "description": "Only one or two forces are mentioned with no meaningful explanation. Major misconceptions present."
+      },
+      {
+        "range": "2",
+        "description": "At least three forces are named but explanations are superficial or largely incorrect."
+      },
+      {
+        "range": "3",
+        "description": "All five forces are named and partially explained, but definitions lack precision or banking context."
+      },
+      {
+        "range": "4",
+        "description": "All five forces are correctly identified and explained with basic accuracy in a banking context."
+      },
+      {
+        "range": "5",
+        "description": "All five forces are well explained with clear understanding; minor gaps or imprecision remain."
+      },
+      {
+        "range": "6",
+        "description": "All five forces are accurately and thoroughly explained with precise definitions fully contextualised to retail banking."
+      }
+    ]
+  },
+  {
+    "criterion": "Application to South African Banking Context",
+    "marks": 8,
+    "grade_bands": [
+      {
+        "range": "0",
+        "description": "No attempt made, or response contains no reference to South Africa or the banking sector."
+      },
+      {
+        "range": "1-2",
+        "description": "Vague or generic references to banking with no specific SA institutions, regulations, or market dynamics mentioned."
+      },
+      {
+        "range": "3-4",
+        "description": "Some SA-specific examples are used (e.g., names one or two banks) but application is inconsistent or partially incorrect."
+      },
+      {
+        "range": "5-6",
+        "description": "Good use of SA context with named institutions (e.g., Big Four, Capitec, TymeBank) and at least one regulatory reference (e.g., SARB, FSCA)."
+      },
+      {
+        "range": "7",
+        "description": "Strong contextualisation with multiple SA-specific examples applied accurately to most forces."
+      },
+      {
+        "range": "8",
+        "description": "Rich, accurate, and detailed SA contextualisation across all five forces, including institutions, regulations, and market dynamics."
+      }
+    ]
+  },
+  {
+    "criterion": "Depth of Analysis",
+    "marks": 8,
+    "grade_bands": [
+      {
+        "range": "0",
+        "description": "No attempt made, or response is a list of labels with no analytical content."
+      },
+      {
+        "range": "1-2",
+        "description": "Descriptive only; no analysis. Forces are described but their implications are not explored."
+      },
+      {
+        "range": "3-4",
+        "description": "Some analytical reasoning present but limited to obvious observations. No engagement with nuance or force interactions."
+      },
+      {
+        "range": "5-6",
+        "description": "Competent analysis with evidence of critical thinking for most forces. Some nuance acknowledged but interactions between forces are not explored."
+      },
+      {
+        "range": "7",
+        "description": "Strong analysis demonstrating critical thinking, with some discussion of how forces interact or create competing tensions."
+      },
+      {
+        "range": "8",
+        "description": "Sophisticated, multi-perspective analysis. Explores interplay between forces, competing tensions, and contextual nuances with insight."
+      }
+    ]
+  },
+  {
+    "criterion": "Strategic Implications",
+    "marks": 4,
+    "grade_bands": [
+      {
+        "range": "0",
+        "description": "No attempt made, or no strategic recommendations provided."
+      },
+      {
+        "range": "1",
+        "description": "A vague or generic recommendation is made (e.g., 'be competitive') with no link to the analysis."
+      },
+      {
+        "range": "2",
+        "description": "One or two strategic recommendations are offered but are only loosely connected to the force analysis."
+      },
+      {
+        "range": "3",
+        "description": "Clear strategic recommendations are provided and mostly grounded in the analysis, but justification is limited."
+      },
+      {
+        "range": "4",
+        "description": "Concrete, well-justified strategic actions are directly derived from the force analysis, demonstrating strategic thinking."
+      }
+    ]
+  },
+  {
+    "criterion": "Structure, Clarity and Referencing",
+    "marks": 4,
+    "grade_bands": [
+      {
+        "range": "0",
+        "description": "No attempt made, or response is completely incoherent with no structure and no references."
+      },
+      {
+        "range": "1",
+        "description": "Poor structure and unclear writing. No references provided."
+      },
+      {
+        "range": "2",
+        "description": "Some structure evident but writing is inconsistent. One reference provided or references are improperly formatted."
+      },
+      {
+        "range": "3",
+        "description": "Reasonably well-organised and clearly written. Two or more references included but not in full academic format."
+      },
+      {
+        "range": "4",
+        "description": "Well-organised, professionally written, and logically structured. At least three credible references in correct academic format."
+      }
+    ]
+  }
+]

@@ -55,7 +55,7 @@ def log_success(
 ) -> None:
     """Log a successful grading attempt."""
     entry = {
-        "timestamp":             datetime.now(timezone.utc).isoformat() + "Z",
+        "timestamp":             datetime.now().astimezone().isoformat(),
         "status":                "success",
         "learner_id":            learner_id,
         "course_name":           course_name,
@@ -81,7 +81,7 @@ def log_failure(
 ) -> None:
     """Log a failed grading attempt."""
     entry = {
-        "timestamp":             datetime.now(timezone.utc).isoformat() + "Z",
+        "timestamp":             datetime.now().astimezone().isoformat(),
         "status":                "fail",
         "learner_id":            learner_id,
         "course_name":           course_name,

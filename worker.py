@@ -45,8 +45,13 @@ from datetime import datetime, timezone  # Make sure this is at the top of your 
 def save_result(result: dict, output_path: str, course_name: str = "", assignment_name: str = "") -> None:
     """
     Append a grading result to the output JSON file.
-    Guarantees the schema: { "metadata": {...}, "results": [...], "errors": [...] }
-    Keeps course_name and assignment_name ONLY in the metadata block.
+    Guarantees the schema: { "metadata": [...], "results": [...], "errors": [...] }
+
+    "metadata" is now a LIST of per-day snapshots. A new entry is created the
+    first time save_result() runs on a given calendar date (local time); on
+    that same date, subsequent calls update that day's existing entry in
+    place (totals accumulate across multiple worker.py restarts on the same
+    day). The next calendar day, a fresh entry is appended instead.
     """
     try:
         with open(output_path, encoding="utf-8") as f:
@@ -57,41 +62,63 @@ def save_result(result: dict, output_path: str, course_name: str = "", assignmen
     # Normalize data: Force it into the correct schema if it isn't already
     if not isinstance(data, dict):
         data = {}
-    
-    if "metadata" not in data or not isinstance(data["metadata"], dict):
-        data["metadata"] = {
-            "course_name": "",
-            "assignment_name": "",
-            "graded_at": "",
-            "total_submissions": 0,
-            "graded_count": 0,
-            "error_count": 0
-        }
-    
+
+    # --- Migrate / normalise "metadata" into a list ---
+    if "metadata" not in data:
+        data["metadata"] = []
+    elif isinstance(data["metadata"], dict):
+        # Old single-object format from a previous version — wrap it so
+        # existing history isn't lost.
+        data["metadata"] = [data["metadata"]] if data["metadata"] else []
+    elif not isinstance(data["metadata"], list):
+        data["metadata"] = []
+
     if "results" not in data or not isinstance(data["results"], list):
         data["results"] = []
-        
+
     if "errors" not in data or not isinstance(data["errors"], list):
         data["errors"] = []
 
-    # Update metadata with course/assignment if provided and currently empty
-    if course_name and not data["metadata"].get("course_name"):
-        data["metadata"]["course_name"] = course_name
-    if assignment_name and not data["metadata"].get("assignment_name"):
-        data["metadata"]["assignment_name"] = assignment_name
+    now_local = datetime.now().astimezone()
+    today_str = now_local.date().isoformat()  # e.g. "2026-06-20"
+
+    # Find today's metadata entry, if one already exists
+    today_entry = None
+    for entry in data["metadata"]:
+        graded_at = entry.get("graded_at", "")
+        if graded_at[:10] == today_str:
+            today_entry = entry
+            break
+
+    if today_entry is None:
+        today_entry = {
+            "course_name": course_name,
+            "assignment_name": assignment_name,
+            "graded_at": now_local.isoformat(),
+            "total_submissions": 0,
+            "graded_count": 0,
+            "error_count": 0,
+        }
+        data["metadata"].append(today_entry)
+
+    # Update course/assignment name if provided and currently empty
+    if course_name and not today_entry.get("course_name"):
+        today_entry["course_name"] = course_name
+    if assignment_name and not today_entry.get("assignment_name"):
+        today_entry["assignment_name"] = assignment_name
 
     # Append to the correct list based on status
     status = result.get("status", "graded")
     if status == "error":
         data["errors"].append(result)
-        data["metadata"]["error_count"] = data["metadata"].get("error_count", 0) + 1
+        today_entry["error_count"] = today_entry.get("error_count", 0) + 1
     else:
         data["results"].append(result)
-        data["metadata"]["graded_count"] = data["metadata"].get("graded_count", 0) + 1
+        today_entry["graded_count"] = today_entry.get("graded_count", 0) + 1
 
-    # Update metadata totals and timestamps
-    data["metadata"]["total_submissions"] = len(data["results"]) + len(data["errors"])
-    data["metadata"]["graded_at"] = datetime.now(timezone.utc).isoformat()
+    # Update today's totals and refresh its "last updated" timestamp
+    today_entry["total_submissions"] = today_entry["graded_count"] + today_entry["error_count"]
+    today_entry["graded_at"] = now_local.isoformat()
 
     # Write back to file
     with open(output_path, "w", encoding="utf-8") as f:
@@ -102,6 +129,13 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
     """
     Factory function: returns a pika callback with Gemini client injected.
     Called once per message received from the queue.
+
+    If the submission dict contains Moodle-specific fields
+    (_moodle_userid + _moodle_assignment_id, added by moodle_producer.py),
+    the resulting grade is automatically pushed back to Moodle via
+    mod_assign_save_grade after a successful grading call. Jobs sourced
+    from the original producer.py / input.json (which never set these
+    fields) are unaffected — they just skip the push-back step.
     """
 
     def process_job(channel, method, properties, body):
@@ -110,6 +144,10 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
         learner_id  = submission.get("learner_id", "unknown")
         course_name = message.get("course_name", "")
         assignment_name = message.get("assignment_name", "")
+
+        # Present only on jobs built by moodle_producer.py
+        moodle_userid       = submission.get("_moodle_userid")
+        moodle_assignment_id = submission.get("_moodle_assignment_id")
 
         log.info("[->] Received grading job for learner: %s", learner_id)
 
@@ -152,6 +190,31 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                 " *** HUMAN REVIEW NEEDED ***" if grading.get("requires_human_review") else "",
             )
 
+            # --- Push grade back to Moodle, if this job came from Moodle ---
+            if moodle_userid is not None and moodle_assignment_id is not None:
+                try:
+                    import moodle_client
+
+                    feedback_html = _build_feedback_html(grading)
+                    moodle_client.save_grade(
+                        assignment_id=moodle_assignment_id,
+                        userid=moodle_userid,
+                        grade=grading.get("score"),
+                        feedback_html=feedback_html,
+                    )
+                    log.info(
+                        "[MOODLE] Grade pushed back for %s (userid=%s, assignment=%s)",
+                        learner_id, moodle_userid, moodle_assignment_id,
+                    )
+                except Exception as moodle_err:  # pylint: disable=broad-except
+                    # Grading itself succeeded and is safely recorded above —
+                    # a failed push-back should not be treated as a failed grade.
+                    # It just means Moodle's gradebook is out of sync for now.
+                    log.error(
+                        "[MOODLE] Failed to push grade for %s to Moodle: %s",
+                        learner_id, moodle_err,
+                    )
+
         except Exception as e:
             error_msg = str(e)
             log.error("[FAIL] Could not grade %s: %s", learner_id, error_msg)
@@ -178,6 +241,36 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
             channel.basic_ack(delivery_tag=method.delivery_tag)
 
     return process_job
+
+
+def _build_feedback_html(grading: dict) -> str:
+    """
+    Build a readable HTML feedback comment for Moodle from the Gemini
+    grading result — shown to the learner in the assignment feedback box.
+    """
+    parts = []
+
+    feedback = grading.get("feedback")
+    if feedback:
+        parts.append(f"<p>{feedback}</p>")
+
+    strengths = grading.get("strengths") or []
+    if strengths:
+        items = "".join(f"<li>{s}</li>" for s in strengths)
+        parts.append(f"<p><strong>Strengths:</strong></p><ul>{items}</ul>")
+
+    improvements = grading.get("improvements") or []
+    if improvements:
+        items = "".join(f"<li>{i}</li>" for i in improvements)
+        parts.append(f"<p><strong>Areas for improvement:</strong></p><ul>{items}</ul>")
+
+    if grading.get("requires_human_review"):
+        reason = grading.get("human_review_reason") or "Flagged for review."
+        parts.append(
+            f"<p><em>This submission has been flagged for human review: {reason}</em></p>"
+        )
+
+    return "".join(parts) or "Graded by AI Grading Prototype."
 
 
 def start_worker(
