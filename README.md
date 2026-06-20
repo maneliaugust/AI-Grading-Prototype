@@ -1,17 +1,25 @@
 # AI Grading Prototype
 
-A standalone Python prototype that reads Moodle long-format assessment data from `input.json`, grades each submission using the Google Gemini AI model, and writes structured results to `output.json`.
+A Python service that grades long-format Moodle assessment submissions using the Google Gemini AI model. Submissions can be sourced either from a static `input.json` file (original prototype mode) or pulled live from a Moodle course via the Web Services REST API (production-track mode) — both flows feed the same RabbitMQ-based grading pipeline and the same grading logic.
 
 ---
 
 ## Project Structure
 
 ```
-grader/
-├── grader.py          # Main application
-├── input.json         # Sample assessment data (edit or replace)
-├── output.json        # Generated after running (git-ignored)
-├── requirements.txt   # Python dependencies
+AI-Grading-Prototype/
+├── grader.py             # Core grading logic — builds prompts, calls Gemini, parses results
+├── producer.py           # [input.json mode] Queues jobs from a static input.json file
+├── moodle_producer.py    # [Moodle mode] Pulls ungraded submissions live from Moodle and queues them
+├── moodle_client.py       # All Moodle Web Services REST calls (submissions, file download, grade push-back)
+├── worker.py              # Consumes queued jobs, grades via grader.py, writes results, pushes grades to Moodle
+├── grading_logger.py      # Structured success/fail logging to grading_log.json
+├── input.json             # Sample assessment data for input.json mode
+├── grading_guide.json     # Standalone rubric file used by moodle_producer.py
+├── output.json            # Generated grading results (git-ignored)
+├── grading_log.json       # Generated per-attempt audit log (git-ignored)
+├── requirements.txt
+├── .env                   # API keys and Moodle config (git-ignored)
 └── README.md
 ```
 
@@ -19,12 +27,12 @@ grader/
 
 ## Prerequisites
 
-| Requirement | Version |
+| Requirement | Version / Notes |
 |---|---|
 | Python | 3.9+ |
-| Gemini API key | Free tier works for prototyping |
-
-Get a free Gemini API key at: https://aistudio.google.com/app/apikey
+| Gemini API key | Free tier works for prototyping — https://aistudio.google.com/app/apikey |
+| RabbitMQ | Running locally (Windows service or Docker) |
+| Moodle (for Moodle mode) | Local instance, e.g. via Docker — Web Services API enabled |
 
 ---
 
@@ -32,54 +40,89 @@ Get a free Gemini API key at: https://aistudio.google.com/app/apikey
 
 ```bash
 # 1. Clone / download the project
-cd grader
+cd AI-Grading-Prototype
 
-# 2. Create and activate a virtual environment (recommended)
+# 2. Create and activate a virtual environment
 python -m venv .venv
 source .venv/bin/activate        # macOS/Linux
-.venv\Scripts\activate           # Windows
+.venv\Scripts\Activate.ps1       # Windows PowerShell
 
 # 3. Install dependencies
 pip install -r requirements.txt
-
-# 4. Set your API key
-export GEMINI_API_KEY="your-key-here"   # macOS/Linux
-set GEMINI_API_KEY=your-key-here        # Windows CMD
-$env:GEMINI_API_KEY="your-key-here"     # Windows PowerShell
+pip install pypdf                # required for Moodle PDF text extraction
 ```
+
+### `.env` file
+
+```dotenv
+GEMINI_API_KEY="your-gemini-key"
+
+# Required only for Moodle mode
+MOODLE_BASE_URL=http://localhost:8080
+MOODLE_TOKEN="your-api-gradingbot-token"
+```
+
+The Moodle token should belong to a dedicated service account (e.g. "API GradingBot") with web services access scoped to the grading functions only — not the Moodle admin account.
 
 ---
 
 ## Usage
 
+There are two ways to get jobs into the grading queue. Both end up being processed identically by `worker.py`.
+
+### Mode A — Static input.json
+
 ```bash
-# Run with defaults (reads input.json, writes output.json)
-python grader.py
-
-# Custom paths and model
-python grader.py --input my_data.json --output results.json --model gemini-1.5-flash
-
-# Lower temperature for more deterministic scoring
-python grader.py --temperature 0.1
+python producer.py --input input.json --host localhost
 ```
 
-### CLI Options
+Reads `input.json`, publishes one job per submission to the `grading_jobs` queue.
+
+### Mode B — Live from Moodle
+
+```bash
+python moodle_producer.py \
+  --course-id 4 \
+  --assignment-id 2 \
+  --course-name "Business Strategy" \
+  --assignment-name "Essay: Porter's Five Forces Analysis" \
+  --subject-area "Business Strategy" \
+  --question-text "Apply Porter's Five Forces framework..." \
+  --max-grade 30 \
+  --grading-guide grading_guide.json \
+  --host localhost
+```
+
+Pulls ungraded submissions from Moodle (`mod_assign_get_submissions`), downloads each learner's PDF, extracts the text, maps Moodle's internal user ID to the learner's institutional ID (via the **ID number** profile field), and queues one job per submission.
+
+> Use `mod_assign_get_assignments` to confirm the real `--assignment-id` — the ID shown in the browser URL when viewing an assignment is the *course-module ID*, not the assignment ID the API expects.
+
+### Then, regardless of mode — start the worker
+
+```bash
+python worker.py --host localhost --model gemini-2.5-flash
+```
+
+The worker grades each queued submission with Gemini, writes results to `output.json` and `grading_log.json`, and — **if the job came from Moodle** — automatically pushes the score and feedback back to the Moodle gradebook via `mod_assign_save_grade`. Jobs sourced from `input.json` are graded and logged the same way, just without the Moodle push-back step (no Moodle user/assignment IDs are attached to them).
+
+### Worker CLI Options
 
 | Flag | Default | Description |
 |---|---|---|
-| `--input` | `input.json` | Path to the input assessment file |
-| `--output` | `output.json` | Path for the grading results |
-| `--model` | `gemini-1.5-pro` | Gemini model name |
-| `--temperature` | `0.2` | Generation temperature (0 = deterministic, 1 = creative) |
+| `--host` | `localhost` | RabbitMQ host |
+| `--model` | `gemini-2.5-flash` | Gemini model name |
+| `--output` | `output.json` | Path for grading results |
+| `--log` | `grading_log.json` | Path for the structured audit log |
 
 ---
 
-## Input Format (`input.json`)
+## Input Format (`input.json` / `grading_guide.json`)
 
 ```json
 {
   "course_name": "BUSA 301 – Business Strategy",
   "assignment_name": "Essay: Porter's Five Forces Analysis",
+  "subject_area": "Business Strategy",
   "submissions": [
     {
       "learner_id": "u12345678",
@@ -89,7 +132,10 @@ python grader.py --temperature 0.1
         {
           "criterion": "Understanding of the Framework",
           "marks": 10,
-          "description": "Correctly identifies and explains..."
+          "grade_bands": [
+            { "range": "0", "description": "No attempt made." },
+            { "range": "10", "description": "Fully accurate and well contextualised." }
+          ]
         }
       ],
       "learner_response": "Porter's Five Forces is a model..."
@@ -98,7 +144,9 @@ python grader.py --temperature 0.1
 }
 ```
 
-> The `grading_guide` field accepts either a **list of criterion objects** (as above) or a **plain string**.
+`grading_guide.json` (used by `moodle_producer.py`) is just the `grading_guide` array on its own, extracted from this same structure — it's passed once via `--grading-guide` rather than embedded per submission, since in Moodle mode the rubric is shared across all submissions for a given assignment.
+
+> The `grading_guide` field accepts either a **list of criterion objects** (as above, with optional `grade_bands` for partial-credit precision) or a **plain string**.
 
 ---
 
@@ -106,30 +154,34 @@ python grader.py --temperature 0.1
 
 ```json
 {
-  "metadata": {
-    "course_name": "BUSA 301 – Business Strategy",
-    "assignment_name": "Essay: Porter's Five Forces Analysis",
-    "graded_at": "2024-06-01T10:23:45Z",
-    "total_submissions": 2,
-    "graded_count": 2,
-    "error_count": 0
-  },
+  "metadata": [
+    {
+      "course_name": "BUSA 301 – Business Strategy",
+      "assignment_name": "Essay: Porter's Five Forces Analysis",
+      "graded_at": "2026-06-20T22:15:18+02:00",
+      "total_submissions": 2,
+      "graded_count": 2,
+      "error_count": 0
+    }
+  ],
   "results": [
     {
       "learner_id": "u12345678",
       "status": "graded",
       "grading": {
-        "score": 24,
+        "score": 27,
         "max_grade": 30,
-        "percentage": 80.0,
-        "grade_label": "Distinction",
+        "percentage": 90.0,
+        "grade_label": "Excellent",
         "feedback": "...",
         "strengths": ["..."],
         "improvements": ["..."],
+        "requires_human_review": false,
+        "human_review_reason": null,
         "rubric_breakdown": [
           {
             "criterion": "Understanding of the Framework",
-            "marks_awarded": 8,
+            "marks_awarded": 9,
             "marks_available": 10,
             "comment": "..."
           }
@@ -140,6 +192,8 @@ python grader.py --temperature 0.1
   "errors": []
 }
 ```
+
+**`metadata` is a list, not a single object** — one entry per calendar day. Running `worker.py` multiple times on the same day updates that day's entry in place; running it again the next day appends a new entry, so historical run statistics are never lost.
 
 ### Grade Labels
 
@@ -152,6 +206,24 @@ python grader.py --temperature 0.1
 
 ---
 
+## Moodle Web Services Setup (One-Time)
+
+1. **Enable web services** — Site administration → General → Advanced features.
+2. **Enable the REST protocol** — Site administration → Server → Web services → Manage protocols.
+3. **Create a custom external service**, add the required functions:
+   - `mod_assign_get_assignments`
+   - `mod_assign_get_submissions`
+   - `mod_assign_save_grade`
+   - `core_user_get_users`
+   - `core_webservice_get_site_info`
+4. **Create a dedicated service account** (e.g. "API GradingBot") using **Web services authentication**.
+5. **Authorise the account on the service**, then generate a token for it.
+6. **Grant `moodle/user:viewalldetails`** to the account's role — required for `core_user_get_users` to return each learner's `idnumber` field, which is how Moodle's internal user IDs map back to institutional learner IDs (e.g. `u12345678`).
+7. **Enable file downloads on the service** ("Can download files") — required for `moodle_client.py` to fetch submitted PDFs.
+8. On each learner's Moodle profile, set the **ID number** field to their institutional ID — this is the value `moodle_producer.py` uses as `learner_id`.
+
+---
+
 ## Customising the Grading Prompt
 
 The prompt template lives in `grader.py` as `GRADING_PROMPT_TEMPLATE`. Edit it to:
@@ -159,7 +231,7 @@ The prompt template lives in `grader.py` as `GRADING_PROMPT_TEMPLATE`. Edit it t
 - Add institution-specific instructions
 - Request additional output fields (e.g., `plagiarism_flag`, `model_answer_comparison`)
 
-After adding new fields to the prompt, update the schema description inside the template accordingly.
+After adding new fields to the prompt, update the schema description inside the template accordingly. Since `worker.py` imports `build_prompt` and `grade_submission` directly from `grader.py`, changes here apply to both `input.json` mode and Moodle mode automatically.
 
 ---
 
@@ -167,8 +239,8 @@ After adding new fields to the prompt, update the schema description inside the 
 
 | Code | Meaning |
 |---|---|
-| `0` | All submissions graded successfully |
-| `1` | Fatal error (missing API key, invalid input file) |
+| `0` | All submissions queued/graded successfully |
+| `1` | Fatal error (missing API key, invalid input file, RabbitMQ unreachable, Moodle API error) |
 | `2` | Partial failure (some submissions failed to grade) |
 
 ---
@@ -177,23 +249,29 @@ After adding new fields to the prompt, update the schema description inside the 
 
 | Model | Best For |
 |---|---|
-| `gemini-1.5-pro` | Highest quality grading (default) |
-| `gemini-1.5-flash` | Faster & cheaper, good for bulk batches |
-| `gemini-1.0-pro` | Fallback if 1.5 is unavailable |
+| `gemini-2.5-flash` | Fast, cost-effective, current default |
+| `gemini-2.5-pro` | Highest quality grading for complex/long rubrics |
 
 ---
 
 ## Rate Limits (Free Tier)
 
-The free Gemini API tier allows ~15 requests/minute. The application automatically inserts a 1-second delay between submissions. For large batches, consider upgrading to a paid tier or adding `--temperature` tuning.
+The free Gemini API tier allows a limited number of requests per minute. `grader.py` automatically retries with backoff on `503` (model overloaded) responses, and `process_all` (input.json mode) inserts a short delay between submissions.
 
 ---
 
-## Future Integration Notes (Moodle Service)
+## Architecture Notes
 
-When productionising this prototype:
-1. Replace `input.json` reading with a Moodle Web Services API call.
-2. Replace `output.json` writing with a POST back to the Moodle grade book endpoint.
-3. Add a database layer to persist grading results and enable re-grading audits.
-4. Wrap `grader.py` logic in a FastAPI or Django REST service.
-5. Add educator review/override workflow before scores are finalised.
+- `worker.py` and `grader.py` are intentionally agnostic to where a job came from — both producers publish the same message shape to the `grading_jobs` queue, so adding a new submission source in the future (e.g. a different LMS) only requires writing a new producer, not touching the grading or push-back logic.
+- A failed Moodle grade push-back does **not** count as a failed grading attempt — the AI's grade is still recorded locally in `output.json`/`grading_log.json` even if Moodle is temporarily unreachable, so no grading work is lost; only the gradebook sync needs retrying.
+- `requires_human_review` and `human_review_reason` from Gemini's response are surfaced in the feedback comment pushed to Moodle, so flagged submissions are visible to a human reviewer directly in the gradebook.
+
+---
+
+## Future Work
+
+1. Automate `moodle_producer.py` on a schedule or via a Moodle event webhook, rather than running it manually.
+2. Bulk learner onboarding (CSV upload with ID number field) for full class sizes.
+3. Educator review/override workflow before AI scores are finalised in the gradebook, particularly for `requires_human_review` submissions.
+4. Centralise the grading rubric so the version shown in the Moodle assignment description and the version used in the Gemini prompt stay in sync.
+5. Wrap the pipeline in a small API/dashboard for triggering runs and viewing history instead of running scripts manually.
