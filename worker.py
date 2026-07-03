@@ -8,7 +8,13 @@ Usage:
 Reuses all grading logic from grader.py directly.
 Logs every attempt (success or fail) to a structured JSON log file.
 Multiple workers can run in parallel — RabbitMQ distributes jobs between them.
+
+Supports two Moodle push-back flows:
+  - Assignment: grade pushed immediately after each submission is graded.
+  - Quiz: essay scores accumulated per attempt; pushed once all essay
+    questions for that attempt are graded.
 """
+
 from datetime import datetime, timezone
 import argparse
 import json
@@ -21,7 +27,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Reuse all logic directly from grader.py — no duplication
 from grader import build_prompt, grade_submission
 from grading_logger import log_success, log_failure
 
@@ -37,17 +42,32 @@ log = logging.getLogger(__name__)
 
 QUEUE_NAME = "grading_jobs"
 
+# ---------------------------------------------------------------------------
+# Quiz grade accumulator
+# Tracks essay scores per attempt so we push one combined grade to Moodle
+# only after ALL essay questions for that attempt have been graded.
+# Key: (moodle_userid, moodle_quiz_id, attempt_id)
+# Value: {"scores": [...], "feedbacks": [...], "expected": int}
+# ---------------------------------------------------------------------------
+_quiz_grade_accumulator: dict = {}
 
-from datetime import datetime, timezone # Make sure this is at the top of your file!
+# Number of essay questions per quiz_id.
+# Update this if you add more essay questions to a quiz.
+QUIZ_ESSAY_COUNT = {
+    1: 2  # quiz_id 1 has 2 essay questions (Q11 and Q12)
+}
 
-from datetime import datetime, timezone  # Make sure this is at the top of your file!
+
+# ---------------------------------------------------------------------------
+# Output file management
+# ---------------------------------------------------------------------------
 
 def save_result(result: dict, output_path: str, course_name: str = "", assignment_name: str = "") -> None:
     """
     Append a grading result to the output JSON file.
     Guarantees the schema: { "metadata": [...], "results": [...], "errors": [...] }
 
-    "metadata" is now a LIST of per-day snapshots. A new entry is created the
+    "metadata" is a LIST of per-day snapshots. A new entry is created the
     first time save_result() runs on a given calendar date (local time); on
     that same date, subsequent calls update that day's existing entry in
     place (totals accumulate across multiple worker.py restarts on the same
@@ -59,16 +79,12 @@ def save_result(result: dict, output_path: str, course_name: str = "", assignmen
     except (FileNotFoundError, json.JSONDecodeError):
         data = {}
 
-    # Normalize data: Force it into the correct schema if it isn't already
     if not isinstance(data, dict):
         data = {}
 
-    # --- Migrate / normalise "metadata" into a list ---
     if "metadata" not in data:
         data["metadata"] = []
     elif isinstance(data["metadata"], dict):
-        # Old single-object format from a previous version — wrap it so
-        # existing history isn't lost.
         data["metadata"] = [data["metadata"]] if data["metadata"] else []
     elif not isinstance(data["metadata"], list):
         data["metadata"] = []
@@ -80,9 +96,8 @@ def save_result(result: dict, output_path: str, course_name: str = "", assignmen
         data["errors"] = []
 
     now_local = datetime.now().astimezone()
-    today_str = now_local.date().isoformat()  # e.g. "2026-06-20"
+    today_str = now_local.date().isoformat()
 
-    # Find today's metadata entry, if one already exists
     today_entry = None
     for entry in data["metadata"]:
         graded_at = entry.get("graded_at", "")
@@ -101,13 +116,11 @@ def save_result(result: dict, output_path: str, course_name: str = "", assignmen
         }
         data["metadata"].append(today_entry)
 
-    # Update course/assignment name if provided and currently empty
     if course_name and not today_entry.get("course_name"):
         today_entry["course_name"] = course_name
     if assignment_name and not today_entry.get("assignment_name"):
         today_entry["assignment_name"] = assignment_name
 
-    # Append to the correct list based on status
     status = result.get("status", "graded")
     if status == "error":
         data["errors"].append(result)
@@ -116,137 +129,21 @@ def save_result(result: dict, output_path: str, course_name: str = "", assignmen
         data["results"].append(result)
         today_entry["graded_count"] = today_entry.get("graded_count", 0) + 1
 
-    # Update today's totals and refresh its "last updated" timestamp
     today_entry["total_submissions"] = today_entry["graded_count"] + today_entry["error_count"]
     today_entry["graded_at"] = now_local.isoformat()
 
-    # Write back to file
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
-def make_callback(client, gen_config, model_name, output_path, log_path):
-    """
-    Factory function: returns a pika callback with Gemini client injected.
-    Called once per message received from the queue.
-
-    If the submission dict contains Moodle-specific fields
-    (_moodle_userid + _moodle_assignment_id, added by moodle_producer.py),
-    the resulting grade is automatically pushed back to Moodle via
-    mod_assign_save_grade after a successful grading call. Jobs sourced
-    from the original producer.py / input.json (which never set these
-    fields) are unaffected — they just skip the push-back step.
-    """
-
-    def process_job(channel, method, properties, body):
-        message     = json.loads(body)
-        submission  = message["submission"]
-        learner_id  = submission.get("learner_id", "unknown")
-        course_name = message.get("course_name", "")
-        assignment_name = message.get("assignment_name", "")
-
-        # Present only on jobs built by moodle_producer.py
-        moodle_userid       = submission.get("_moodle_userid")
-        moodle_assignment_id = submission.get("_moodle_assignment_id")
-
-        log.info("[->] Received grading job for learner: %s", learner_id)
-
-        try:
-            # Build prompt and call Gemini using grader.py functions directly
-            top_level = {
-                "subject_area":    message.get("subject_area", ""),
-                "assignment_name": assignment_name,
-            }
-            prompt  = build_prompt(course_name, submission, top_level)
-            grading = grade_submission(client, prompt, gen_config, model_name)
-
-            # Save result to output file
-            result = {
-                "learner_id":   learner_id,
-                "status":       "graded",
-                "grading":      grading,
-            }
-            save_result(result, output_path, course_name=course_name, assignment_name=assignment_name)
-
-            # Log success
-            log_success(
-                learner_id=learner_id,
-                course_name=course_name,
-                assignment_name=assignment_name,
-                score=grading.get("score"),
-                max_grade=grading.get("max_grade"),
-                grade_label=grading.get("grade_label"),
-                requires_human_review=grading.get("requires_human_review", False),
-                log_path=log_path,
-            )
-
-            log.info(
-                "[OK] %s -> %s/%s (%s%%) [%s]%s",
-                learner_id,
-                grading.get("score"),
-                grading.get("max_grade"),
-                grading.get("percentage"),
-                grading.get("grade_label"),
-                " *** HUMAN REVIEW NEEDED ***" if grading.get("requires_human_review") else "",
-            )
-
-            # --- Push grade back to Moodle, if this job came from Moodle ---
-            if moodle_userid is not None and moodle_assignment_id is not None:
-                try:
-                    import moodle_client
-
-                    feedback_html = _build_feedback_html(grading)
-                    moodle_client.save_grade(
-                        assignment_id=moodle_assignment_id,
-                        userid=moodle_userid,
-                        grade=grading.get("score"),
-                        feedback_html=feedback_html,
-                    )
-                    log.info(
-                        "[MOODLE] Grade pushed back for %s (userid=%s, assignment=%s)",
-                        learner_id, moodle_userid, moodle_assignment_id,
-                    )
-                except Exception as moodle_err:  # pylint: disable=broad-except
-                    # Grading itself succeeded and is safely recorded above —
-                    # a failed push-back should not be treated as a failed grade.
-                    # It just means Moodle's gradebook is out of sync for now.
-                    log.error(
-                        "[MOODLE] Failed to push grade for %s to Moodle: %s",
-                        learner_id, moodle_err,
-                    )
-
-        except Exception as e:
-            error_msg = str(e)
-            log.error("[FAIL] Could not grade %s: %s", learner_id, error_msg)
-
-            # Save failed result to output file
-            save_result({
-                "learner_id":  learner_id,
-                "status":      "error",
-                "error":       error_msg,
-            }, output_path, course_name=course_name, assignment_name=assignment_name)
-
-            # Log failure
-            log_failure(
-                learner_id=learner_id,
-                course_name=course_name,
-                assignment_name=assignment_name,
-                error_message=error_msg,
-                log_path=log_path,
-            )
-
-        finally:
-            # Always ACK — remove message from queue whether grading succeeded or failed
-            # This prevents the message from being re-queued infinitely on persistent errors
-            channel.basic_ack(delivery_tag=method.delivery_tag)
-
-    return process_job
-
+# ---------------------------------------------------------------------------
+# Feedback HTML builder (for assignment push-back)
+# ---------------------------------------------------------------------------
 
 def _build_feedback_html(grading: dict) -> str:
     """
-    Build a readable HTML feedback comment for Moodle from the Gemini
-    grading result — shown to the learner in the assignment feedback box.
+    Build readable HTML feedback for Moodle from the Gemini grading result.
+    Shown to the learner in the assignment feedback box.
     """
     parts = []
 
@@ -273,6 +170,165 @@ def _build_feedback_html(grading: dict) -> str:
     return "".join(parts) or "Graded by AI Grading Prototype."
 
 
+# ---------------------------------------------------------------------------
+# RabbitMQ callback factory
+# ---------------------------------------------------------------------------
+
+def make_callback(client, gen_config, model_name, output_path, log_path):
+    """
+    Factory function: returns a pika callback with Gemini client injected.
+    Called once per message received from the queue.
+
+    Handles both Moodle push-back flows:
+    - Assignment: grade pushed immediately after grading.
+    - Quiz: essay scores accumulated per attempt; combined grade pushed
+      once all essay questions for that attempt are done.
+    Jobs from the original producer.py / input.json are unaffected.
+    """
+
+    def process_job(channel, method, properties, body):
+        message          = json.loads(body)
+        submission       = message["submission"]
+        learner_id       = submission.get("learner_id", "unknown")
+        course_name      = message.get("course_name", "")
+        assignment_name  = message.get("assignment_name", "")
+
+        # Moodle-specific fields — present only on Moodle-sourced jobs
+        moodle_userid        = submission.get("_moodle_userid")
+        moodle_assignment_id = submission.get("_moodle_assignment_id")
+        moodle_quiz_id       = submission.get("_moodle_quiz_id")
+        moodle_attempt_id    = submission.get("_moodle_attempt_id")
+
+        log.info("[->] Received grading job for learner: %s", learner_id)
+
+        try:
+            top_level = {
+                "subject_area":    message.get("subject_area", ""),
+                "assignment_name": assignment_name,
+            }
+            prompt  = build_prompt(course_name, submission, top_level)
+            grading = grade_submission(client, prompt, gen_config, model_name)
+
+            result = {
+                "learner_id": learner_id,
+                "status":     "graded",
+                "grading":    grading,
+            }
+            save_result(result, output_path, course_name=course_name, assignment_name=assignment_name)
+
+            log_success(
+                learner_id=learner_id,
+                course_name=course_name,
+                assignment_name=assignment_name,
+                score=grading.get("score"),
+                max_grade=grading.get("max_grade"),
+                grade_label=grading.get("grade_label"),
+                requires_human_review=grading.get("requires_human_review", False),
+                log_path=log_path,
+            )
+
+            log.info(
+                "[OK] %s -> %s/%s (%s%%) [%s]%s",
+                learner_id,
+                grading.get("score"),
+                grading.get("max_grade"),
+                grading.get("percentage"),
+                grading.get("grade_label"),
+                " *** HUMAN REVIEW NEEDED ***" if grading.get("requires_human_review") else "",
+            )
+
+            # --- Push grade back to Moodle ---
+            if moodle_userid is not None:
+                try:
+                    import moodle_client
+                    feedback_html = _build_feedback_html(grading)
+                    feedback_text = grading.get("feedback", "")
+
+                    # ASSIGNMENT FLOW — push grade immediately
+                    if moodle_assignment_id is not None:
+                        moodle_client.save_grade(
+                            assignment_id=moodle_assignment_id,
+                            userid=moodle_userid,
+                            grade=grading.get("score"),
+                            feedback_html=feedback_html,
+                        )
+                        log.info(
+                            "[MOODLE] Assignment grade pushed back for %s (userid=%s, assignment=%s)",
+                            learner_id, moodle_userid, moodle_assignment_id,
+                        )
+
+                    # QUIZ FLOW — accumulate, then push when all essays done
+                    elif moodle_quiz_id is not None and moodle_attempt_id is not None:
+                        key = (moodle_userid, moodle_quiz_id, moodle_attempt_id)
+                        expected = QUIZ_ESSAY_COUNT.get(moodle_quiz_id, 1)
+
+                        if key not in _quiz_grade_accumulator:
+                            _quiz_grade_accumulator[key] = {
+                                "scores": [],
+                                "feedbacks": [],
+                                "expected": expected,
+                            }
+
+                        acc = _quiz_grade_accumulator[key]
+                        acc["scores"].append(grading.get("score", 0))
+                        acc["feedbacks"].append(feedback_text)
+
+                        log.info(
+                            "[QUIZ] Accumulated %d/%d essay grades for attempt=%s userid=%s",
+                            len(acc["scores"]), acc["expected"],
+                            moodle_attempt_id, moodle_userid,
+                        )
+
+                        if len(acc["scores"]) >= acc["expected"]:
+                            total = sum(acc["scores"])
+                            combined_feedback = " | ".join(acc["feedbacks"])
+                            moodle_client.save_quiz_grade(
+                                grade_item_id=moodle_quiz_id,
+                                userid=moodle_userid,
+                                grade=total,
+                                feedback=combined_feedback,
+                                course_id=2,
+                            )
+                            log.info(
+                                "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, total=%s)",
+                                learner_id, moodle_userid, moodle_quiz_id, total,
+                            )
+                            del _quiz_grade_accumulator[key]
+
+                except Exception as moodle_err:
+                    log.error(
+                        "[MOODLE] Failed to push grade for %s to Moodle: %s",
+                        learner_id, moodle_err,
+                    )
+
+        except Exception as e:
+            error_msg = str(e)
+            log.error("[FAIL] Could not grade %s: %s", learner_id, error_msg)
+
+            save_result({
+                "learner_id": learner_id,
+                "status":     "error",
+                "error":      error_msg,
+            }, output_path, course_name=course_name, assignment_name=assignment_name)
+
+            log_failure(
+                learner_id=learner_id,
+                course_name=course_name,
+                assignment_name=assignment_name,
+                error_message=error_msg,
+                log_path=log_path,
+            )
+
+        finally:
+            channel.basic_ack(delivery_tag=method.delivery_tag)
+
+    return process_job
+
+
+# ---------------------------------------------------------------------------
+# Worker startup
+# ---------------------------------------------------------------------------
+
 def start_worker(
     rabbitmq_host: str,
     model_name: str,
@@ -281,7 +337,6 @@ def start_worker(
 ) -> None:
     """Connect to RabbitMQ and start consuming grading jobs."""
 
-    # Load Gemini API key from .env
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         log.error("GEMINI_API_KEY not found. Add it to your .env file.")
@@ -293,7 +348,6 @@ def start_worker(
         response_mime_type="application/json",
     )
 
-    # Connect to RabbitMQ
     try:
         connection = pika.BlockingConnection(pika.ConnectionParameters(host=rabbitmq_host))
     except pika.exceptions.AMQPConnectionError as e:
@@ -303,8 +357,6 @@ def start_worker(
 
     channel = connection.channel()
     channel.queue_declare(queue=QUEUE_NAME, durable=True)
-
-    # Process one job at a time — fair dispatch across multiple workers
     channel.basic_qos(prefetch_count=1)
 
     callback = make_callback(client, gen_config, model_name, output_path, log_path)
@@ -325,6 +377,10 @@ def start_worker(
 
     connection.close()
 
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="RabbitMQ AI grading worker")

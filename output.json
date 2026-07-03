@@ -7,6 +7,38 @@
       "total_submissions": 14,
       "graded_count": 13,
       "error_count": 1
+    },
+    {
+      "course_name": "Business Strategy",
+      "assignment_name": "Business Strategy Fundamentals Quiz — Q11",
+      "graded_at": "2026-06-22T23:34:14.603154+02:00",
+      "total_submissions": 4,
+      "graded_count": 4,
+      "error_count": 0
+    },
+    {
+      "course_name": "Business Strategy",
+      "assignment_name": "Business Strategy Fundamentals Quiz — Q11",
+      "graded_at": "2026-06-23T06:34:28.238822+02:00",
+      "total_submissions": 8,
+      "graded_count": 8,
+      "error_count": 0
+    },
+    {
+      "course_name": "Business Strategy",
+      "assignment_name": "Business Strategy Fundamentals Quiz — Q11",
+      "graded_at": "2026-07-02T23:57:41.954870+02:00",
+      "total_submissions": 24,
+      "graded_count": 21,
+      "error_count": 3
+    },
+    {
+      "course_name": "Business Strategy",
+      "assignment_name": "Business Strategy Fundamentals Quiz — Q11",
+      "graded_at": "2026-07-03T07:20:27.117976+02:00",
+      "total_submissions": 28,
+      "graded_count": 9,
+      "error_count": 19
     }
   ],
   "results": [
@@ -700,6 +732,1694 @@
           }
         ]
       }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Proficient",
+        "feedback": "Your response provides an excellent definition of market segmentation, clearly explaining the concept. To further enhance your answer, remember to name a specific, real South African business when providing an example, as this adds concrete detail and strengthens your illustration of the concept in practice.",
+        "strengths": [
+          "The definition of market segmentation is exceptionally clear, accurate, and comprehensive, demonstrating a strong grasp of the core concept."
+        ],
+        "improvements": [
+          "While your example of a South African clothing retailer segmenting by geographic location is very good and well-explained, for full marks, it's important to name a specific, real South African business (e.g., Woolworths, Mr Price, Truworths) to illustrate the concept.",
+          "Consider how different types of segmentation (e.g., demographic, psychographic, behavioral) might also be used by businesses in South Africa to further diversify your examples in future responses."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition provided is clear, accurate, and comprehensive, fully meeting the criteria for a precise explanation of market segmentation."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 2.0,
+            "marks_available": 3.0,
+            "comment": "The example of a South African clothing retailer segmenting by geographic location is plausible and well-explained, demonstrating a good understanding of how segmentation is applied. However, to achieve full marks, a specific, named South African business should have been provided rather than a generic type of business."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 10.0,
+        "percentage": 40.0,
+        "grade_label": "Needs Improvement",
+        "feedback": "Your response provides an excellent and detailed description of Capitec Bank, demonstrating strong research and knowledge of the company's operations and market presence. However, to fully address the prompt, you need to explicitly identify a specific business strategy (like cost leadership, differentiation, or focus) that Capitec employs. Once identified, clearly explain how this strategy works and then explicitly link it to how it provides Capitec with a competitive advantage in South Africa, using the detailed examples you've already provided.",
+        "strengths": [
+          "Provided a very detailed and accurate description of Capitec Bank, including its services, market position, and operational focus, showing strong research and understanding of the chosen company."
+        ],
+        "improvements": [
+          "Explicitly identify and name a recognized business strategy (e.g., cost leadership, differentiation, or focus) that Capitec Bank uses, rather than just describing its activities or focus areas.",
+          "Clearly explain *how* the identified strategy works and then explicitly link it to *why* it gives Capitec a competitive advantage in South Africa, using specific examples from the company's operations to support your explanation."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 1.0,
+            "marks_available": 2.0,
+            "comment": "The response describes Capitec's focus on 'accessibility, financial inclusion, and innovation,' which implies aspects of a strategy, but it does not explicitly name a recognized business strategy (e.g., cost leadership, differentiation, or focus)."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 1.0,
+            "marks_available": 3.0,
+            "comment": "While the response provides a lot of information about Capitec's operations, it does not offer a clear explanation of a named business strategy. The description of Capitec's activities serves as a generic explanation of what the company does, rather than an explanation of a specific strategic concept."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 0.0,
+            "marks_available": 3.0,
+            "comment": "The response describes Capitec's success (e.g., largest customer base, extensive network, popular app) but does not explicitly link these achievements to a named business strategy and explain *why* that strategy gives them a competitive advantage. The 'why' aspect of the competitive advantage is missing."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured and clearly written, making it easy to read and understand the descriptive information provided about Capitec Bank."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides an excellent and comprehensive explanation of market segmentation. You clearly defined the concept and supported it with a highly relevant and well-explained example from a South African business. This demonstrates a strong understanding of the topic.",
+        "strengths": [
+          "The definition of market segmentation is clear, accurate, and comprehensive, effectively capturing the core concept and its purpose.",
+          "The example of Shoprite and Checkers is highly specific, accurate, and perfectly illustrates how a South African business uses market segmentation based on income groups through its different store brands."
+        ],
+        "improvements": [
+          "Your response is comprehensive and meets all criteria for full marks. No specific improvements are needed for this answer."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics or needs, fully meeting the criteria for 2 marks."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite/Checkers) is named with a clear, specific, and accurate example of how it uses market segmentation by targeting different income groups through its store brands. The explanation is well articulated, earning full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! You clearly identified Capitec Bank's cost leadership strategy and provided specific, relevant examples like lower banking fees and easy-to-use digital services. This effectively demonstrates how the strategy attracts millions of customers and creates a strong competitive advantage. For future responses, when identifying a strategy, try to focus primarily on one of the established generic strategies (cost leadership, differentiation, or focus). While 'customer-focused' is a great descriptor of Capitec's approach, it's often a *result* or *component* of how they execute their core cost leadership strategy, rather than a separate generic strategy itself. You could explain how being customer-focused helps them achieve their cost leadership. To further enhance your explanation, consider briefly touching on *how* Capitec achieves its cost leadership, for example, through lean operations or a strong digital-first model, which allows them to offer lower fees.",
+        "strengths": [
+          "Clearly identified Capitec Bank's cost leadership strategy.",
+          "Provided specific, relevant examples (lower banking fees, easy-to-use digital services) that directly link to the competitive advantage.",
+          "Effectively demonstrated how the strategy attracts millions of customers and creates a strong competitive advantage."
+        ],
+        "improvements": [
+          "For academic clarity, primarily identify one of the established generic strategies (cost leadership, differentiation, or focus) and explain how other aspects (like 'customer-focused') support or are outcomes of that core strategy.",
+          "Consider briefly elaborating on *how* the company achieves its chosen strategy (e.g., how Capitec achieves cost leadership through lean operations or a digital-first model)."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified 'cost leadership' as a key strategy. While 'customer-focused' isn't a generic strategy, 'cost leadership' is clearly named and is the primary focus of the explanation."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation of providing 'simple, affordable, and accessible banking services to a wide range of South Africans' accurately describes the essence of Capitec's cost leadership approach."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The response clearly links lower fees, easy-to-use products, and digital services to attracting millions of customers, providing a strong, specific example of competitive advantage."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-organized, easy to read, and flows logically from strategy identification to competitive advantage."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides an exceptionally clear and accurate definition of market segmentation, demonstrating a strong understanding of the concept. To further enhance your answers in the future, remember to name a specific, real South African business when providing an example, rather than a generic type of business. This would allow you to earn full marks for the example criterion.",
+        "strengths": [
+          "Your definition of market segmentation is exceptionally clear, accurate, and comprehensive, demonstrating a strong grasp of the core concept and its strategic importance."
+        ],
+        "improvements": [
+          "For future responses, when asked for an example of a business, try to name a *specific, real* company. For instance, instead of 'a South African clothing retailer,' you could have mentioned a company like 'Woolworths' or 'Mr Price' and then explained how *that specific company* uses market segmentation.",
+          "While your example of geographic segmentation for a clothing retailer was excellent and well-explained, explicitly linking it to a named business would make your answer even stronger and more concrete, aligning perfectly with the rubric's highest criteria."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner provided a clear, accurate, and comprehensive definition of market segmentation, explaining both the division of the market and the strategic purpose behind it."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 2.0,
+            "marks_available": 3.0,
+            "comment": "The learner provided a plausible and well-explained example of geographic segmentation for a South African clothing retailer. However, to achieve full marks, the rubric requires naming a *specific, real* South African business rather than a generic type of business. The explanation itself was not superficial, but the lack of a named business prevented a higher score."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 10.0,
+        "percentage": 50.0,
+        "grade_label": "Needs Improvement",
+        "feedback": "Your response provides an excellent and detailed overview of Capitec Bank, demonstrating strong factual knowledge about the company's operations and market presence. To improve, focus on explicitly naming a recognized business strategy (e.g., cost leadership, differentiation, or focus) and then clearly explaining how Capitec's actions align with that specific strategy. Additionally, strengthen the link between the chosen strategy and how it directly creates a competitive advantage for Capitec in the South African market, using your provided examples to illustrate this connection more explicitly.",
+        "strengths": [
+          "Provided a very detailed and accurate description of Capitec Bank, including its services, market presence, and key focus areas like accessibility and financial inclusion."
+        ],
+        "improvements": [
+          "Explicitly identify and name a recognized business strategy (e.g., cost leadership, differentiation, or focus) that Capitec Bank employs, rather than just describing its activities.",
+          "Clearly explain how the identified strategy works and then articulate how Capitec's specific actions and features (like its large customer base, branch network, and app usage) implement this strategy and lead to a distinct competitive advantage in South Africa."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 1.0,
+            "marks_available": 2.0,
+            "comment": "The response describes Capitec's focus on 'accessibility, financial inclusion, and innovation,' which implies a strategic direction. However, it does not explicitly name a recognized business strategy (e.g., cost leadership, differentiation, or focus)."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 1.0,
+            "marks_available": 3.0,
+            "comment": "The response provides extensive factual details about Capitec's operations, services, and market reach. While these details are relevant to Capitec's approach, they describe *what* Capitec does rather than clearly explaining *the mechanics of a specific business strategy concept* that was not explicitly named."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 1.0,
+            "marks_available": 3.0,
+            "comment": "The response highlights Capitec's success (largest customer base) and provides relevant examples (largest branch network, widely used app). However, because a specific strategy wasn't named or explained, the link between 'the strategy' and 'competitive advantage' is vague rather than a clear, causal explanation of how the strategy *creates* the advantage."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is very well-structured, starting with an introduction and logically detailing Capitec's features and focus areas. The writing is clear, concise, and easy to follow."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is outstanding! You've provided a perfectly clear and accurate definition of market segmentation, demonstrating a strong grasp of the concept. Furthermore, your example of Shoprite Holdings' use of segmentation through its different store brands (Shoprite and Checkers) is highly specific, accurate, and well-explained. This is a fantastic answer that fully meets all aspects of the question.",
+        "strengths": [
+          "Provided a clear, accurate, and comprehensive definition of market segmentation.",
+          "Offered a highly specific and accurate example of a South African business (Shoprite Holdings) effectively using market segmentation through its different store brands, with a clear explanation of how it targets different income groups."
+        ],
+        "improvements": [
+          "Your response is excellent and fully addresses the prompt. No specific improvements are needed for this answer."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition provided is clear, accurate, and comprehensive, explaining the division of a market into groups based on shared characteristics or needs. It perfectly aligns with the 2-mark criterion."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite Holdings) is named, and the example of how it uses market segmentation through its Shoprite and Checkers brands to target different income groups is clear, specific, accurate, and very well explained. This fully meets the 3-mark criterion."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is excellent! You clearly identified Capitec Bank's cost leadership strategy and provided a thorough explanation of how it operates. The link between this strategy and Capitec's competitive advantage in South Africa, supported by specific examples like lower banking fees and attracting millions of customers, was particularly strong. Your answer is well-structured and easy to follow.",
+        "strengths": [
+          "Correctly identified Capitec Bank's cost leadership strategy.",
+          "Provided a clear and accurate explanation of the strategy.",
+          "Made a strong, specific link between the strategy and competitive advantage, supported by relevant examples."
+        ],
+        "improvements": [
+          "Your response is comprehensive and meets all criteria effectively. No specific improvements are needed for this submission."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified 'cost leadership' as a key strategy for Capitec Bank, which is a recognized business strategy."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation of providing 'simple, affordable, and accessible banking services to a wide range of South Africans' clearly and accurately describes Capitec's cost leadership approach."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear and specific link is made between the strategy and competitive advantage, citing 'lower banking fees,' 'easy-to-use products,' and the ability to 'attract millions of customers' as strong, relevant examples."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is very well-structured, logical, and clearly written, making it easy to understand the points presented."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides an excellent and clear definition of market segmentation, articulated well in your own words. To further enhance your answer, remember to name a *specific, real* South African business when providing an example. While your example of a clothing retailer was plausible and well-explained, identifying a particular company would make your application of the concept even stronger and more concrete.",
+        "strengths": [
+          "The definition of market segmentation is exceptionally clear, accurate, and well-articulated in your own words."
+        ],
+        "improvements": [
+          "For the example, name a specific, real South African business (e.g., 'Mr Price,' 'Woolworths,' 'Truworths') instead of a generic type of business, to make your application of the concept more concrete and achieve full marks for this criterion."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics, needs, or behaviors, aligning perfectly with the 2-mark criterion."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 2.0,
+            "marks_available": 3.0,
+            "comment": "The example of a South African clothing retailer using geographic segmentation is plausible and well-explained. However, the rubric requires a *named, real* South African business. While the explanation of *how* segmentation is used is strong, the absence of a specific company name prevents it from reaching the 3-mark level. It aligns best with the spirit of the 2-mark criterion, acknowledging a plausible example but noting the lack of specificity in naming the business."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 10.0,
+        "percentage": 50.0,
+        "grade_label": "Needs Improvement",
+        "feedback": "Your response provides an excellent and highly detailed description of Capitec Bank, showcasing a strong understanding of the company's operations, market presence, and key initiatives. However, the core of the question asked for the identification and explanation of a specific business strategy and its link to competitive advantage. To improve, explicitly name a recognized business strategy (e.g., cost leadership, differentiation, or focus) that you believe Capitec employs. Then, clearly explain how Capitec implements this chosen strategy and elaborate on why this specific strategy provides them with a competitive advantage in the South African market, using the rich details you've already provided as supporting evidence.",
+        "strengths": [
+          "Provided a highly detailed and accurate description of Capitec Bank, including its history, services, market position, and key operational aspects like its branch network and app usage, demonstrating strong research and understanding of the company itself."
+        ],
+        "improvements": [
+          "Explicitly identify and name a recognized business strategy (e.g., cost leadership, differentiation, or focus) that Capitec Bank uses, rather than just describing its activities and focus areas.",
+          "Clearly explain how the identified strategy is implemented by Capitec and specifically link it to how this strategy creates a competitive advantage for the bank in South Africa, using concrete examples from your description."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 1.0,
+            "marks_available": 2.0,
+            "comment": "The response describes Capitec's focus on 'accessibility, financial inclusion, and innovation,' which implies a strategic direction. However, it does not explicitly name a recognized business strategy (e.g., cost leadership, differentiation, or focus)."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 1.0,
+            "marks_available": 3.0,
+            "comment": "While the response provides extensive details about Capitec's operations and market position, it describes *what* the company does and its focus areas rather than explaining *how* a specific, named business strategy works or is implemented. Without a named strategy, a clear explanation of it is missing."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 1.0,
+            "marks_available": 3.0,
+            "comment": "The response highlights Capitec's status as the 'largest bank in the country by customer base' and mentions its 'largest branch network' and 'widely used Capitec App,' which are strong indicators of competitive advantage. However, it does not explicitly link these achievements to a specific, named business strategy and explain *why* that strategy gives them an advantage."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is very well-structured, starting with an introduction to Capitec and then detailing its services, reach, and focus areas in a logical and easy-to-follow manner. The writing is clear and coherent."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a comprehensive and accurate explanation of market segmentation, supported by a clear and relevant South African business example. You've demonstrated a strong understanding of the concept and its practical application.",
+        "strengths": [
+          "Your definition of market segmentation is precise and clearly articulates the core concept of dividing a market into groups based on shared characteristics or needs.",
+          "The example of Shoprite and Checkers effectively illustrates how a South African business uses market segmentation to target different income groups, demonstrating a practical understanding of the concept."
+        ],
+        "improvements": [
+          "Your response is excellent and fully addresses all aspects of the question with clarity and accuracy. No specific areas for improvement are needed for this submission."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics or needs, including the purpose of this division."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite/Checkers) is named, and the example of segmenting by income groups is clear, specific, accurate, and well-explained, showing how the company meets different customer needs."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "You provided an excellent response that clearly and accurately addressed all parts of the question. You correctly identified Capitec Bank's cost leadership strategy and explained how its focus on affordability, simplicity, and accessibility creates a strong competitive advantage in the South African market. Your use of specific examples, such as lower banking fees and convenient digital services, effectively supported your argument. For future responses, when identifying a strategy, aim to name one of the core recognised strategies (e.g., cost leadership, differentiation, or focus) first. While 'customer-focused' is a valid aspect of Capitec's approach, it's often considered an element that supports a primary strategy rather than a standalone strategy itself in the same academic context as cost leadership. This will help maintain precision in your strategic analysis.",
+        "strengths": [
+          "Clearly identified Capitec Bank's cost leadership strategy.",
+          "Provided an excellent explanation of how the strategy creates competitive advantage.",
+          "Supported the explanation with specific and relevant examples (lower fees, digital services)."
+        ],
+        "improvements": [
+          "For academic precision, when identifying a strategy, prioritize naming one of the core recognised strategies (cost leadership, differentiation, or focus) before adding supporting descriptors like 'customer-focused'."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified 'cost leadership' as a recognised business strategy used by Capitec Bank."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation of providing 'simple, affordable, and accessible banking services to a wide range of South Africans' is clear, accurate, and shows genuine understanding of a cost leadership approach in banking."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear and specific link is made between the strategy and competitive advantage, supported by real and relevant examples such as 'lower banking fees, easy-to-use products, and convenient digital banking services' leading to attracting 'millions of customers'."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured, logically flows from strategy identification to explanation and competitive advantage, and is clearly written and easy to follow."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides an outstanding explanation of market segmentation, both in definition and application. You've demonstrated a strong grasp of the concept and its practical use in a South African business context.",
+        "strengths": [
+          "Your definition of market segmentation is exceptionally clear, accurate, and comprehensive, effectively capturing the core principles.",
+          "The example of Shoprite and Checkers is highly specific, accurate, and perfectly illustrates how a South African business uses market segmentation based on income groups and product offerings."
+        ],
+        "improvements": [
+          "Your response is excellent and fully meets all criteria. Continue to apply this level of detail and accuracy in your future responses."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition provided is clear, accurate, and comprehensive, explaining the division of a market into groups based on shared characteristics or needs, and its purpose."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite/Checkers) is named with a clear, specific, and accurate example of how it uses market segmentation by targeting different income groups through its distinct store brands and offerings. The explanation is well-detailed and demonstrates a strong understanding."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is outstanding, demonstrating a comprehensive understanding of business strategy and competitive advantage. You clearly identified Capitec Bank's cost leadership strategy and provided a detailed, accurate explanation of how it operates. The link between this strategy and Capitec's competitive advantage in South Africa, supported by relevant examples like attracting low-cost customers and leveraging digital services, was exceptionally well-articulated. The structure and clarity of your writing made the response very easy to follow. For future, more advanced analyses, you could explore the specific operational efficiencies that enable Capitec to maintain its cost leadership, such as its technology infrastructure or lean branch model, to further illustrate the 'how' behind their competitive advantage.",
+        "strengths": [
+          "Clearly and accurately identified Capitec Bank's cost leadership strategy.",
+          "Provided a strong, detailed explanation of the strategy's core tenets (simplicity, affordability, lower fees).",
+          "Made a clear, specific link between the strategy and competitive advantage, supported by relevant examples from Capitec Bank.",
+          "Response was well-structured and clearly written, making it easy to follow."
+        ],
+        "improvements": [
+          "For future, more advanced analyses, consider explicitly detailing *how* Capitec achieves its lower operating costs (e.g., through its digital-first approach, streamlined product offerings, or fewer physical branches) to add even more depth to the explanation of their competitive advantage."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "A recognised business strategy (cost leadership) is correctly identified and named."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "Clear, accurate explanation of the strategy showing genuine understanding of the concept, detailing simplicity, affordability, and lower fees."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear, specific link is made between the cost leadership strategy and competitive advantage, supported by real and relevant examples from Capitec Bank, such as attracting low-cost customers, leveraging digital services, and achieving lower operating costs to build a large customer base."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured and clearly written, making it easy to follow the explanation of strategy and competitive advantage."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is excellent! You provided a clear and accurate definition of market segmentation in your own words. Your example of Shoprite Holdings is outstanding, clearly illustrating how they use different store formats (Shoprite and Checkers) to effectively target distinct income-based customer segments in South Africa. This demonstrates a strong grasp of the concept and its real-world application. To continue building on this strong foundation, consider briefly identifying the specific *type* of segmentation (e.g., demographic segmentation) in future examples, although your explanation here is already very clear.",
+        "strengths": [
+          "Provided a clear, accurate, and concise definition of market segmentation in your own words.",
+          "Offered an outstanding and highly relevant example of a South African business (Shoprite Holdings) effectively using market segmentation.",
+          "Clearly explained how Shoprite Holdings differentiates its offerings (Shoprite vs. Checkers) to target specific customer income groups."
+        ],
+        "improvements": [
+          "While your explanation is very clear, in future responses, you could briefly identify the specific *type* of segmentation being used (e.g., demographic segmentation based on income) to add another layer of academic precision."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and in your own words, explaining the division of a market into groups based on shared characteristics or needs."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite Holdings) is named with a clear, specific, and accurate example of how it uses market segmentation (Shoprite for lower-income, Checkers for middle- to upper-income), which is very well explained."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an excellent response that clearly identifies Pick n Pay's strategy, explains it well, and provides a strong link to competitive advantage with a specific example. Your explanation of how the Smart Shopper program contributes to customer retention and broad appeal is particularly insightful.",
+        "strengths": [
+          "Clearly identified a relevant business strategy (differentiation) and explained its 'value-focused' approach effectively.",
+          "Provided a clear, specific link between the strategy and competitive advantage, supported by a real and relevant example (Smart Shopper loyalty programme).",
+          "The response is well-structured and easy to follow, demonstrating strong clarity in communication."
+        ],
+        "improvements": [
+          "While 'differentiation and value-focused' is a strong identification, for even greater precision in future analyses, consider explicitly articulating how the 'value-focused' aspect specifically *creates* or *enhances* the differentiation (e.g., differentiation through superior customer value rather than just a broad offering)."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The strategy of 'differentiation' is correctly identified and named. The addition of 'value-focused' further clarifies the approach, aligning well with the explanation."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation is clear and accurate, detailing how Pick n Pay competes by offering a wide range of products, different price levels, and value through promotions and loyalty programs. This shows genuine understanding."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear and specific link is made between the strategy and competitive advantage, highlighting its appeal to a broad customer base. The Smart Shopper loyalty programme is an excellent, real, and relevant example that supports the argument effectively."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is very well-structured, logical, and clearly written, making it easy to understand the learner's points."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! Your response provides a clear and accurate definition of market segmentation, followed by a highly relevant and well-explained example from a South African business. You've demonstrated a strong understanding of the concept and its practical application.",
+        "strengths": [
+          "Provided a clear, accurate, and comprehensive definition of market segmentation in your own words.",
+          "Offered a highly specific and accurate example of how Shoprite Holdings uses market segmentation through its different store brands (Shoprite and Checkers), clearly explaining the target segments and their distinct offerings."
+        ],
+        "improvements": [
+          "Your response is excellent and fully meets all criteria for this question. No specific areas for improvement are identified."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and comprehensive, explaining the division of a market into groups based on shared characteristics or needs. It is well-articulated in your own words."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite/Checkers) is named with a clear, specific, and accurate example of how it uses market segmentation by targeting different income groups through distinct store brands. The explanation of how this meets different customer needs is well-explained."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an excellent response that thoroughly addresses all aspects of the question. You clearly identified Capitec Bank's business strategy and provided a comprehensive explanation of how it is implemented. Furthermore, you made a strong, specific link between this strategy and the competitive advantage it provides in the South African market, supported by relevant examples. The response is well-structured and easy to follow.",
+        "strengths": [
+          "Clearly and accurately identified Capitec Bank's cost leadership strategy.",
+          "Provided a comprehensive and accurate explanation of how the strategy is implemented.",
+          "Made a strong, specific link between the strategy and competitive advantage, supported by relevant examples."
+        ],
+        "improvements": [
+          "No specific improvements are needed for this outstanding submission. You have demonstrated a strong understanding of business strategy concepts."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified and named 'cost leadership strategy' for Capitec Bank."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation clearly and accurately describes how Capitec implements its cost leadership strategy through simplified products and lower fees, showing genuine understanding."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear, specific link is made between the cost leadership strategy and Capitec's competitive advantage, supported by multiple real and relevant examples such as attracting low-cost customers, simplified products, and efficient digital services leading to a large customer base."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured with clear headings and is written in a clear, concise manner that is easy to follow."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an excellent response that fully addresses all aspects of the question. Your definition of market segmentation is precise and your example of Shoprite Holdings is a perfect illustration of how a South African business effectively uses this strategy.",
+        "strengths": [
+          "Your explanation of Shoprite Holdings' segmentation strategy, differentiating between Shoprite and Checkers stores for different income groups, is very clear, specific, and accurately demonstrates how a South African business applies market segmentation."
+        ],
+        "improvements": [
+          "Your response is comprehensive and fully meets the requirements of the question and rubric. No specific improvements are needed for this answer."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear and accurate, explaining the division of a market into groups based on shared characteristics or needs ('similar needs, characteristics, or buying behaviour')."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite Holdings) is named with a clear, specific, and accurate example of how it uses market segmentation (Shoprite for lower-income, Checkers for middle- to upper-income), which is well explained."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is excellent! You clearly identified Pick n Pay's strategy and provided a strong, specific example of how their Smart Shopper loyalty program contributes to their competitive advantage in the South African market. To further enhance your strategic analysis, consider explicitly elaborating on how the 'value-focused' aspect specifically enhances or supports the overall 'differentiation' strategy, ensuring a clear distinction from a pure cost leadership approach.",
+        "strengths": [
+          "You clearly identified Pick n Pay's strategy and provided a strong, specific example of how their Smart Shopper loyalty program contributes to their competitive advantage in the South African market."
+        ],
+        "improvements": [
+          "Consider further elaborating on how the 'value-focused' aspect specifically enhances or supports the overall 'differentiation' strategy, ensuring a clear distinction from a pure cost leadership approach. While your explanation is good, a more explicit link between these two terms could strengthen your strategic analysis."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "A recognised business strategy (differentiation) is correctly identified and named. The addition of 'value-focused' further refines the strategy."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation is clear and accurate, detailing how Pick n Pay competes through product range, price levels, promotions, and loyalty rewards, showing genuine understanding of a differentiation strategy with a value proposition."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear and specific link is made between the strategy and competitive advantage (appealing to a broad customer base, customer retention). This is strongly supported by the real and relevant example of the Smart Shopper loyalty programme."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured, logically flowing from strategy identification to explanation and competitive advantage. The writing is clear and easy to follow."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is excellent, providing a clear and accurate definition of market segmentation, followed by a highly specific and well-explained South African business example. You've demonstrated a strong understanding of how businesses apply segmentation in practice. Keep up the excellent work!",
+        "strengths": [
+          "Your definition of market segmentation is clear and accurate, capturing all essential elements, including its purpose for businesses.",
+          "The South African business example using Shoprite and Checkers is highly specific, accurate, and well-explained, clearly demonstrating how different brands target distinct income segments with tailored offerings and services (e.g., Sixty60)."
+        ],
+        "improvements": [
+          "Your response is comprehensive and fully meets the requirements of the question. No specific areas for improvement are identified for this submission."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and comprehensive, explaining the division of a market into groups based on shared characteristics or needs, and its purpose."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The example of Shoprite and Checkers is a real South African business, providing a clear, specific, and accurate illustration of how it uses income-based market segmentation through different brand offerings and services, which is very well explained."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an outstanding response that perfectly addresses all aspects of the question. You clearly identified Capitec Bank's strategy, explained it thoroughly, and made a strong, well-supported link to its competitive advantage in South Africa. Your writing is clear, concise, and well-structured.",
+        "strengths": [
+          "You correctly identified Capitec Bank's business strategy as cost leadership.",
+          "Your explanation of how Capitec implements its cost leadership strategy through simplified products and lower fees is particularly strong and accurate.",
+          "You provided clear and specific examples (e.g., attracting low-cost customers, digital services, lower operating costs) to demonstrate how this strategy creates a competitive advantage for Capitec in the South African market."
+        ],
+        "improvements": [
+          "Your response is comprehensive and excellent, fully meeting all requirements of the prompt and rubric. No specific areas for improvement are identified for this submission."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified and named 'cost leadership' as Capitec Bank's primary business strategy."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation clearly and accurately describes how Capitec implements its cost leadership strategy through simplified products and lower fees, demonstrating a strong understanding of the concept."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear and specific link is made between the cost leadership strategy and Capitec's competitive advantage, supported by relevant examples like attracting low-cost customers, simplified digital services, and lower operating costs leading to a large customer base in South Africa."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured and clearly written, making it easy to understand the learner's points and follow their argument."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! Your response provides a clear and accurate definition of market segmentation. Furthermore, your example of Shoprite Holdings effectively illustrates how a South African business uses segmentation by tailoring its different store formats (Shoprite and Checkers) to distinct customer income groups and their respective needs. This is a comprehensive and well-explained answer.",
+        "strengths": [
+          "Provided a clear, accurate, and comprehensive definition of market segmentation.",
+          "Offered a highly relevant and well-explained example of market segmentation by a South African business (Shoprite Holdings), detailing how different brands target specific customer groups."
+        ],
+        "improvements": [
+          "Your response is comprehensive and fully meets the requirements of the question. No specific areas for improvement are identified for this submission."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics or needs, fully meeting the criteria for 2 marks."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite Holdings) is named with a clear, specific, and accurate example of how it uses market segmentation through its Shoprite and Checkers brands, targeting different income groups. The explanation is well-detailed and fully justifies 3 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! Your response clearly identifies Pick n Pay's strategy and provides a strong, specific example of how it creates a competitive advantage. Your explanation of the Smart Shopper program is particularly insightful. To make your strategy identification even more precise in future analyses, consider how terms like 'value-focused' might fit as a component or outcome of a broader strategy like 'differentiation,' rather than a separate strategy itself. This will help you articulate the core strategic choice with even greater clarity.",
+        "strengths": [
+          "Clearly identified Pick n Pay's strategy and provided a strong explanation.",
+          "Provided a specific and relevant example (Smart Shopper loyalty program) to illustrate competitive advantage, demonstrating genuine understanding."
+        ],
+        "improvements": [
+          "When identifying business strategies, aim for the most precise recognized term (e.g., Porter's generic strategies). Consider how 'value-focused' might fit within or complement 'differentiation' rather than being a separate, equally weighted strategy.",
+          "While your link to competitive advantage is strong, you could briefly elaborate on *how* appealing to a broad customer base (from budget to middle-income) specifically gives Pick n Pay an edge over competitors who might target a narrower segment."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified 'differentiation' as a recognized business strategy. While 'value-focused' was also mentioned, 'differentiation' is a core, recognized strategy."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation of the strategy is clear, accurate, and shows a genuine understanding of how Pick n Pay implements its approach through product range, pricing, promotions, and loyalty programs."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear and specific link is made between the strategy and competitive advantage (appealing to a broad customer base). This is strongly supported by a real and relevant example: the Smart Shopper loyalty program and its impact on customer retention."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured, logical, and clearly written, making it easy to follow and understand the learner's argument."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is outstanding! Your definition of market segmentation is exceptionally clear and accurate, effectively capturing the process of dividing markets and its strategic benefits for businesses. Furthermore, the example of Shoprite and Checkers is a perfect illustration of market segmentation in action within a South African context. You clearly articulated how these brands target different income groups with tailored product offerings and services like Sixty60. Your response is comprehensive and fully addresses all aspects of the question. Keep up the excellent work!",
+        "strengths": [
+          "Provided an exceptionally clear, accurate, and comprehensive definition of market segmentation.",
+          "Offered a highly specific, relevant, and well-explained example of market segmentation by a real South African business (Shoprite/Checkers), demonstrating a strong understanding of the concept in practice."
+        ],
+        "improvements": [
+          "No areas for improvement identified; the response fully meets and exceeds the prompt's requirements."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and comprehensive, explaining the division of a market into groups based on shared characteristics and its benefits, fully meeting the criteria for 2 marks."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The example of Shoprite and Checkers is highly specific and accurate, demonstrating a clear understanding of how the company segments its market by income group and tailors its offerings (e.g., affordable groceries vs. premium products and Sixty60 delivery). This is a well-explained and relevant South African business example, earning full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an excellent response that thoroughly addresses all aspects of the question. You clearly identified Capitec's strategy, explained it accurately, and provided strong, relevant examples to link it to competitive advantage in South Africa. Your response is well-structured and easy to follow.",
+        "strengths": [
+          "Clearly and correctly identified Capitec Bank's business strategy as cost leadership.",
+          "Provided a clear and accurate explanation of the strategy, highlighting key elements like simplicity, affordability, and lower fees.",
+          "Made a strong, specific link between the cost leadership strategy and Capitec's competitive advantage, supported by relevant examples such as attracting low-cost customers, digital banking, and lower operating costs."
+        ],
+        "improvements": [
+          "Your response is already comprehensive and achieved full marks. For future, even more advanced analyses, you could briefly consider mentioning any potential trade-offs or risks associated with a pure cost leadership strategy, although this was not required by the current question."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "A recognised business strategy (cost leadership) is correctly identified and named."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "Clear, accurate explanation of the strategy showing genuine understanding of the concept (simple, affordable, straightforward products, lower fees)."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear, specific link is made between the strategy and competitive advantage, supported by real and relevant examples from Capitec Bank (attracting low-cost customers, digital banking, lower operating costs, large customer base in South Africa)."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "Well-structured and clearly written response that is easy to follow, with distinct sections for strategy and competitive advantage."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear and accurate explanation of market segmentation, demonstrating a strong understanding of the concept. The example of Shoprite Holdings is particularly effective, clearly illustrating how different store formats are used to target distinct income-based customer segments with tailored offerings. To further enhance your excellent response, you could briefly mention some common types of segmentation variables (e.g., demographic, geographic, psychographic, behavioral) when defining 'shared characteristics' to provide an even more comprehensive overview.",
+        "strengths": [
+          "Clear and accurate definition of market segmentation in your own words.",
+          "Excellent, specific, and well-explained example of a South African business (Shoprite Holdings) effectively using market segmentation."
+        ],
+        "improvements": [
+          "Consider briefly mentioning common types of segmentation variables (e.g., demographic, geographic, psychographic, behavioral) to add further academic depth to your definition."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics or needs, in your own words."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite Holdings) is named with a clear, specific, and accurate example of how it uses market segmentation (Shoprite vs. Checkers for different income groups), which is well explained."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is excellent! You clearly identified Pick n Pay's strategy and provided a strong explanation of how it creates a competitive advantage. The specific example of the Smart Shopper loyalty program effectively illustrates your points. To further enhance your strategic analysis in the future, ensure you explicitly name one of the core generic strategies (cost leadership, differentiation, or focus) as the primary strategy, even when elaborating on its specific implementation.",
+        "strengths": [
+          "Clearly identified Pick n Pay's strategy as differentiation and value-focused.",
+          "Provided a clear and accurate explanation of the chosen strategy.",
+          "Made a strong, specific link between the strategy and competitive advantage.",
+          "Used a relevant and concrete example (Smart Shopper loyalty program) to support the competitive advantage claim.",
+          "Response was well-structured and easy to follow."
+        ],
+        "improvements": [
+          "For future responses, ensure you explicitly name one of the core generic strategies (cost leadership, differentiation, or focus) as the primary strategy, even when elaborating on its specific implementation (e.g., through a 'value-focused' approach). This strengthens the academic framing of your analysis."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified 'differentiation' as a core strategy and added 'value-focused,' which further clarifies their understanding of how Pick n Pay differentiates itself. This aligns with a recognized business strategy."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation clearly articulates what a differentiation and value-focused strategy means for Pick n Pay, detailing product range, price levels, promotions, and loyalty rewards, showing genuine understanding."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A strong, specific link was made between the strategy and competitive advantage, supported by the excellent and relevant example of the Smart Shopper loyalty program and its impact on customer retention."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-organized, easy to read, and clearly communicates the learner's points in a logical flow."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides an excellent and precise definition of market segmentation. Furthermore, your example of Shoprite and Checkers clearly and accurately illustrates how a South African business effectively uses market segmentation to target different income groups with tailored offerings and services. This demonstrates a strong understanding of the concept and its practical application. Keep up the great work!",
+        "strengths": [
+          "Provided a clear, accurate, and comprehensive definition of market segmentation.",
+          "Offered a highly specific and accurate example of how Shoprite/Checkers uses market segmentation to target different income groups with tailored offerings and services, demonstrating practical application."
+        ],
+        "improvements": [
+          "No specific areas for improvement identified for this response, as it fully meets all criteria."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and comprehensive, explaining the division of a market into groups based on shared characteristics or needs, and its purpose."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite/Checkers) is named with a clear, specific, and accurate example of how it uses market segmentation by targeting different income groups with distinct store brands, products, and services. The explanation is well-detailed and accurate."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an excellent response that thoroughly addresses all aspects of the question. You clearly identified Capitec Bank's strategy, explained it accurately, and provided specific examples of how it contributes to their competitive advantage in South Africa. Your response is well-structured and easy to understand.",
+        "strengths": [
+          "Clearly and accurately identified Capitec Bank's business strategy as cost leadership.",
+          "Provided a detailed and accurate explanation of the chosen strategy, linking it directly to Capitec's operations.",
+          "Made a strong, specific link between the cost leadership strategy and Capitec's competitive advantage, supported by relevant examples like low fees, simple products, and digital services leading to a large customer base."
+        ],
+        "improvements": [
+          "Your response is comprehensive and well-articulated, demonstrating a strong understanding of the concepts. No specific areas for improvement are noted for this submission."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "A recognised business strategy (cost leadership) is correctly identified and named."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "Clear, accurate explanation of the strategy showing genuine understanding of the concept, detailing Capitec's focus on simple, affordable services and lower fees."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear, specific link is made between the strategy and competitive advantage, supported by real and relevant examples from Capitec, such as attracting low-cost customers, simple products, digital services, and lower operating costs leading to a large customer base."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured and clearly written, making it easy to follow and understand."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an excellent response that demonstrates a strong understanding of market segmentation. You provided a clear and accurate definition in your own words, and your example of Shoprite Holdings effectively illustrates how a South African business applies this strategy. Keep up the great work!",
+        "strengths": [
+          "Provided a clear, accurate, and well-articulated definition of market segmentation in your own words.",
+          "Gave a highly relevant, specific, and well-explained example of how Shoprite Holdings uses market segmentation through its different store formats (Shoprite vs. Checkers) to target distinct customer groups in South Africa."
+        ],
+        "improvements": [
+          "Your response is comprehensive and meets all criteria for this question. No specific improvements are needed."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics or needs, fulfilling all requirements for full marks."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite Holdings) is named, and the example of segmenting customers via Shoprite and Checkers stores is clear, specific, accurate, and very well explained, earning full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! Your response clearly identifies Pick n Pay's strategy and provides a strong explanation of how it creates a competitive advantage. The use of the Smart Shopper program as a specific example is particularly effective.",
+        "strengths": [
+          "Clearly identified Pick n Pay's strategy as differentiation and value-focused.",
+          "Provided a clear and accurate explanation of the chosen strategy.",
+          "Made a strong, specific link between the strategy and competitive advantage, supported by a relevant example (Smart Shopper loyalty program).",
+          "Response is well-structured and easy to follow."
+        ],
+        "improvements": [
+          "To further enhance your analysis, you could briefly touch upon how Pick n Pay sustains this broad appeal and value offering profitably in a highly competitive market, or how it specifically differentiates itself from a direct competitor beyond just promotions."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified 'differentiation' as a core strategy, elaborating it with 'value-focused,' which is appropriate for Pick n Pay."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation of offering a wide range of products at different price levels, coupled with promotions and loyalty rewards, clearly and accurately describes Pick n Pay's strategy."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear link is made to appealing to a broad customer base, and the Smart Shopper loyalty program is an excellent, specific example supporting how this creates and sustains competitive advantage."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is very well-structured, coherent, and easy to read, with a logical flow of ideas."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is outstanding and fully addresses all aspects of the question with precision and clarity. Your definition of market segmentation is exceptionally clear, accurate, and comprehensive, effectively capturing its core purpose and mechanism. Furthermore, your example of Shoprite and Checkers is highly relevant, specific, and accurately demonstrates how a South African business uses market segmentation based on income groups. There are no areas for improvement for this particular submission.",
+        "strengths": [
+          "The definition of market segmentation is exceptionally clear, accurate, and comprehensive.",
+          "The South African business example (Shoprite/Checkers) is highly relevant, specific, and accurately illustrates the application of market segmentation based on income groups, with a well-explained rationale."
+        ],
+        "improvements": [
+          "Your response is comprehensive and well-articulated, meeting all criteria perfectly. No specific improvements are needed for this submission."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition provided is clear, accurate, and comprehensive, fully meeting the criteria for a precise explanation of market segmentation."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The example of Shoprite and Checkers is highly relevant, specific, and accurately demonstrates how a South African business uses market segmentation based on income groups, with a clear and well-explained application."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a comprehensive and accurate explanation of market segmentation, supported by a highly relevant and well-detailed South African example. You clearly understand both the theoretical concept and its practical application in business strategy.",
+        "strengths": [
+          "Your definition of market segmentation is clear, accurate, and comprehensive, effectively capturing the core concept.",
+          "The example of Shoprite and Checkers is excellent, clearly illustrating how a South African business uses market segmentation to target different income groups with specific offerings and services."
+        ],
+        "improvements": [
+          "Your response is already very strong and fully meets the requirements of the question. Continue to provide such detailed and accurate explanations in future assignments."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics or needs, as well as the purpose behind it."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite/Checkers) is named with a clear, specific, and accurate example of how it uses market segmentation by targeting different income groups through distinct store brands and services. The explanation is well-detailed and accurate."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! Your definition of market segmentation is clear, accurate, and comprehensive. You've also provided a highly relevant and well-explained example of how a South African business, Shoprite/Checkers, effectively uses market segmentation to target different income groups with tailored offerings. This demonstrates a strong understanding of the concept and its practical application.",
+        "strengths": [
+          "Provided a clear, accurate, and comprehensive definition of market segmentation.",
+          "Offered a highly specific and accurate example of market segmentation by a South African business (Shoprite/Checkers), detailing how different brands target distinct income groups with tailored products and services."
+        ],
+        "improvements": [
+          "Your response is already excellent and fully meets the requirements of the question. For future learning, you might consider exploring other bases for segmentation beyond income, such as psychographic or behavioral segmentation, to broaden your understanding even further."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition provided is clear, accurate, and comprehensive, explaining the division of a market into groups based on shared characteristics or needs, and also highlighting the benefit to businesses."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite/Checkers) is named, and the example of segmentation by income group through different store brands is clear, specific, accurate, and very well explained. It clearly shows how the company meets the needs of different customer segments effectively."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is exceptionally well-articulated and demonstrates a strong understanding of business strategy concepts. You clearly identified Capitec Bank's cost leadership strategy and provided a comprehensive explanation of how it operates and contributes to their competitive advantage in South Africa. The examples provided are highly relevant and support your analysis effectively. To further enhance your strategic thinking in future assignments, you could consider explicitly detailing *how* Capitec achieves its lower operating costs (e.g., through streamlined processes, fewer physical branches, or leveraging digital platforms), which would further strengthen the causal link between its strategy and its ability to offer competitive pricing.",
+        "strengths": [
+          "Clearly identified and correctly named Capitec Bank's business strategy as cost leadership.",
+          "Provided a clear, accurate, and in-depth explanation of the chosen strategy, showing genuine understanding.",
+          "Made a clear and specific link between the strategy and competitive advantage, supported by real and relevant examples from Capitec Bank.",
+          "The response is well-structured, clearly written, and easy to follow."
+        ],
+        "improvements": [
+          "For even deeper analysis in future responses, consider explicitly detailing the mechanisms through which the chosen company achieves its cost advantages (e.g., specific operational efficiencies, technology use, or distribution models)."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified and named 'cost leadership' as Capitec Bank's primary business strategy."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation clearly and accurately describes how Capitec implements its cost leadership strategy through simplified products and lower fees, demonstrating a strong understanding of the concept."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear and specific link is made between the cost leadership strategy and Capitec's competitive advantage in South Africa, supported by relevant examples such as attracting a large customer base through affordability and convenient digital services."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured, easy to read, and clearly articulates its points, making it very easy to follow."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an outstanding response that fully addresses all aspects of the question with clarity and accuracy. Your definition of market segmentation is precise and comprehensive, and your example of Shoprite Holdings is perfectly chosen and explained in detail. You clearly understand how businesses apply segmentation in a real-world context.",
+        "strengths": [
+          "Provided a clear, accurate, and comprehensive definition of market segmentation in your own words.",
+          "Offered an excellent, specific, and well-explained example of how Shoprite Holdings uses market segmentation in South Africa, clearly differentiating between Shoprite and Checkers target markets and offerings."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics or needs, fulfilling the criteria for full marks."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite Holdings) is named with a clear, specific, and accurate example of how it uses market segmentation (Shoprite vs. Checkers targeting different income groups), which is very well explained. This meets all requirements for full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! Your response clearly identifies Pick n Pay's strategy, explains it thoroughly, and provides a strong link to competitive advantage with a specific, relevant example. You demonstrated a solid understanding of business strategy fundamentals.",
+        "strengths": [
+          "You clearly identified 'differentiation' as a core strategy and effectively explained how Pick n Pay implements it.",
+          "Your use of the Smart Shopper loyalty program as a specific, real-world example to illustrate competitive advantage was excellent and highly relevant.",
+          "The response is well-structured and easy to follow, making your arguments very clear."
+        ],
+        "improvements": [
+          "While your explanation of 'value-focused' is strong, for future analysis, consider explicitly discussing if this is a hybrid strategy (e.g., best-cost provider) or a form of broad differentiation that strategically incorporates value elements. This can add another layer of precision to your strategic identification.",
+          "To deepen your analysis even further, you could briefly touch on the potential challenges or trade-offs Pick n Pay might face in trying to appeal to both budget shoppers and middle-income families with a broad offering, and how they manage these complexities."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The learner correctly identified 'differentiation' as a recognized business strategy. The addition of 'value-focused' complements this well in the context of a retail business."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The explanation of the strategy is clear, accurate, and shows genuine understanding. It details how Pick n Pay competes through product range, price levels, promotions, and loyalty rewards."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear and specific link is made between the strategy and competitive advantage, supported by the excellent example of the Smart Shopper loyalty program and its role in customer retention and broad appeal."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured, logical, and clearly written, making it very easy to follow and understand the learner's points."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! Your definition of market segmentation is clear and comprehensive, and your example of Shoprite and Checkers perfectly illustrates how a South African business effectively uses segmentation to target different customer groups. You've demonstrated a strong understanding of the concept.",
+        "strengths": [
+          "Provided a clear, accurate, and comprehensive definition of market segmentation.",
+          "Gave a highly relevant, specific, and well-explained example of market segmentation using a real South African business (Shoprite/Checkers)."
+        ],
+        "improvements": [
+          "Your response is excellent and fully meets the requirements of the question. Continue to provide this level of detail and accuracy in your future answers."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and explains the division of a market into groups based on shared characteristics or needs, fully meeting the criteria for 2 marks."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite/Checkers) is named, and the example of targeting different income groups through distinct store brands (Shoprite for price-conscious, Checkers for middle/higher-income with premium offerings) is clear, specific, accurate, and very well explained. This fully aligns with the 3-mark criterion."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an excellent response that thoroughly addresses all aspects of the question. You clearly identified Capitec Bank's strategy and provided a comprehensive explanation of how it translates into a competitive advantage in the South African market. Your use of specific examples, such as lower fees and strong digital services, effectively supports your points.",
+        "strengths": [
+          "Clearly and correctly identified Capitec Bank's business strategy as cost leadership.",
+          "Provided a clear, accurate, and detailed explanation of the strategy, demonstrating genuine understanding.",
+          "Made a strong, specific link between the chosen strategy and competitive advantage, supported by relevant examples from Capitec Bank."
+        ],
+        "improvements": [
+          "Your response is comprehensive and well-articulated, meeting all criteria for full marks. Continue to apply this level of detail and analytical depth in future assignments."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "A recognised business strategy (cost leadership) is correctly identified and named."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "Clear, accurate explanation of the strategy showing genuine understanding of the concept, focusing on simplicity, affordability, and lower fees."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A clear, specific link is made between the cost leadership strategy and competitive advantage, supported by relevant examples like lower fees, digital services, and a large customer base in South Africa."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured and clearly written, making it easy to follow the argument."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "This is an excellent response! You provided a clear, accurate definition of market segmentation and supported it with a highly relevant and well-explained example from a South African business. Your ability to connect theoretical concepts to real-world applications is commendable.",
+        "strengths": [
+          "Your definition of market segmentation is exceptionally clear and accurate, effectively explaining both the process and its strategic purpose.",
+          "The example of Shoprite Holdings and its Checkers/Shoprite brands is a perfect illustration of market segmentation in action within a South African context, demonstrating a strong understanding of the concept's practical application."
+        ],
+        "improvements": [
+          "Your response is comprehensive and accurate, achieving full marks. No specific improvements are needed for this answer. Continue to apply this level of detail and real-world connection in your future responses."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Definition of Market Segmentation",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The definition is clear, accurate, and comprehensive, explaining the division of a market into groups based on shared characteristics or needs, and its purpose."
+          },
+          {
+            "criterion": "South African Business Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "A real South African business (Shoprite Holdings) is named with a clear, specific, and accurate example of how it uses market segmentation through its Shoprite and Checkers brands, which is very well explained."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "graded",
+      "grading": {
+        "score": 10.0,
+        "max_grade": 10.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is excellent! You clearly identified Pick n Pay's strategy and provided a strong explanation of how it creates a competitive advantage, supported by a specific and relevant example. Keep up the great work!",
+        "strengths": [
+          "You correctly identified 'differentiation' as a core business strategy.",
+          "Your explanation of the strategy is clear, accurate, and shows a genuine understanding of how Pick n Pay operates.",
+          "You provided a clear and specific link between the strategy and competitive advantage, effectively using the Smart Shopper loyalty program as a real-world example.",
+          "The response is well-structured and easy to follow, demonstrating strong clarity in your writing."
+        ],
+        "improvements": [
+          "To further enhance your analysis, consider briefly elaborating on what specific aspects of Pick n Pay's product range or service offerings are truly *unique* or *superior* compared to competitors, beyond just offering a wide range and promotions, to solidify the differentiation argument even more deeply."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Identification of Business Strategy",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "You correctly identified 'differentiation' as a recognised business strategy used by Pick n Pay."
+          },
+          {
+            "criterion": "Explanation of the Strategy",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "Your explanation of the strategy is clear, accurate, and shows a genuine understanding of how Pick n Pay aims to provide value and differentiate itself through product range, promotions, and loyalty programs."
+          },
+          {
+            "criterion": "Link to Competitive Advantage with Example",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "You made a clear and specific link between Pick n Pay's strategy and its competitive advantage, effectively using the Smart Shopper loyalty program as a real and relevant example to support your point about customer retention and broad appeal."
+          },
+          {
+            "criterion": "Clarity and Structure",
+            "marks_awarded": 2.0,
+            "marks_available": 2.0,
+            "comment": "The response is well-structured and clearly written, making it easy to follow your argument and understand your points."
+          }
+        ]
+      }
     }
   ],
   "errors": [
@@ -707,6 +2427,116 @@
       "learner_id": "u98765432",
       "status": "error",
       "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 20.589089634s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '20s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 19.37789901s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '19s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 18.586220887s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 17.700076428s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '17s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 27.806120413s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '27s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 26.995812115s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '26s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 26.065012706s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '26s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\nPlease retry in 30.733539855s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '30s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\nPlease retry in 30.393684961s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '30s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\nPlease retry in 30.072617602s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '30s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\\nPlease retry in 29.252490598s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '29s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 18.985981782s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 18.670177842s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 17.860266335s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '17s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 17.526293776s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '17s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 16.737875957s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '16s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 16.354432202s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '16s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 15.538111742s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '15s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 15.14914127s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '15s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 45.725998474s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '45s'}]}}"
+    },
+    {
+      "learner_id": "u12345678",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 44.967864958s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 33.914197042s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '33s'}]}}"
+    },
+    {
+      "learner_id": "u98765432",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 33.215390213s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '33s'}]}}"
     }
   ]
 }
