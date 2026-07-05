@@ -18,6 +18,8 @@ import os
 from pathlib import Path
 from typing import Optional
 from bs4 import BeautifulSoup
+import re
+
 
 import requests
 from dotenv import load_dotenv
@@ -364,3 +366,32 @@ def save_quiz_grade(
     }
     _call("core_grades_update_grades", params, method="POST")
     log.info("Quiz grade pushed: userid=%s grade=%s", userid, grade)
+
+def get_objective_score_from_attempt(attempt_id: int) -> float:
+    """
+    Calculate the total score from auto-graded questions (MCQ, True/False)
+    in a finished quiz attempt, excluding essay questions.
+    """
+
+    data = _call(
+        "mod_quiz_get_attempt_review",
+        {"attemptid": attempt_id},
+    )
+
+    objective_score = 0.0
+
+    for q in data.get("questions", []):
+        if q.get("type") in ("essay",):
+            continue  # skip essay questions
+
+        # Extract marks from the HTML
+        html = q.get("html", "")
+        soup = BeautifulSoup(html, "html.parser")
+        grade_div = soup.select_one(".grade")
+        if grade_div:
+            match = re.search(r"Mark\s+([\d.]+)\s+out of", grade_div.get_text())
+            if match:
+                objective_score += float(match.group(1))
+
+    log.info("Objective score for attempt %s: %s", attempt_id, objective_score)
+    return objective_score

@@ -98,6 +98,13 @@ def build_jobs(
 
         essay_responses = moodle_client.extract_essay_responses_from_attempt(attempt_id)
 
+        # review_data = moodle_client._call(
+        #     "mod_quiz_get_attempt_review",
+        #     {"attemptid": attempt_id}
+        #     )
+
+        objective_score = moodle_client.get_objective_score_from_attempt(attempt_id)
+
         for essay in essay_responses:
             q_num = essay["question_number"]
             question_text = QUIZ_QUESTION_TEXTS.get(q_num, essay["question_text"])
@@ -122,6 +129,7 @@ def build_jobs(
                 "_moodle_attempt_id": attempt_id,
                 "_moodle_slot": essay["slot"],
                 "_moodle_question_number": q_num,
+                "_moodle_objective_score": objective_score,
                 # Note: quiz essay grades are pushed back manually/via
                 # Moodle's gradebook rather than per-slot REST — see
                 # moodle_client_quiz_additions.py for details.

@@ -280,17 +280,27 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                         )
 
                         if len(acc["scores"]) >= acc["expected"]:
-                            total = sum(acc["scores"])
+                            essay_total = sum(acc["scores"])
+                            objective_score = submission.get("_moodle_objective_score", 0.0)
+                            total = essay_total + objective_score
                             combined_feedback = " | ".join(acc["feedbacks"])
+
+                            log.info(
+                                "[QUIZ] Essay total: %s + Objective score: %s = Grand total: %s",
+                                essay_total,
+                                objective_score,
+                                total,
+                            )
+
                             moodle_client.save_quiz_grade(
-                                grade_item_id=moodle_quiz_id,
+                                grade_item_id=2,
                                 userid=moodle_userid,
                                 grade=total,
                                 feedback=combined_feedback,
                                 course_id=2,
                             )
                             log.info(
-                                "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, total=%s)",
+                                "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, final=%s)",
                                 learner_id, moodle_userid, moodle_quiz_id, total,
                             )
                             del _quiz_grade_accumulator[key]
