@@ -198,6 +198,7 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
         moodle_assignment_id = submission.get("_moodle_assignment_id")
         moodle_quiz_id       = submission.get("_moodle_quiz_id")
         moodle_attempt_id    = submission.get("_moodle_attempt_id")
+        moodle_slot          = submission.get("_moodle_slot")
 
         log.info("[->] Received grading job for learner: %s", learner_id)
 
@@ -259,6 +260,14 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
 
                     # QUIZ FLOW — accumulate, then push when all essays done
                     elif moodle_quiz_id is not None and moodle_attempt_id is not None:
+                        
+                        # Grade this essay question in Moodle immediately.
+                        moodle_client.save_quiz_essay_grade(
+                            attempt_id=moodle_attempt_id,
+                            slot=moodle_slot,
+                            grade=grading.get("score"),
+                            feedback_html=feedback_html,
+                        )
                         key = (moodle_userid, moodle_quiz_id, moodle_attempt_id)
                         expected = QUIZ_ESSAY_COUNT.get(moodle_quiz_id, 1)
 
@@ -268,8 +277,8 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                                 "feedbacks": [],
                                 "expected": expected,
                             }
-
                         acc = _quiz_grade_accumulator[key]
+
                         acc["scores"].append(grading.get("score", 0))
                         acc["feedbacks"].append(feedback_text)
 
@@ -283,7 +292,6 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                             essay_total = sum(acc["scores"])
                             objective_score = submission.get("_moodle_objective_score", 0.0)
                             total = essay_total + objective_score
-                            combined_feedback = " | ".join(acc["feedbacks"])
 
                             log.info(
                                 "[QUIZ] Essay total: %s + Objective score: %s = Grand total: %s",
@@ -292,13 +300,6 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                                 total,
                             )
 
-                            moodle_client.save_quiz_grade(
-                                grade_item_id=2,
-                                userid=moodle_userid,
-                                grade=total,
-                                feedback=combined_feedback,
-                                course_id=2,
-                            )
                             log.info(
                                 "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, final=%s)",
                                 learner_id, moodle_userid, moodle_quiz_id, total,

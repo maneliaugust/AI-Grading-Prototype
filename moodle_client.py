@@ -331,41 +331,48 @@ def save_quiz_essay_grade(
     feedback_html: str = "",
 ) -> None:
     """
-    Push a manual grade for a single essay question slot in a quiz attempt.
-    Uses Moodle's quiz comment/override endpoint via the REST API.
-    Note: Moodle 5.x exposes this via mod_quiz_save_question_version or
-    through the comment override mechanism. We use core_grades_update_grades
-    as a fallback to update the gradebook directly if per-slot grading
-    isn't available via REST.
+    Grade one essay question using the custom Moodle web service.
     """
-    # Moodle doesn't expose a clean REST function for per-slot quiz essay grading
-    # in all versions — log a note and use core_grades_update_grades on the
-    # overall quiz gradebook item instead.
-    log.warning(
-        "Per-slot quiz essay grading via REST is not directly supported. "
-        "Grade %s for attempt %s slot %s will need to be applied via "
-        "core_grades_update_grades or manually reviewed in Moodle.",
-        grade, attempt_id, slot,
+
+    params = {
+        "attemptid": attempt_id,
+        "slot": slot,
+        "grade": grade,
+        "feedback": feedback_html,
+        "feedbackformat": 1,
+    }
+
+    result = _call(
+        "local_aigrader_set_essay_grade",
+        params,
+        method="POST",
+    )
+
+    log.info(
+        "Essay question graded: attempt=%s slot=%s result=%s",
+        attempt_id, slot, result,
     )
     
-def save_quiz_grade(
-    grade_item_id: int,
-    userid: int,
-    grade: float,
-    feedback: str = "",
-    course_id: int = 0,
-) -> None:
-    params = {
-        "source": "quiz",
-        "courseid": course_id,
-        "component": "mod_quiz",
-        "activityid": grade_item_id,
-        "itemnumber": 0,
-        "grades[0][studentid]": userid,
-        "grades[0][grade]": grade,
-    }
-    _call("core_grades_update_grades", params, method="POST")
-    log.info("Quiz grade pushed: userid=%s grade=%s", userid, grade)
+# def save_quiz_grade(
+#     grade_item_id: int,
+#     userid: int,
+#     grade: float,
+#     feedback: str,
+#     course_id: int = 0,
+# ) -> None:
+#     params = {
+#         "source": "quiz",
+#         "courseid": course_id,
+#         "component": "mod_quiz",
+#         "activityid": grade_item_id,
+#         "itemnumber": 0,
+#         "grades[0][studentid]": userid,
+#         "grades[0][grade]": grade,
+#         "grades[0][feedback]": feedback,
+#         "grades[0][feedbackformat]": 1,
+#     }
+#     _call("core_grades_update_grades", params, method="POST")
+#     log.info("Quiz grade pushed: userid=%s grade=%s", userid, grade)
 
 def get_objective_score_from_attempt(attempt_id: int) -> float:
     """
