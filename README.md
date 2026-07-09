@@ -14,15 +14,11 @@ The complete grading pipeline is:
 
 ```text
 AI-Grading-Prototype/
-│
-├── grader.py
 ├── worker.py
 ├── moodle_quiz_producer.py
 ├── moodle_client.py
 ├── grading_logger.py
-├── grading_guide_quiz.json
-├── producer.py                 # Legacy input.json mode
-├── input.json                  # Legacy testing mode
+├── grading_guide_quiz.json              
 ├── output.json
 ├── grading_log.json
 ├── requirements.txt
