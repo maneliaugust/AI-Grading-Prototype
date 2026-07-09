@@ -352,27 +352,6 @@ def save_quiz_essay_grade(
         "Essay question graded: attempt=%s slot=%s result=%s",
         attempt_id, slot, result,
     )
-    
-# def save_quiz_grade(
-#     grade_item_id: int,
-#     userid: int,
-#     grade: float,
-#     feedback: str,
-#     course_id: int = 0,
-# ) -> None:
-#     params = {
-#         "source": "quiz",
-#         "courseid": course_id,
-#         "component": "mod_quiz",
-#         "activityid": grade_item_id,
-#         "itemnumber": 0,
-#         "grades[0][studentid]": userid,
-#         "grades[0][grade]": grade,
-#         "grades[0][feedback]": feedback,
-#         "grades[0][feedbackformat]": 1,
-#     }
-#     _call("core_grades_update_grades", params, method="POST")
-#     log.info("Quiz grade pushed: userid=%s grade=%s", userid, grade)
 
 def get_objective_score_from_attempt(attempt_id: int) -> float:
     """
