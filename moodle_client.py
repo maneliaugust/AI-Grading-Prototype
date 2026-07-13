@@ -343,7 +343,7 @@ def save_quiz_essay_grade(
     }
 
     result = _call(
-        "local_aigrader_set_essay_grade",
+        "local_grades_set_essay_grade",
         params,
         method="POST",
     )
