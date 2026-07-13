@@ -176,7 +176,7 @@ Gemini AI grading
           │
 Essay marks returned
           ▼
-local_aigrader_set_essay_grade
+local_grades_set_essay_grade
           │
 Manual grading
           │
@@ -200,7 +200,7 @@ core_user_get_users
 
 core_webservice_get_site_info
 
-local_aigrader_set_essay_grade
+local_grades_set_essay_grade
 ```
 
 ---
@@ -210,7 +210,7 @@ local_aigrader_set_essay_grade
 This project includes a Moodle local plugin exposing the custom web service:
 
 ```
-local_aigrader_set_essay_grade
+local_grades_set_essay_grade
 ```
 
 The service:
@@ -340,7 +340,7 @@ Moodle
             Google Gemini
                  │
                  ▼
-      local_aigrader Plugin
+      local_grades Plugin
                  │
                  ▼
         Moodle Question Engine
