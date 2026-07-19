@@ -166,7 +166,7 @@ def get_submission_text(submission: dict, tmp_dir: str = "tmp_submissions") -> s
 
 
 # ---------------------------------------------------------------------------
-# User lookup (idnumber <-> Moodle userid mapping)
+# User lookup (idnumber / username <-> Moodle userid mapping)
 # ---------------------------------------------------------------------------
 
 def get_user_by_idnumber(idnumber: str) -> Optional[dict]:
@@ -182,11 +182,19 @@ def get_user_by_idnumber(idnumber: str) -> Optional[dict]:
     return users[0] if users else None
 
 
-def get_idnumber_for_userid(userid: int, user_cache: Optional[dict] = None) -> Optional[str]:
+def _get_user_record(userid: int, user_cache: Optional[dict] = None) -> Optional[dict]:
     """
-    Reverse lookup: Moodle userid -> idnumber (e.g. u12345678).
-    Pass a user_cache dict ({userid: idnumber}) to avoid repeat API calls
-    when processing many submissions from the same batch.
+    Internal helper: Moodle userid -> full user record (dict), cached.
+
+    Pass a user_cache dict ({userid: user_record}) to avoid repeat API
+    calls when processing many submissions from the same batch. This
+    cache stores the FULL user dict (not just idnumber), so both
+    get_idnumber_for_userid() and get_username_for_userid() can share
+    a single lookup per user.
+
+    NOTE: if you were previously relying on user_cache holding a bare
+    idnumber string (e.g. reading user_cache[userid] directly elsewhere),
+    that call site needs updating too — it now holds a dict.
     """
     if user_cache is not None and userid in user_cache:
         return user_cache[userid]
@@ -199,12 +207,55 @@ def get_idnumber_for_userid(userid: int, user_cache: Optional[dict] = None) -> O
         },
     )
     users = data.get("users", [])
-    idnumber = users[0].get("idnumber") if users else None
+    record = users[0] if users else None
 
     if user_cache is not None:
-        user_cache[userid] = idnumber
+        user_cache[userid] = record
 
-    return idnumber
+    return record
+
+
+def get_idnumber_for_userid(userid: int, user_cache: Optional[dict] = None) -> Optional[str]:
+    """
+    Reverse lookup: Moodle userid -> idnumber (e.g. u12345678).
+    Returns None if the account has no idnumber set.
+    """
+    record = _get_user_record(userid, user_cache)
+    return record.get("idnumber") if record else None
+
+
+def get_username_for_userid(userid: int, user_cache: Optional[dict] = None) -> Optional[str]:
+    """
+    Reverse lookup: Moodle userid -> username (e.g. anelisa-mjoni).
+    Useful as a fallback learner_id when idnumber isn't set.
+    """
+    record = _get_user_record(userid, user_cache)
+    return record.get("username") if record else None
+
+
+def get_learner_id_for_userid(userid: int, user_cache: Optional[dict] = None) -> tuple[Optional[str], str]:
+    """
+    Convenience wrapper for producer scripts: returns the best available
+    learner identifier for a Moodle userid, preferring idnumber and
+    falling back to username.
+
+    Returns:
+        (learner_id, source) where source is "idnumber", "username", or
+        "none" (learner_id will be None in the "none" case).
+    """
+    record = _get_user_record(userid, user_cache)
+    if not record:
+        return None, "none"
+
+    idnumber = record.get("idnumber")
+    if idnumber:
+        return idnumber, "idnumber"
+
+    username = record.get("username")
+    if username:
+        return username, "username"
+
+    return None, "none"
 
 
 # ---------------------------------------------------------------------------
@@ -232,12 +283,12 @@ def save_grade(
     }
     _call("mod_assign_save_grade", params, method="POST")
     log.info("Saved grade %s for userid=%s on assignment=%s", grade, userid, assignment_id)
-    
+
 
 #---------------------------------------------------------------------------
 # Quiz functions (add to moodle_client.py)
 # ---------------------------------------------------------------------------
- 
+
 def get_quiz_id_by_course(course_id: int) -> Optional[dict]:
     """Return the first quiz found in a course, with its id and name."""
     data = _call(
@@ -246,8 +297,8 @@ def get_quiz_id_by_course(course_id: int) -> Optional[dict]:
     )
     quizzes = data.get("quizzes", [])
     return quizzes[0] if quizzes else None
- 
- 
+
+
 def get_quiz_attempts(quiz_id: int, userid: int) -> list[dict]:
     """Return all finished attempts for a given user on a quiz."""
     data = _call(
@@ -259,12 +310,12 @@ def get_quiz_attempts(quiz_id: int, userid: int) -> list[dict]:
         },
     )
     return data.get("attempts", [])
- 
- 
+
+
 def extract_essay_responses_from_attempt(attempt_id: int) -> list[dict]:
     """
     Fetch a finished quiz attempt and extract essay question responses.
- 
+
     Returns a list of dicts, one per essay question:
         {
             "slot": int,           # question slot number (1-based)
@@ -275,31 +326,56 @@ def extract_essay_responses_from_attempt(attempt_id: int) -> list[dict]:
         }
     """
     from bs4 import BeautifulSoup
- 
+
     data = _call(
         "mod_quiz_get_attempt_review",
         {"attemptid": attempt_id},
     )
- 
+
     essay_responses = []
- 
+
     for q in data.get("questions", []):
         if q.get("type") != "essay":
             continue
         if q.get("state") not in ("needsgrading", "manualgraded", "complete"):
             continue
- 
+
         html = q.get("html", "")
         soup = BeautifulSoup(html, "html.parser")
- 
+
         # Extract question text (inside .qtext div)
         qtext_div = soup.select_one(".qtext")
         question_text = qtext_div.get_text(separator=" ", strip=True) if qtext_div else ""
- 
-        # Extract learner response (inside <textarea>)
-        textarea = soup.find("textarea")
-        response_text = textarea.get_text(strip=True) if textarea else ""
- 
+
+        # Extract learner response. In a finished/reviewed attempt, Moodle
+        # renders the essay answer as read-only HTML inside a div with
+        # class "qtype_essay_response" (confirmed against live Moodle 5.3
+        # output: role="textbox" aria-readonly="true" ... class="qtype_essay_editor
+        # qtype_essay_response readonly"). A <textarea> only appears while
+        # an attempt is still in progress and editable, so we try that as
+        # a fallback for completeness rather than relying on it.
+        response_text = ""
+
+        response_div = soup.select_one(".qtype_essay_response")
+        if response_div:
+            response_text = response_div.get_text(separator=" ", strip=True)
+
+        if not response_text:
+            pre_tag = soup.find("pre")
+            if pre_tag:
+                response_text = pre_tag.get_text(strip=True)
+
+        if not response_text:
+            textarea = soup.find("textarea")
+            if textarea:
+                response_text = textarea.get_text(strip=True)
+
+        if not response_text:
+            answer_div = soup.select_one(".answer")
+            if answer_div:
+                response_text = answer_div.get_text(strip=True)
+
+
         # Extract max marks from the grade div e.g. "Marked out of 10.00"
         grade_div = soup.select_one(".grade")
         max_marks = 0.0
@@ -308,7 +384,7 @@ def extract_essay_responses_from_attempt(attempt_id: int) -> list[dict]:
             match = re.search(r"out of\s+([\d.]+)", grade_div.get_text())
             if match:
                 max_marks = float(match.group(1))
- 
+
         essay_responses.append({
             "slot": q.get("slot"),
             "question_number": q.get("number"),
@@ -316,14 +392,14 @@ def extract_essay_responses_from_attempt(attempt_id: int) -> list[dict]:
             "response_text": response_text,
             "max_marks": max_marks,
         })
- 
+
     log.info(
         "Extracted %d essay response(s) from attempt %s",
         len(essay_responses), attempt_id,
     )
     return essay_responses
- 
- 
+
+
 def save_quiz_essay_grade(
     attempt_id: int,
     slot: int,
