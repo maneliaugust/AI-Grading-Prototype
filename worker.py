@@ -53,8 +53,14 @@ _quiz_grade_accumulator: dict = {}
 
 # Number of essay questions per quiz_id.
 # Update this if you add more essay questions to a quiz.
+# IMPORTANT: if a quiz_id is missing from this dict, QUIZ_ESSAY_COUNT.get()
+# falls back to 1 — meaning the worker will treat the very first essay
+# question graded as the ENTIRE quiz being complete, prematurely closing
+# out the accumulator and mis-firing the "final grade" logic once per
+# question instead of once per attempt. Always add new quizzes here.
 QUIZ_ESSAY_COUNT = {
-    1: 2  # quiz_id 1 has 2 essay questions (Q11 and Q12)
+    1: 2,  # quiz_id 1 has 2 essay questions (Q11 and Q12)
+    7: 8,  # quiz_id 7 has 8 essay questions (Q1-Q8, Business Analysis)
 }
 
 
@@ -260,7 +266,7 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
 
                     # QUIZ FLOW — accumulate, then push when all essays done
                     elif moodle_quiz_id is not None and moodle_attempt_id is not None:
-                        
+
                         # Grade this essay question in Moodle immediately.
                         moodle_client.save_quiz_essay_grade(
                             attempt_id=moodle_attempt_id,
@@ -300,6 +306,15 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                                 total,
                             )
 
+                            # NOTE: this only LOGS the computed grand total.
+                            # It does not currently write `total` to Moodle's
+                            # gradebook — only the per-slot essay grades
+                            # (via save_quiz_essay_grade above) are actually
+                            # pushed to Moodle. If a combined quiz gradebook
+                            # entry is needed, add the appropriate
+                            # moodle_client call here (e.g. a grade-item
+                            # write via the gradebook API or a custom
+                            # local_grades endpoint) before this log line.
                             log.info(
                                 "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, final=%s)",
                                 learner_id, moodle_userid, moodle_quiz_id, total,
