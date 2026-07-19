@@ -10,6 +10,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -170,19 +171,59 @@ def build_prompt(course_name: str, submission: dict, top: dict) -> str:
 
 
 def grade_submission(client: genai.Client, prompt: str, config: types.GenerateContentConfig, model_name: str) -> dict:
-    """Send the prompt to Gemini and parse the JSON response. Retries on 503."""
+    """
+    Send the prompt to Gemini and parse the JSON response.
+
+    Retries on:
+      - 503 (model overloaded) — short, linear backoff.
+      - 429 / RESOURCE_EXHAUSTED (rate limit) — longer backoff, honoring the
+        API's own `retryDelay` when present in the error message.
+
+    Does NOT retry on a 429 that is specifically the DAILY quota
+    (GenerateRequestsPerDayPerProjectPerModel-FreeTier), since that won't
+    clear for hours — retrying just burns time. That case raises
+    immediately so the caller can decide what to do (stop, alert, requeue
+    for later, etc.).
+    """
     max_retries = 5
+    response = None
+
     for attempt in range(max_retries):
         try:
             response = client.models.generate_content(model=model_name, contents=prompt, config=config)
             break
         except Exception as e:
-            if "503" in str(e) and attempt < max_retries - 1:
-                wait = 10 * (attempt + 1)
-                log.warning("Model overloaded, retrying in %ds (attempt %d/%d)...", wait, attempt + 1, max_retries)
+            err_str = str(e)
+            is_overloaded = "503" in err_str
+            is_rate_limited = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
+            is_daily_quota = "GenerateRequestsPerDayPerProjectPerModel" in err_str
+
+            if is_daily_quota:
+                log.error("Daily Gemini quota exhausted — not retrying. %s", err_str)
+                raise
+
+            if (is_overloaded or is_rate_limited) and attempt < max_retries - 1:
+                # Prefer the API's own suggested delay if present, e.g.
+                # "'retryDelay': '39s'" in the error payload.
+                match = re.search(r"retryDelay['\"]?:\s*['\"]?(\d+(?:\.\d+)?)s", err_str)
+                if match:
+                    wait = float(match.group(1)) + 1  # small buffer
+                elif is_rate_limited:
+                    wait = 15 * (attempt + 1)  # per-minute quota needs longer waits
+                else:
+                    wait = 10 * (attempt + 1)  # 503 overloaded — shorter waits ok
+
+                reason = "rate limited (429)" if is_rate_limited else "overloaded (503)"
+                log.warning("Model %s, retrying in %.0fs (attempt %d/%d)...", reason, wait, attempt + 1, max_retries)
                 time.sleep(wait)
             else:
                 raise
+
+    if response is None:
+        # Should be unreachable (loop always breaks or raises), but guards
+        # against a silent fall-through leaving `response` undefined.
+        raise RuntimeError("grade_submission: exhausted retries without a response or a raised exception.")
+
     raw_text = response.text.strip()
 
     # Strip markdown fences if the model wraps output anyway

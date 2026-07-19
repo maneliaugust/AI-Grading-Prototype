@@ -71,6 +71,14 @@
       "total_submissions": 18,
       "graded_count": 18,
       "error_count": 0
+    },
+    {
+      "course_name": "Business Analysis",
+      "assignment_name": "Quiz 7 — Q1",
+      "graded_at": "2026-07-19T03:21:51.797541+02:00",
+      "total_submissions": 32,
+      "graded_count": 21,
+      "error_count": 11
     }
   ],
   "results": [
@@ -4968,6 +4976,616 @@
           }
         ]
       }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work on your stakeholder analysis! You've demonstrated a strong understanding of how to identify and categorize stakeholders for a complex project like the Data Analytics Platform. Your detailed breakdown of each stakeholder's role, influence, and interest, coupled with the explicit mention of the power-interest grid, is very thorough. To enhance your response further, consider providing a brief example of how the output of the power-interest grid directly translates into specific engagement strategies for one or two stakeholder groups. For instance, how would you 'manage closely' executive leadership compared to 'keeping informed' clients?",
+        "strengths": [
+          "Demonstrated a deep understanding of stakeholder selection by clearly articulating the basis for choosing each group.",
+          "Provided clear and detailed reasoning for the relevance, impact, influence, and interest of each identified stakeholder.",
+          "Explicitly mentioned and correctly applied the concept of an influence-interest matrix (power-interest grid) to determine stakeholder engagement."
+        ],
+        "improvements": [
+          "While the use of the power-interest grid was mentioned, consider briefly illustrating how the different quadrants of the grid (e.g., high influence/high interest vs. low influence/high interest) would lead to distinct engagement strategies for specific stakeholder groups.",
+          "For future analyses, you could briefly touch upon the specific communication channels or involvement mechanisms you would use for different stakeholder categories based on their influence and interest levels."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The response demonstrates a deep understanding of stakeholder selection, clearly explaining the reasoning behind each choice based on their role and impact. It explicitly includes the use of an influence-interest matrix (power-interest grid) and provides clear details about the relevance, influence, and interest of each stakeholder. The analysis is comprehensive and well-articulated."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides an excellent and comprehensive strategy for engaging high-power, low-interest stakeholders. You clearly identified the type of stakeholders and offered specific, actionable methods like executive summaries and selective engagement for critical decisions. Your explanation of why this approach is important is very strong, directly linking to resource allocation, strategic support, and overall project success. To make an already outstanding answer even more robust, consider briefly mentioning the typical frequency or cadence of these targeted updates (e.g., 'monthly executive briefings' or 'quarterly dashboards') to further define the 'targeted' nature of your communication.",
+        "strengths": [
+          "Clearly identifies high-power, low-interest stakeholders and their characteristics.",
+          "Provides comprehensive and specific strategies for engagement (e.g., concise, high-level updates, executive summaries, dashboards, selective engagement for critical decisions).",
+          "Offers solid reasoning for the importance of these strategies, linking them directly to project success, resource allocation, and organizational support."
+        ],
+        "improvements": [
+          "Consider adding a brief mention of the typical frequency or cadence of the targeted updates (e.g., monthly, quarterly) to further specify the communication plan."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer provides a comprehensive strategy with clear steps for engaging high-power, low-interest stakeholders, including specific examples like executive summaries and dashboards. The importance of the strategy is explained with solid reasoning, detailing how it benefits the project by securing backing, preventing surprises, and ensuring organizational support. This response fully meets the criteria for 5 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear, logical, and comprehensive step-by-step process for addressing late stakeholder concerns. The inclusion of formal change management and the plan to integrate the stakeholder into future communication are particularly strong points. To enhance your assessment step, consider briefly mentioning specific types of impact analysis (e.g., on budget, schedule, quality) that would inform your decision-making. While you mention updating documentation, specifying which key documents (e.g., Stakeholder Register, Project Plan, Risk Register) would be updated could add further detail and demonstrate a deeper understanding of project controls.",
+        "strengths": [
+          "Provides a clear, logical, and comprehensive step-by-step process for addressing late stakeholder concerns.",
+          "Effectively includes formal change management as a critical step.",
+          "Demonstrates foresight by planning to integrate the stakeholder into future communication and engagement plans."
+        ],
+        "improvements": [
+          "To enhance the assessment step, consider briefly mentioning specific types of impact analysis (e.g., on budget, schedule, quality) that would inform decision-making.",
+          "While updating documentation is mentioned, specifying which key documents (e.g., Stakeholder Register, Project Plan, Risk Register) would be updated could add further detail and demonstrate a deeper understanding of project controls."
+        ],
+        "requires_human_review": true,
+        "human_review_reason": "The phrase 'Ask ChatGPT' at the end of the submission suggests potential use of an AI tool for generating the response. This requires review for academic integrity.",
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a well-structured and detailed approach, covering listening, assessment, communication, formal change management, and future stakeholder integration, aligning perfectly with the criteria for a 4-mark answer."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 3.75,
+        "max_grade": 4.0,
+        "percentage": 93.75,
+        "grade_label": "Very Good",
+        "feedback": "Your response effectively demonstrates a strong understanding of how stakeholder engagement directly contributes to the success of a Data Analytics Platform (DAP) implementation. You clearly explained how working closely with stakeholders helps align requirements with business goals and ensures the platform delivers meaningful value. The use of specific examples, such as conducting workshops and interviews, mapping requirements to strategic objectives (e.g., automated data cleaning for efficiency, access controls for privacy), and holding regular review sessions, is particularly effective.\n\nTo further enhance your answer, consider explicitly discussing how stakeholder engagement can also *prevent risks*. For instance, you could mention how early and continuous engagement helps avoid scope creep, reduces rework, or mitigates the risk of building a solution that doesn't meet critical user or business needs. Incorporating this aspect would make your already excellent answer even more comprehensive and fully address all facets of the rubric.",
+        "strengths": [
+          "Clearly demonstrates how stakeholder engagement contributes to DAP success by aligning requirements with business goals.",
+          "Provides specific and relevant examples of engagement activities (workshops, interviews, review sessions) and their outcomes (capturing functional/non-functional needs, ensuring traceability).",
+          "Effectively explains how engagement improves outcomes and aligns stakeholders with the project vision."
+        ],
+        "improvements": [
+          "Explicitly discuss how stakeholder engagement can prevent risks in DAP implementation, such as avoiding scope creep or mitigating the risk of building misaligned features.",
+          "Ensure all aspects of the rubric's criteria, including risk prevention, are directly addressed for a fully comprehensive answer."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 3.75,
+            "marks_available": 4.0,
+            "comment": "The response provides a clear and detailed connection between stakeholder engagement and DAP success, effectively explaining how it improves outcomes and aligns stakeholders with specific examples. The explanation of how engagement can prevent risks is implied through thorough requirements management but could benefit from more explicit discussion to achieve full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a comprehensive and well-structured explanation of how you ensured requirements alignment. You clearly articulated a step-by-step process, from understanding strategic objectives to ongoing validation. To further enhance your response, consider briefly mentioning specific tools or documentation methods (e.g., a traceability matrix) used to maintain the mapping of requirements to business goals. Additionally, you could touch upon how changes to evolving priorities were managed, perhaps through a formal change control process, to ensure continued alignment throughout the project lifecycle.",
+        "strengths": [
+          "You provided a clear, step-by-step approach, detailing how you engaged stakeholders, gathered requirements, and mapped them directly to business goals.",
+          "The inclusion of specific examples, such as linking automated data cleaning to efficiency and access controls to data privacy, effectively illustrates your methodology.",
+          "You highlighted the importance of ongoing validation through regular review sessions, demonstrating a continuous commitment to alignment."
+        ],
+        "improvements": [
+          "Briefly mention specific tools or documentation methods (e.g., a traceability matrix) used to maintain the mapping of requirements to business goals.",
+          "Consider adding a brief note on how changes to evolving priorities were managed, perhaps through a formal change control process, to ensure continued alignment."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer provides a clear, step-by-step approach to ensuring requirements align with the client’s goals. The methodology for review and confirmation (e.g., client meetings, stakeholder feedback, documentation review) is well articulated and directly tied to the client’s objectives, perfectly matching the '5 marks' description. The specific examples provided further strengthen the response."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response is exceptionally well-structured and comprehensive. You've not only identified a strong set of relevant challenges but also provided practical, detailed, and actionable strategies to overcome each one. This demonstrates a deep understanding of the complexities involved in defining functional requirements. To further enhance your approach, consider how visual aids or prototyping could be integrated into your strategy for addressing the 'difficulty articulating needs,' as these can often bridge communication gaps even more effectively than verbal scenarios alone.",
+        "strengths": [
+          "Comprehensive identification of relevant challenges in defining functional requirements.",
+          "Provided specific, detailed, and actionable strategies to overcome each identified challenge.",
+          "Demonstrated a strong understanding of practical business analysis techniques (e.g., workshops, MVP, MoSCoW, change management)."
+        ],
+        "improvements": [
+          "Consider integrating visual aids or prototyping techniques when addressing the challenge of stakeholders struggling to articulate their needs, as these can often provide clearer understanding than verbal descriptions alone."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, detailed explanation of five specific challenges (conflicting stakeholder needs, difficulty articulating needs, scope creep, technical constraints, hidden dependencies). For each challenge, concrete and appropriate steps are presented to resolve them (e.g., workshops, scenario-based questions, MVP/MoSCoW/change management, involving technical experts, process mapping/domain experts). This fully meets the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides an exceptionally clear, practical, and comprehensive approach to addressing a missing key requirement. You've outlined a robust process that covers stakeholder engagement, impact assessment, formal change management, communication, documentation updates, and validation, demonstrating a strong understanding of business analysis best practices. To make an already excellent answer even more robust, consider explicitly mentioning the importance of re-evaluating project risks after a new requirement is incorporated, as changes can introduce new uncertainties.",
+        "strengths": [
+          "Outlines a clear, practical, and comprehensive step-by-step approach to addressing a missing requirement.",
+          "Includes critical steps such as stakeholder engagement, impact assessment, formal change request, communication, and documentation updates.",
+          "Demonstrates a strong understanding of the change management process within a project context."
+        ],
+        "improvements": [
+          "While excellent, you could briefly mention the importance of re-evaluating project risks after a new requirement is incorporated, as changes can introduce new uncertainties."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The answer outlines a clear, practical, and comprehensive approach. It includes stakeholder consultations, impact assessment, formal change request, communication with affected parties, updating the BRD and related documents, and ensuring development and validation. This fully meets and exceeds the criteria for 3 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response demonstrates an excellent understanding of stakeholder analysis. You effectively identified a comprehensive list of relevant stakeholders for the Data Analytics Platform project and consistently applied the influence-interest matrix to categorize each one. The justifications provided for each stakeholder's power and interest level are clear, concise, and directly link to their role and impact on the project, showcasing a deep understanding of their relevance.\n\nTo further enhance your responses in the future, consider adding a brief introductory statement that outlines the general methodology or criteria you used to initially identify and then categorize these stakeholders. For example, mentioning that you considered their decision-making authority, resource control, and direct involvement in the project's success would explicitly address the 'how did you determine' aspect of the question with even greater depth.",
+        "strengths": [
+          "Comprehensive identification of relevant stakeholders for the project.",
+          "Consistent and accurate application of the influence-interest matrix for each stakeholder.",
+          "Clear, concise, and well-reasoned justifications for each stakeholder's assigned power and interest levels."
+        ],
+        "improvements": [
+          "Include a brief introductory statement outlining the general methodology or criteria used to identify and categorize stakeholders, further elaborating on 'how' their levels were determined."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer demonstrates a deep understanding of stakeholder selection by identifying a comprehensive list of relevant parties. The use of an influence-interest matrix is clearly evident and consistently applied for each stakeholder. The reasoning behind the choices for both selection and their assigned power/interest levels is well-explained and logical. The response provides clear and concise details about the relevance and impact of each stakeholder on the Data Analytics Platform project."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "graded",
+      "grading": {
+        "score": 4.5,
+        "max_grade": 5.0,
+        "percentage": 90.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response effectively identifies high-power, low-interest stakeholders and proposes a clear, relevant strategy for engaging them. You also provide strong reasoning for why this engagement is important, linking it to their power and potential project impacts. To achieve full marks, consider including more specific, illustrative examples of how your proposed strategy directly leads to project benefits in practice. For instance, describe a hypothetical scenario where early risk notification prevented a specific delay or mitigated a compliance issue. Additionally, you could briefly elaborate on the process for identifying what constitutes 'important information' for these specific stakeholders to ensure updates are always relevant and impactful without overwhelming them.",
+        "strengths": [
+          "Clearly identifies relevant high-power, low-interest stakeholders (regulators, DAP vendor).",
+          "Proposes a concise and appropriate communication strategy (regular, brief updates; early risk notification) tailored to their interest level and power.",
+          "Provides strong reasoning for the importance of this engagement, linking it directly to the stakeholders' power and potential project impacts (e.g., regulators stopping the project, vital vendor support)."
+        ],
+        "improvements": [
+          "Include more specific, illustrative examples of how the proposed engagement strategy directly benefits the project (e.g., a hypothetical situation where early risk notification prevented a specific delay or mitigated a compliance issue).",
+          "Briefly elaborate on the process for identifying what constitutes 'important information' for these specific stakeholders, ensuring updates are always relevant and impactful without overwhelming them."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 4.5,
+            "marks_available": 5.0,
+            "comment": "The learner provides a clear and relevant strategy for engaging high-power, low-interest stakeholders, including specific examples of such stakeholders. The strategy of regular, concise updates and early risk notification is well-articulated. The explanation of importance is strong, detailing the power of these stakeholders and potential project impacts. To achieve full marks, the response could benefit from more explicit examples demonstrating *how* the strategy in action directly leads to the stated project benefits (e.g., a hypothetical scenario where early notification prevented a specific issue), which is a key component of the 5-mark criterion."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear, step-by-step approach, effectively demonstrating how to manage late stakeholder concerns. The inclusion of specific tools like the Power-Interest Grid and the emphasis on updating key project documentation are particularly strong, showing a comprehensive understanding of stakeholder management. To further enhance your response, consider elaborating on the formal process for integrating any necessary project adjustments that might arise from these concerns, such as how changes would be proposed, reviewed, and approved through a change control process. Additionally, you could briefly touch upon how you would prioritize and manage potential conflicts that might arise if the new stakeholder's concerns clash significantly with existing project objectives or other stakeholder interests.",
+        "strengths": [
+          "Provides a well-structured and detailed approach to managing late stakeholder concerns.",
+          "Effectively uses specific tools like the Power-Interest Grid for impact assessment.",
+          "Emphasizes updating key project documentation (stakeholder register, communication plan, risk log)."
+        ],
+        "improvements": [
+          "Elaborate on the formal process for integrating project adjustments (e.g., change control process).",
+          "Briefly discuss how to prioritize and manage potential conflicts if new concerns clash with existing objectives."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a well-structured and detailed approach, covering acknowledgment, assessment using the Power-Interest Grid, analysis, communication with key stakeholders, and documentation updates. It clearly outlines actionable steps and demonstrates a thorough understanding of managing late stakeholder concerns, aligning perfectly with the 4-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a very clear, detailed, and logical explanation of how stakeholder engagement impacts the success of DAP implementation. You effectively cover how it helps address needs, builds support, improves decision-making, fosters trust, and ultimately leads to better project outcomes like on-time delivery and meeting expectations. To make an already excellent answer even more robust, you could consider briefly illustrating one of your points with a specific, hypothetical example of how a particular stakeholder group (e.g., business users, IT, data analysts) might be engaged in a DAP project and the direct positive impact of that engagement. This would add an extra layer of practical detail.",
+        "strengths": [
+          "Provides a clear, detailed, and logical explanation of the connection between stakeholder engagement and DAP success.",
+          "Effectively covers how engagement prevents risks (overcoming challenges, fewer surprises), improves outcomes (better decision-making, smoother communication, on-time delivery, meeting expectations), and aligns stakeholders (addressing needs, building support, trust, commitment, motivation)."
+        ],
+        "improvements": [
+          "Consider adding a brief, specific, hypothetical example of how a particular stakeholder group's engagement in a DAP project directly leads to one of the mentioned benefits (e.g., involving business users in defining dashboard requirements to ensure the DAP meets their analytical needs)."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation. It provides a logical explanation of how engagement can prevent risks ('overcome any challenges', 'fewer surprises'), improve outcomes ('better decision-making', 'smoother communication', 'delivered on time, within scope, and meet everyone’s expectations'), and align stakeholders with the project ('ensure everyone’s needs and concerns are addressed', 'support the project', 'build trust and commitment', 'motivated to work together'). The response fully meets the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "graded",
+      "grading": {
+        "score": 3.2,
+        "max_grade": 5.0,
+        "percentage": 64.0,
+        "grade_label": "Needs Improvement",
+        "feedback": "Your response effectively outlines several key methods for ensuring requirements alignment, such as tracing requirements to objectives and validating against pain points. To further enhance your answer, consider providing more specific details on the methodologies used for review and confirmation, and how client feedback was formally integrated into these processes.",
+        "strengths": [
+          "Clearly articulates effective techniques for ensuring alignment, including tracing requirements to specific objectives and validating them against key pain points.",
+          "Provides concrete examples for both client objectives (e.g., automating data ingestion, real-time analytics) and pain points (e.g., manual data cleaning, disconnected data sources), demonstrating a good understanding of the client's context."
+        ],
+        "improvements": [
+          "To strengthen the explanation of *how* alignment was ensured, detail the specific methods used for review and confirmation. For instance, mentioning client workshops, stakeholder interviews, or formal sign-off processes would provide a clearer step-by-step approach to integrating client feedback.",
+          "While you mentioned prioritizing features, elaborating on the criteria or process used for prioritization (e.g., using a MoSCoW matrix, cost-benefit analysis, or stakeholder voting) would add more depth to your methodology."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 3.2,
+            "marks_available": 4.0,
+            "comment": "The answer mentions the alignment process (tracing, reviewing, prioritizing) and provides good examples of objectives and pain points. However, it lacks specific details on the methodology for review and confirmation, particularly how client feedback was integrated or the specific mechanisms used for validation (e.g., client meetings, formal sign-offs). This aligns with the '4 marks' description in the rubric, which translates to 3.2 points out of 4.0 for this criterion."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a comprehensive and well-articulated explanation of the challenges faced when defining functional requirements and offers concrete, actionable strategies to overcome them. You've clearly demonstrated a strong understanding of the topic.",
+        "strengths": [
+          "You clearly identified specific and relevant challenges, such as unclear/conflicting stakeholder needs and changing requirements mid-project.",
+          "You provided a detailed and practical set of solutions, including structured requirement-gathering techniques, prioritization, traceability matrices, and regular validation sessions, which directly address the identified challenges."
+        ],
+        "improvements": [
+          "To further enhance your response, consider briefly elaborating on the *impact* or *root cause* of each challenge. For example, why do stakeholder needs become unclear or conflicting?",
+          "While your solutions are excellent, explicitly linking each solution to the specific challenge it mitigates could make your argument even more precise and demonstrate a deeper cause-and-effect understanding."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, detailed explanation of specific challenges (unclear/conflicting stakeholder needs, difficulty translating business goals, changing requirements) and presents concrete steps taken to resolve them (structured gathering techniques, prioritization, traceability matrix, validation sessions). This fully meets the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides a solid foundation by clearly defining each type of requirement and explaining several key reasons why distinguishing them is important, such as guiding technical teams and reducing scope creep. To enhance your answer further, consider providing specific, concrete examples for each requirement type and illustrate how their distinction directly impacts the BRD's effectiveness or project outcomes. For instance, you could elaborate on a scenario where failing to distinguish between a business goal and a functional feature could lead to project misalignment or stakeholder dissatisfaction.",
+        "strengths": [
+          "Clearly defines business, functional, and non-functional requirements.",
+          "Provides a good explanation of why distinguishing these requirements is important, linking it to stakeholder understanding, guiding technical teams, and reducing scope creep."
+        ],
+        "improvements": [
+          "Include specific examples to illustrate the relevance of distinguishing each requirement type within a BRD and how this directly contributes to project success or stakeholder satisfaction.",
+          "Elaborate further on the potential negative consequences of *not* distinguishing these requirements, to emphasize their crucial nature."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a good explanation of why these distinctions are important, clearly defining each requirement type and linking the distinctions to project scope, technical guidance, and risk reduction. However, it lacks specific examples to fully elaborate on the cruciality and direct relevance to the BRD's impact on project success and stakeholder satisfaction, which would be needed for a full 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "You've provided a very clear and practical approach to addressing a missing key requirement, effectively outlining essential steps from stakeholder verification to communication. To make your response even more comprehensive, you could briefly mention specific roles or individuals (e.g., project sponsor, key business stakeholders) who would be involved in reviewing and approving the updated document.",
+        "strengths": [
+          "Clearly outlines a logical and comprehensive sequence of steps to address a missing requirement.",
+          "Includes critical actions such as stakeholder verification, document updates, impact assessment, and communication."
+        ],
+        "improvements": [
+          "Consider elaborating on the specific roles or individuals involved in the approval process for the updated document."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The learner's response outlines a clear, practical approach that includes verifying with stakeholders, updating the document, assessing project impact, and communicating changes to the team. This directly aligns with the criteria for full marks, demonstrating a comprehensive understanding of the necessary steps."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "graded",
+      "grading": {
+        "score": 3.5,
+        "max_grade": 5.0,
+        "percentage": 70.0,
+        "grade_label": "Proficient",
+        "feedback": "You clearly identified the use of a stakeholder analysis matrix and listed relevant factors such as decision-making power, resource control, and how the project affects their goals for assessing influence and interest. To enhance your response, consider identifying specific stakeholders relevant to a hypothetical project and explaining the unique reasoning behind choosing each of them. Additionally, for each specific stakeholder, elaborate on how their decision-making power, resource control, or project goals were considered when placing them on the influence-interest matrix, perhaps with concrete examples.",
+        "strengths": [
+          "Clearly identified the use of a stakeholder analysis matrix.",
+          "Listed relevant factors (decision-making power, resource control, project impact on goals) for assessing influence and interest."
+        ],
+        "improvements": [
+          "Identify specific stakeholders relevant to a project and explain why each of them was chosen based on their unique roles, responsibilities, or impact.",
+          "For each specific stakeholder, elaborate on how their decision-making power, resource control, or project goals were considered when placing them on the influence-interest matrix, providing concrete examples."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 3.5,
+            "marks_available": 5.0,
+            "comment": "The response correctly identifies the use of a stakeholder analysis matrix and lists relevant factors for determining influence and interest (decision-making power, resource control, project impact on goals). However, it lacks specificity in explaining *why specific* stakeholders were chosen, as no particular stakeholders are mentioned. The reasoning for selection is therefore general rather than detailed, preventing a higher score."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides a clear and relevant set of strategies for engaging high-power, low-interest stakeholders, and you've articulated well why this engagement is crucial for project success. To elevate your answer further, consider providing specific examples of how these strategies would be implemented in a real-world scenario. For instance, for 'involve them in key decisions,' you could specify what types of decisions or what format of involvement would be appropriate without overwhelming them.",
+        "strengths": [
+          "Clearly identified relevant strategies for high-power, low-interest stakeholders.",
+          "Provided solid reasoning for the importance of engaging these stakeholders."
+        ],
+        "improvements": [
+          "Include specific examples to illustrate how each strategy would be put into action.",
+          "Elaborate on the practical application of 'involve them in key decisions' to ensure it aligns with their low-interest profile."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 4.0,
+            "marks_available": 5.0,
+            "comment": "The answer presents a clear strategy with good reasoning for engaging high-power, low-interest stakeholders. The strategies (concise updates, involvement in key decisions, aligning with goals) are appropriate. The explanation of importance is also clear and relevant. However, the response lacks specific examples showing the strategy in action or how it concretely benefits a project, which would be required for a full 5 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides a solid foundation for addressing late stakeholder concerns by identifying crucial initial steps like active listening and impact assessment. To enhance your approach, consider detailing the formal process for integrating the new stakeholder, such as updating the stakeholder register and conducting a power/interest analysis. Additionally, elaborating on the 'adjustments to the project' by mentioning specific project management processes like a formal change request procedure or re-prioritization of tasks would make your answer more comprehensive.",
+        "strengths": [
+          "Identifies crucial initial steps like active listening and impact assessment, which are essential for managing late stakeholder concerns effectively."
+        ],
+        "improvements": [
+          "Outline a formal process for integrating the new stakeholder, such as updating the stakeholder register and conducting a power/interest analysis, to make the approach more robust.",
+          "Elaborate on the 'adjustments to the project' by mentioning specific project management processes like a formal change request procedure or re-prioritization of tasks to accommodate new solutions."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The response covers the essential steps to address stakeholder concerns (listen, assess, communicate, integrate solutions, minimize disruption, inform). However, it lacks a few details and could be more clearly structured regarding formal processes for stakeholder integration (e.g., updating stakeholder register, power/interest analysis) and specific project adjustments (e.g., change requests, re-prioritization). This aligns well with the 3-mark description, which notes that the response 'covers the steps to address stakeholder concerns but lacks a few details or may not be as clearly structured,' rather than the 'well-structured and detailed approach' required for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "You've provided an excellent and comprehensive overview of how stakeholder engagement critically impacts DAP implementation success. You clearly identify multiple key benefits such as meeting user needs, gaining support, avoiding resistance, and fostering better decision-making and adoption. To further enhance your response, consider briefly elaborating on *how* one or two of these benefits are achieved through specific engagement activities. For instance, how does involving stakeholders directly lead to \"better decisions\" (e.g., by incorporating diverse perspectives and expertise early in the process)? This would add even more depth to your already strong explanation.",
+        "strengths": [
+          "Clearly identifies multiple key benefits of stakeholder engagement, such as meeting user needs, gaining support, avoiding resistance, and leading to better decisions.",
+          "Makes a direct and logical connection between stakeholder engagement and the success of DAP implementation, covering risk prevention, outcome improvement, and stakeholder alignment."
+        ],
+        "improvements": [
+          "Elaborate on *how* specific engagement activities lead to one or two of the identified positive outcomes (e.g., how stakeholder involvement contributes to 'better decisions')."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation. It provides a logical explanation of how engagement can prevent risks ('avoids resistance'), improve outcomes ('meets real user needs', 'better decisions'), and align stakeholders ('gains support', 'smoother adoption')."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "graded",
+      "grading": {
+        "score": 1.25,
+        "max_grade": 5.0,
+        "percentage": 25.0,
+        "grade_label": "Developing",
+        "feedback": "Your response correctly identifies the client's goals, which is a good starting point for understanding alignment. To improve, focus on detailing the specific methods and steps you would take to *ensure* that requirements align with these goals. For instance, you could describe conducting stakeholder workshops, creating traceability matrices, or holding regular client review meetings to validate requirements against the stated objectives. This would demonstrate a clear process for achieving and confirming alignment.",
+        "strengths": [
+          "You correctly identified the client's goals (improving efficiency, collaboration, and data quality), which shows an understanding of the desired outcomes."
+        ],
+        "improvements": [
+          "The question asks 'How did you ensure...' but your response only states that alignment occurred. You need to describe the specific methodology, steps, or activities you would undertake to achieve and verify this alignment.",
+          "Provide concrete examples of techniques or processes, such as using traceability matrices, conducting stakeholder interviews, facilitating workshops, or obtaining formal sign-offs, to demonstrate how you would actively ensure requirements meet client goals."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 1.0,
+            "marks_available": 4.0,
+            "comment": "The response states that requirements were aligned with client goals but provides no explanation of the methodology or steps taken to ensure this alignment. It lacks depth and specific details on 'how' the alignment was achieved or confirmed, aligning with 'Very limited explanation, with no clear methodology or steps provided.'"
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "graded",
+      "grading": {
+        "score": 3.5,
+        "max_grade": 4.0,
+        "percentage": 87.5,
+        "grade_label": "Very Good",
+        "feedback": "You effectively identified two key challenges in defining functional requirements: stakeholders being unclear about their needs and having conflicting views. Your proposed solutions, such as holding meetings and prioritizing needs, are practical and directly address these issues. To enhance your answer, consider elaborating on *why* these challenges arise. For example, why might stakeholders be unclear, or what causes their views to conflict? For your solutions, try to provide more specific details. Instead of just \"hold meetings,\" you could mention specific techniques like facilitated workshops or one-on-one interviews, and how you would use them to clarify requirements. Similarly, for \"decide which needs are most important,\" you could mention prioritization methods like MoSCoW or Kano.",
+        "strengths": [
+          "Clearly identified two common and significant challenges in defining functional requirements: unclear needs and conflicting stakeholder views.",
+          "Proposed practical and relevant solutions that directly address the identified challenges."
+        ],
+        "improvements": [
+          "Elaborate on *why* the identified challenges occur (e.g., reasons for unclear needs or conflicting views).",
+          "Provide more specific details for the proposed solutions, such as naming specific meeting types (e.g., facilitated workshops) or prioritization techniques (e.g., MoSCoW)."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 3.5,
+            "marks_available": 4.0,
+            "comment": "The response clearly identifies specific challenges (unclear needs, conflicting stakeholder views) and presents concrete steps to overcome them (hold meetings, prioritize needs, consult tech team). While the challenges are specific, the explanation of *why* they occur could be more detailed. The solutions are concrete but could benefit from more specific examples of techniques (e.g., types of workshops, prioritization methods) to achieve full marks."
+          }
+        ]
+      }
     }
   ],
   "errors": [
@@ -5135,6 +5753,61 @@
       "learner_id": "u24688642",
       "status": "error",
       "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 7.260421501s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '7s'}]}}"
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 39.075333491s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}"
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 43.241096594s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}"
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 42.434527461s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}"
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 42.080784696s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}"
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 41.31089067s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '41s'}]}}"
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 40.901070629s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}"
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 40.090620581s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}"
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 39.715563526s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}"
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 38.914464973s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '38s'}]}}"
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 9.066499005s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '9s'}]}}"
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 8.265408334s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '8s'}]}}"
     }
   ]
 }
