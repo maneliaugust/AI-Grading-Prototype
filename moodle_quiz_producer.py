@@ -21,6 +21,14 @@ Each essay question in the quiz becomes a SEPARATE grading job per
 learner — so if there are 2 essay questions and 2 learners, 4 jobs
 are published.
 
+Learner identification: each learner is keyed by their Moodle idnumber
+if one is set on their account. If idnumber is blank, the learner's
+Moodle username is used instead as a fallback so they aren't silently
+skipped. Check the logs for "using username" warnings if you want to
+know which learners fell back to username — worth setting proper
+idnumbers on those accounts eventually for consistency downstream
+(e.g. gradebook write-back, reporting).
+
 Environment variables expected (.env):
     MOODLE_BASE_URL=http://localhost:8080
     MOODLE_TOKEN=your_api_gradingbot_token
@@ -78,13 +86,22 @@ def build_jobs(
     jobs = []
 
     for moodle_userid in learner_userids:
-        idnumber = moodle_client.get_idnumber_for_userid(moodle_userid, user_cache)
-        if not idnumber:
+        # Prefer idnumber; fall back to username if idnumber isn't set
+        # on this account, rather than skipping the learner entirely.
+        learner_id, source = moodle_client.get_learner_id_for_userid(moodle_userid, user_cache)
+
+        if source == "none":
             log.warning(
-                "Skipping userid=%s — no idnumber set on this Moodle account.",
+                "Skipping userid=%s — no idnumber or username available on this Moodle account.",
                 moodle_userid,
             )
             continue
+
+        if source == "username":
+            log.warning(
+                "userid=%s has no idnumber set — using username '%s' as learner_id instead.",
+                moodle_userid, learner_id,
+            )
 
         attempts = moodle_client.get_quiz_attempts(quiz_id, moodle_userid)
         if not attempts:
@@ -94,7 +111,7 @@ def build_jobs(
         # Use the most recent finished attempt
         latest_attempt = sorted(attempts, key=lambda a: a["timefinish"])[-1]
         attempt_id = latest_attempt["id"]
-        log.info("Processing attempt %s for userid=%s (%s)", attempt_id, moodle_userid, idnumber)
+        log.info("Processing attempt %s for userid=%s (%s)", attempt_id, moodle_userid, learner_id)
 
         essay_responses = moodle_client.extract_essay_responses_from_attempt(attempt_id)
 
@@ -118,7 +135,7 @@ def build_jobs(
                 continue
 
             submission_payload = {
-                "learner_id": idnumber,
+                "learner_id": learner_id,
                 "question_text": question_text,
                 "learner_response": essay["response_text"],
                 "max_grade": essay["max_marks"],
@@ -130,6 +147,7 @@ def build_jobs(
                 "_moodle_slot": essay["slot"],
                 "_moodle_question_number": q_num,
                 "_moodle_objective_score": objective_score,
+                "_moodle_learner_id_source": source,  # "idnumber" or "username"
                 # Note: quiz essay grades are pushed back manually/via
                 # Moodle's gradebook rather than per-slot REST — see
                 # moodle_client_quiz_additions.py for details.
@@ -143,7 +161,7 @@ def build_jobs(
             })
             log.info(
                 "  [+] Job queued: %s | Q%s | attempt=%s",
-                idnumber, q_num, attempt_id,
+                learner_id, q_num, attempt_id,
             )
 
     return jobs
