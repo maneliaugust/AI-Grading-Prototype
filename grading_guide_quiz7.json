@@ -1,0 +1,234 @@
+{
+  "1": [
+    {
+      "criterion": "Stakeholder Analysis",
+      "marks": 5.0,
+      "grade_bands": [
+        {
+          "range": "5",
+          "description": "The answer demonstrates a deep understanding of stakeholder selection, includes the use of an influence-interest matrix, and explains the reasoning behind the choices. The response also provides clear details about the relevance and impact of each stakeholder."
+        },
+        {
+          "range": "4",
+          "description": "The answer explains stakeholder selection and uses an influence-interest matrix but lacks some depth or detail in the analysis of stakeholders or the reasoning behind the selection."
+        },
+        {
+          "range": "3",
+          "description": "The answer provides an overview of stakeholder selection, but the use of the influence-interest matrix is not fully explained or the reasoning behind stakeholder choices is somewhat unclear."
+        },
+        {
+          "range": "2",
+          "description": "The answer mentions stakeholder selection but lacks clear reasoning or explanation of the influence-interest matrix. The stakeholders selected might not seem logically connected to the project."
+        },
+        {
+          "range": "1",
+          "description": "The response provides minimal information, with vague or incomplete reasoning about stakeholder selection. The influence-interest matrix is not mentioned or explained."
+        },
+        {
+          "range": "0",
+          "description": "No clear explanation of stakeholder selection or the methodology behind it."
+        }
+      ]
+    }
+  ],
+  "2": [
+    {
+      "criterion": "High-Power, Low-Interest Stakeholders",
+      "marks": 5.0,
+      "grade_bands": [
+        {
+          "range": "5",
+          "description": "The answer provides a comprehensive strategy with clear steps for engaging high-power, low-interest stakeholders. The importance of the strategy is explained with solid reasoning and examples of how it benefits the project."
+        },
+        {
+          "range": "4",
+          "description": "The answer presents a clear strategy with reasoning, but it lacks one or two important details or examples showing the strategy in action."
+        },
+        {
+          "range": "3",
+          "description": "A strategy is mentioned, but it may be incomplete or lacks specific examples. The explanation of why it’s important is generalised."
+        },
+        {
+          "range": "2",
+          "description": "The strategy provided is basic or not fully relevant to high-power, low-interest stakeholders. There is minimal explanation of why it’s important."
+        },
+        {
+          "range": "1",
+          "description": "Very little explanation or vague ideas are given. The strategy is not clear or relevant."
+        },
+        {
+          "range": "0",
+          "description": "No strategy provided or explanation missing."
+        }
+      ]
+    }
+  ],
+  "3": [
+    {
+      "criterion": "Unidentified Stakeholder",
+      "marks": 4.0,
+      "grade_bands": [
+        {
+          "range": "4",
+          "description": "The answer provides a well-structured and detailed approach to managing late stakeholder concerns, addressing the issue through stakeholder meetings, assessments, and adjustments to the project."
+        },
+        {
+          "range": "3",
+          "description": "The response covers the steps to address stakeholder concerns but lacks a few details or may not be as clearly structured."
+        },
+        {
+          "range": "2",
+          "description": "The answer includes some steps to address the concern but lacks clarity or seems incomplete, missing some important considerations."
+        },
+        {
+          "range": "1",
+          "description": "The response is vague, with few actionable steps and no clear process for addressing the concern."
+        },
+        {
+          "range": "0",
+          "description": "No actionable steps provided or a vague and unstructured response."
+        }
+      ]
+    }
+  ],
+  "4": [
+    {
+      "criterion": "Stakeholder Engagement",
+      "marks": 4.0,
+      "grade_bands": [
+        {
+          "range": "4",
+          "description": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation, providing a logical explanation of how engagement can prevent risks, improve outcomes, and align stakeholders with the project."
+        },
+        {
+          "range": "3",
+          "description": "The answer explains the connection but could benefit from further elaboration or more specific examples related to DAP implementation."
+        },
+        {
+          "range": "2",
+          "description": "The explanation is somewhat unclear or lacks direct examples connecting engagement to DAP success."
+        },
+        {
+          "range": "1",
+          "description": "Minimal explanation with no clear connection to DAP or project success."
+        },
+        {
+          "range": "0",
+          "description": "No relevant explanation or connection made."
+        }
+      ]
+    }
+  ],
+  "5": [
+    {
+      "criterion": "Requirements Alignment",
+      "marks": 4.0,
+      "grade_bands": [
+        {
+          "range": "5",
+          "description": "The answer provides a clear, step-by-step approach to ensuring requirements align with the client’s goals. The methodology for review and confirmation (e.g., client meetings, stakeholder feedback, documentation review) is well articulated and directly tied to the client’s objectives."
+        },
+        {
+          "range": "4",
+          "description": "The answer mentions the alignment process but may lack a couple of key details or steps explaining how client feedback was integrated."
+        },
+        {
+          "range": "3",
+          "description": "General alignment process is mentioned, but the answer lacks depth or specific examples. The link to client goals might be unclear."
+        },
+        {
+          "range": "2",
+          "description": "Basic explanation of the alignment process, but missing key steps or lacks sufficient detail."
+        },
+        {
+          "range": "1",
+          "description": "Very limited explanation, with no clear methodology or steps provided."
+        },
+        {
+          "range": "0",
+          "description": "No explanation of the alignment process."
+        }
+      ]
+    }
+  ],
+  "6": [
+    {
+      "criterion": "Functional Requirements Challenges",
+      "marks": 4.0,
+      "grade_bands": [
+        {
+          "range": "4",
+          "description": "The answer provides a clear, detailed explanation of specific challenges (e.g., conflicting stakeholder views, unclear needs) and presents concrete steps taken to resolve them (e.g., workshops, interviews)."
+        },
+        {
+          "range": "3",
+          "description": "The answer identifies challenges but lacks specific details or depth in the steps taken to overcome them."
+        },
+        {
+          "range": "2",
+          "description": "The challenges are mentioned but not fully explained, and the solution is vague or incomplete."
+        },
+        {
+          "range": "1",
+          "description": "Little to no identification of challenges, and no clear steps taken to address them."
+        },
+        {
+          "range": "0",
+          "description": "No challenges identified or solutions presented."
+        }
+      ]
+    }
+  ],
+  "7": [
+    {
+      "criterion": "Distinguish Between Requirements",
+      "marks": 4.0,
+      "grade_bands": [
+        {
+          "range": "4",
+          "description": "The answer provides a clear, well-reasoned explanation of why these distinctions are crucial, linking it to project success and stakeholder satisfaction. Specific examples and their relevance to the BRD are provided."
+        },
+        {
+          "range": "3",
+          "description": "A good explanation, but some details are missing or not fully elaborated. The importance of the distinctions is clear but not as thoroughly explained."
+        },
+        {
+          "range": "2",
+          "description": "Basic explanation without examples or direct connection to the BRD's impact."
+        },
+        {
+          "range": "1",
+          "description": "Minimal explanation with little to no understanding of the distinctions."
+        },
+        {
+          "range": "0",
+          "description": "No explanation provided."
+        }
+      ]
+    }
+  ],
+  "8": [
+    {
+      "criterion": "Missing Key Requirement",
+      "marks": 3.0,
+      "grade_bands": [
+        {
+          "range": "3",
+          "description": "The answer outlines a clear, practical approach to addressing the missing requirement, such as stakeholder consultations, updating the BRD, and communicating with affected parties."
+        },
+        {
+          "range": "2",
+          "description": "A general process is mentioned, but lacks some detail on steps or stakeholders involved in resolving the issue."
+        },
+        {
+          "range": "1",
+          "description": "Very little actionable information is provided, or the approach is unclear."
+        },
+        {
+          "range": "0",
+          "description": "No clear approach or resolution provided."
+        }
+      ]
+    }
+  ]
+}
