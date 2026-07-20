@@ -79,6 +79,14 @@
       "total_submissions": 32,
       "graded_count": 21,
       "error_count": 11
+    },
+    {
+      "course_name": "Business Analysis",
+      "assignment_name": "Quiz 7 — Q7",
+      "graded_at": "2026-07-20T03:30:00.556094+02:00",
+      "total_submissions": 11,
+      "graded_count": 11,
+      "error_count": 0
     }
   ],
   "results": [
@@ -5583,6 +5591,322 @@
             "marks_awarded": 3.5,
             "marks_available": 4.0,
             "comment": "The response clearly identifies specific challenges (unclear needs, conflicting stakeholder views) and presents concrete steps to overcome them (hold meetings, prioritize needs, consult tech team). While the challenges are specific, the explanation of *why* they occur could be more detailed. The solutions are concrete but could benefit from more specific examples of techniques (e.g., types of workshops, prioritization methods) to achieve full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear, well-reasoned, and comprehensive explanation of why it is important to distinguish between business, functional, and non-functional requirements in a BRD. You effectively define each type with specific, relevant examples and clearly articulate their importance for project success and stakeholder alignment. To further enhance your excellent answer, you could briefly mention how these distinct requirement types might be specifically organized or presented within a BRD document, reinforcing their structural role.",
+        "strengths": [
+          "Clearly and concisely defines business, functional, and non-functional requirements.",
+          "Provides excellent, specific examples for each requirement type, contextualized to a Data Analytics Platform (DAP).",
+          "Effectively articulates *why* distinguishing these types is crucial, linking it directly to project success, stakeholder understanding, and key project management aspects like prioritization and scope."
+        ],
+        "improvements": [
+          "Consider briefly mentioning how these distinct requirement types might be organized or presented within a BRD document itself, to further solidify their direct connection to the BRD's structure and utility."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, well-reasoned explanation of why these distinctions are crucial, linking it to project success and stakeholder satisfaction. Specific examples and their relevance to the BRD are provided. The learner clearly defines each requirement type, offers excellent examples, and thoroughly explains the importance of distinguishing them for clarity, alignment, stakeholder understanding, prioritization, scope management, and overall project success."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides an excellent and comprehensive explanation of how stakeholder engagement impacts the success of DAP implementation. You clearly articulate multiple critical connections, including risk prevention, improved outcomes, and stakeholder alignment. To further enhance your already strong answers in the future, consider briefly expanding on one of your points with a specific, concise example of how it might manifest in a real-world DAP project.",
+        "strengths": [
+          "Clearly and concisely explains multiple critical connections between stakeholder engagement and DAP implementation success.",
+          "Effectively covers key aspects such as risk prevention, improved outcomes, and stakeholder alignment, demonstrating a thorough understanding."
+        ],
+        "improvements": [
+          "For future responses, consider providing a brief, specific example for one of the points to add even greater depth and practical illustration."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation. It provides a logical explanation of how engagement prevents risks (identifies risks early), improves outcomes (secures leadership support, promotes user adoption, improves decision-making and project outcomes), and aligns stakeholders with the project (aligns platform with user needs, reduces resistance to change). This fully meets the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "graded",
+      "grading": {
+        "score": 4.375,
+        "max_grade": 5.0,
+        "percentage": 87.5,
+        "grade_label": "Very Good",
+        "feedback": "Your response effectively highlights key activities like regular validation sessions and ensuring traceability, which are crucial for aligning requirements with client goals. To further enhance your answer, consider elaborating on the specific process within these validation sessions. For instance, detailing what artifacts are reviewed, how client feedback is formally captured, and the steps taken to integrate this feedback into requirement adjustments would provide a more comprehensive and 'step-by-step' approach.",
+        "strengths": [
+          "Clearly identifies key activities such as 'regular validation sessions' and 'traceability' as methods for ensuring alignment.",
+          "Directly links requirements to the client's 'strategic goals', demonstrating a strong understanding of the purpose of alignment."
+        ],
+        "improvements": [
+          "Elaborate on the specific process and artifacts used during 'validation sessions' to demonstrate alignment and capture feedback.",
+          "Provide a more explicit, step-by-step description of how client feedback from validation sessions is integrated and how requirements are adjusted based on this feedback."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 3.5,
+            "marks_available": 4.0,
+            "comment": "The response clearly identifies validation sessions and traceability as methods for ensuring alignment with client strategic goals. This demonstrates a good understanding of the alignment process. To achieve full marks, a more detailed, step-by-step articulation of the alignment process, including how client feedback from validation sessions is specifically integrated and how requirements are adjusted, would be beneficial. The current explanation is strong but could be more 'well articulated' in its procedural details."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "graded",
+      "grading": {
+        "score": 3.8,
+        "max_grade": 4.0,
+        "percentage": 95.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response effectively identifies key challenges in defining functional requirements and proposes strong, actionable solutions. To further enhance your answers in the future, consider elaborating slightly more on the nature of each challenge and explicitly linking how each solution directly mitigates that specific challenge.",
+        "strengths": [
+          "You provided concrete and actionable steps to overcome the identified challenges, such as using prototypes for clarity and validating requirements regularly with stakeholders."
+        ],
+        "improvements": [
+          "To achieve full marks, consider elaborating slightly more on *why* each identified challenge (e.g., unclear stakeholder expectations) poses a difficulty in defining functional requirements.",
+          "While your solutions are excellent, you could briefly explain *how* each solution specifically mitigates the challenge it addresses (e.g., 'prototypes help overcome unclear expectations by providing a visual representation that stakeholders can react to, reducing ambiguity')."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 3.8,
+            "marks_available": 4.0,
+            "comment": "The response clearly identifies specific challenges such as unclear stakeholder expectations, conflicting requirements, and changing business needs. The proposed solutions, including facilitating workshops, using prototypes, documenting clearly, and regular validation, are highly concrete and actionable. To achieve full marks, a slightly more detailed explanation of *why* each challenge is significant would enhance the response further, aligning perfectly with the 'detailed explanation' aspect of the 4-mark criterion."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides a solid foundation for understanding the importance of distinguishing between business, functional, and non-functional requirements. To enhance your explanation further, consider incorporating specific examples for each requirement type. Additionally, elaborating on how these distinctions directly contribute to project success, such as facilitating more accurate testing or better scope management, would strengthen your answer.",
+        "strengths": [
+          "You accurately identified key reasons for distinguishing requirements, such as clarity, traceability, and effective solution design.",
+          "You correctly defined each requirement type (business, functional, non-functional) by linking them to strategic goals, system behaviors, and quality standards respectively."
+        ],
+        "improvements": [
+          "Provide specific examples for each type of requirement (business, functional, non-functional) to illustrate their distinction within a BRD more concretely.",
+          "Elaborate further on how these distinctions directly contribute to project success, for instance, by enabling more precise testing, managing scope effectively, or reducing rework during development."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a good explanation of why these distinctions are important, linking them to clarity, traceability, and guiding stakeholders. It correctly defines each type. However, it lacks specific examples and could elaborate more thoroughly on the direct link to overall project success beyond 'reducing confusion' and 'guiding expectations', aligning with the 3-mark description."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "antonio-banze",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Excellent work! Your response provides a clear, practical, and comprehensive approach to addressing a missing key requirement. You've effectively outlined the critical steps from initial discovery and communication to formal change control and project adjustment. To further enhance your response in future, you might briefly consider elaborating on specific methods for assessing impact (e.g., risk analysis, dependency mapping) or identifying key roles involved in the stakeholder approval process.",
+        "strengths": [
+          "Clearly outlines a structured and practical approach to addressing a missing requirement.",
+          "Includes critical steps such as impact assessment, stakeholder communication, formal change control, and project plan adjustment."
+        ],
+        "improvements": [
+          "Consider briefly elaborating on specific methods for assessing impact (e.g., risk analysis, dependency mapping).",
+          "Identify key roles involved in the stakeholder approval process beyond just 'stakeholders' (e.g., Product Owner, Project Manager, key business users) for added detail."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The learner's answer outlines a clear, practical approach that includes documenting the gap, assessing impact, communicating to stakeholders, updating the BRD via formal change control, ensuring stakeholder approval, and adjusting project plans. This fully aligns with the criteria for 3 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 5.0,
+        "percentage": 60.0,
+        "grade_label": "Pass",
+        "feedback": "You effectively identified key stakeholders and provided a logical initial basis for their selection by considering their roles and the platform's impact. To enhance your response, explicitly explain *how* you used an influence-interest matrix to determine each stakeholder's level of influence and interest. Describe the criteria or thought process behind placing them in specific quadrants of the matrix, rather than just stating their levels. Additionally, ensure you consistently identify and justify *both* the influence and interest levels for *all* chosen stakeholders. For example, while you noted the Lead Analyst's high interest, consider their level of influence on the project. Similarly, for IT, consider their interest level in addition to their influence.",
+        "strengths": [
+          "Effectively identified key stakeholders.",
+          "Provided a logical initial basis for stakeholder selection (roles and platform impact)."
+        ],
+        "improvements": [
+          "Explicitly explain *how* the influence-interest matrix was used to determine stakeholder levels, detailing the criteria or thought process.",
+          "Consistently identify and justify *both* influence and interest levels for *all* chosen stakeholders (e.g., Lead Analyst's influence, IT's interest)."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 3.0,
+            "marks_available": 5.0,
+            "comment": "The response provides an overview of stakeholder selection and mentions influence and interest for some stakeholders. However, the use of the influence-interest matrix as a methodology for determining these levels is not fully explained. The reasoning for both influence and interest is also not consistently provided for all stakeholders (e.g., missing influence for Lead Analyst, missing interest for IT)."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "graded",
+      "grading": {
+        "score": 3.8,
+        "max_grade": 5.0,
+        "percentage": 76.0,
+        "grade_label": "Good",
+        "feedback": "You clearly identified a relevant and effective strategy for engaging high-power, low-interest stakeholders by suggesting brief, periodic updates and involvement in key decisions. Your explanation of its importance, focusing on keeping them informed without overwhelming them to ensure support and avoid delays, is also very good. To make your strategy more comprehensive, consider adding specific details on *how* you would implement these updates (e.g., executive summaries, dashboards, quarterly reports) and *how* you would identify 'key decisions' for their involvement. Additionally, including a concrete example of how this approach could prevent a specific project issue or lead to a particular success would further strengthen your answer. For instance, 'This strategy could prevent a high-power stakeholder from unexpectedly blocking a critical budget approval due to a lack of prior, concise updates.'",
+        "strengths": [
+          "Clearly identified a relevant and effective strategy for engaging high-power, low-interest stakeholders.",
+          "Provided specific and solid reasoning for the importance of the strategy, linking it to project support and delay avoidance."
+        ],
+        "improvements": [
+          "Elaborate on the specific details of strategy implementation, such as the format and frequency of updates or criteria for 'key decisions'.",
+          "Include concrete examples to illustrate how the strategy benefits the project in practice."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 3.8,
+            "marks_available": 5.0,
+            "comment": "The response clearly identifies a relevant strategy for engaging high-power, low-interest stakeholders and provides specific reasoning for its importance, moving beyond a generalized explanation. However, it could be enhanced with more specific details on the implementation of the strategy and concrete examples of how it benefits a project to reach a higher score."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "graded",
+      "grading": {
+        "score": 2.5,
+        "max_grade": 4.0,
+        "percentage": 62.5,
+        "grade_label": "Developing",
+        "feedback": "Your response correctly identifies crucial initial steps for addressing late stakeholder concerns, such as listening and assessing impact. To enhance your approach, consider detailing the specific methods you would use for stakeholder engagement, such as formal meetings, and outlining the process for making project adjustments or initiating change requests based on the assessment. Additionally, think about how you would formally document these interactions and updates to project plans.",
+        "strengths": [
+          "You correctly identify the importance of listening to the stakeholder's concerns and assessing the impact of their input."
+        ],
+        "improvements": [
+          "Elaborate on the specific methods for engaging the stakeholder (e.g., dedicated stakeholder meeting, formal interview) to gather their concerns comprehensively.",
+          "Provide more detail on the assessment process, including what tools or analyses you would use (e.g., impact analysis, risk assessment, feasibility study) to understand the full implications.",
+          "Outline concrete steps for addressing the concerns beyond 'what’s possible,' such as negotiating solutions, proposing alternatives, initiating a formal change request, or updating relevant project documentation (e.g., stakeholder register, communication plan)."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 2.5,
+            "marks_available": 4.0,
+            "comment": "The response identifies key initial steps like listening to concerns and assessing impact, and acknowledges the need for communication. However, it lacks a detailed, structured approach, specific methods for engagement (e.g., stakeholder meetings), and a clear process for making adjustments or managing potential project changes, which are important considerations for a comprehensive answer."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "graded",
+      "grading": {
+        "score": 2.0,
+        "max_grade": 4.0,
+        "percentage": 50.0,
+        "grade_label": "Developing",
+        "feedback": "Your response correctly identifies the core focus of business, functional, and non-functional requirements, which is a great start. To enhance your answer, consider elaborating on *why* distinguishing these types of requirements is crucial for project success and stakeholder satisfaction. For instance, how does clearly separating them prevent scope creep, ensure the right solution is built, or help manage expectations? Providing specific examples of how these distinctions impact the development process or decision-making within a BRD would also strengthen your explanation.",
+        "strengths": [
+          "You accurately defined the purpose of business, functional, and non-functional requirements."
+        ],
+        "improvements": [
+          "Elaborate on the 'why' behind distinguishing these requirements, linking it to project success, risk mitigation, and stakeholder satisfaction.",
+          "Provide specific examples of how distinguishing these requirements in a BRD helps in practical project scenarios."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 2.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a basic explanation by correctly defining each requirement type and stating a general benefit (clarity and organization). However, it lacks a well-reasoned explanation of *why* these distinctions are crucial, does not link them to project success or stakeholder satisfaction, and does not provide specific examples or elaborate on the BRD's impact beyond a high-level statement. This aligns with the 'Basic explanation without examples or direct connection to the BRD's impact' descriptor."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "christopher-mothuli",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "You've clearly outlined a logical and practical sequence of steps, including engaging stakeholders, updating the BRD, assessing project impact, and securing formal approval. This demonstrates a strong understanding of the change management process for requirements. To make your answer even more comprehensive, consider explicitly mentioning the importance of communicating the updated requirement and its impact to all affected parties (e.g., project manager, development team, testing team) after approval. Also, ensure your sentences are complete for full clarity, for example, by finishing the thought \"before moving for\" to \"before moving forward with implementation.\"",
+        "strengths": [
+          "Clearly outlines a logical and practical sequence of steps for addressing a missing requirement.",
+          "Includes key actions such as stakeholder engagement, BRD update, impact assessment, and formal approval."
+        ],
+        "improvements": [
+          "Explicitly mention communicating the updated requirement and its impact to all affected parties (e.g., project manager, development team, testing team) after approval.",
+          "Ensure sentences are complete for full clarity, such as finishing the thought \"before moving for\" to \"before moving forward with implementation.\""
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The response provides a clear and practical approach, covering stakeholder consultation, BRD update, impact assessment, and seeking approval. This aligns well with the criteria for full marks, demonstrating a strong understanding of the necessary steps."
           }
         ]
       }
