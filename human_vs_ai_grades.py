@@ -1,35 +1,48 @@
 """
-compare_human_vs_ai_grades.py - Score-only comparison of original human
-grades vs AI-generated grades for Quiz 7 (Business Analysis), joined
-on questionattemptid.
+compare_human_vs_ai_grades.py - Full comparison (marks AND feedback) of
+original human grading vs AI-generated grading for Quiz 7 (Business
+Analysis).
 
-NOTE: this is score-only. The original human feedback comments were not
-captured in the human-grades backup (only fraction/mark was saved before
-the strip+regrade), so no feedback-quality comparison is possible for
-these 4 attempts. Only the AI side has feedback text available.
+History: the original human feedback comments were not captured in the
+first backup taken during testing — only the numeric mark was saved
+before a strip+regrade wiped the grading step history. The original
+feedback text was later recovered by restoring a pre-existing Moodle
+course backup (.mbz, taken 2026-07-14, before any testing) as a
+brand-new course and re-querying the quiz attempts there
+(original_human_feedback_quiz7_4learners.csv). That recovery CSV
+already contains fraction, slot, and userid directly, so it's the only
+human-side input needed now — the earlier grades-only backup
+(essay_grades_backup_quiz7_4learners.csv) is no longer used.
+
+Because the restored course has entirely different internal Moodle IDs
+than the live course, this script joins the human-feedback and AI CSVs
+on (userid, slot) — the one pair of values that's stable across both.
 
 Inputs:
-    essay_grades_backup_quiz7_4learners.csv  - original human grades
-                                                (fraction, quiz_attempt_id,
-                                                userid, questionattemptid;
-                                                no slot, no feedback)
-    ai_grades_backup_quiz7_4learners.csv     - AI grades (adds slot and
-                                                feedback_comment)
+    ai_grades_backup_quiz7_4learners.csv          - AI grades + feedback
+                                                     (has slot, userid)
+    original_human_feedback_quiz7_4learners.csv   - original human grades
+                                                     + feedback, recovered
+                                                     from the restored
+                                                     course backup (has
+                                                     slot, userid)
 
 Output:
-    human_vs_ai_comparison_quiz7.csv - one row per question, with both
-    marks, the difference, and summary stats printed to the console.
+    human_vs_ai_comparison_quiz7.csv - one row per question: both marks,
+    the delta, and both feedback texts side by side. Summary stats
+    printed to the console.
 
 Usage:
     python compare_human_vs_ai_grades.py \\
-        --human essay_grades_backup_quiz7_4learners.csv \\
         --ai ai_grades_backup_quiz7_4learners.csv \\
+        --human-feedback original_human_feedback_quiz7_4learners.csv \\
         --output human_vs_ai_comparison_quiz7.csv
 """
 
 import argparse
 import csv
 import logging
+import re
 import statistics
 import sys
 from pathlib import Path
@@ -44,26 +57,13 @@ log = logging.getLogger(__name__)
 # Slot -> max marks, Quiz 7 (Business Analysis)
 SLOT_MAX_MARKS = {1: 5, 2: 5, 3: 4, 4: 4, 5: 5, 6: 4, 7: 4, 8: 3}
 
-# userid -> learner_id, resolved earlier via Moodle username lookups
-# (none of these 4 test accounts had idnumber set, so username was used
-# as learner_id throughout the pipeline).
+# userid -> learner_id (none of these 4 test accounts had idnumber set,
+# so username was used as learner_id throughout the pipeline).
 USERID_TO_LEARNER = {
     21: "anelisa-mjoni",
     22: "annah-masunga",
     23: "antonio-banze",
     25: "christopher-mothuli",
-}
-
-# questionattemptid -> slot, resolved via:
-#   SELECT id AS questionattemptid, slot FROM mdl_question_attempts
-#   WHERE id IN (...) ORDER BY id;
-# (only needed as a fallback if a given human-grade row's questionattemptid
-# isn't found directly in the AI CSV, since the AI CSV already carries slot.)
-QUESTIONATTEMPTID_TO_SLOT = {
-    4166: 1, 4167: 2, 4168: 3, 4169: 4, 4170: 5, 4171: 6, 4172: 7, 4173: 8,
-    4278: 1, 4279: 2, 4280: 3, 4281: 4, 4282: 5, 4283: 6, 4284: 7, 4285: 8,
-    4366: 1, 4367: 2, 4368: 3, 4369: 4, 4370: 5, 4371: 6, 4372: 7, 4373: 8,
-    4374: 1, 4375: 2, 4376: 3, 4377: 4, 4378: 5, 4379: 6, 4380: 7, 4381: 8,
 }
 
 
@@ -77,54 +77,60 @@ def load_csv(path: str) -> list[dict]:
     return rows
 
 
-def build_comparison(human_rows: list[dict], ai_rows: list[dict]) -> list[dict]:
-    """Join human and AI rows on questionattemptid; compute marks and deltas."""
-    ai_by_qaid = {int(r["questionattemptid"]): r for r in ai_rows}
+def strip_html(text: str) -> str:
+    """Light HTML stripping for readable console/CSV output."""
+    if not text:
+        return ""
+    text = re.sub(r"<br\s*/?>", " ", text)
+    text = re.sub(r"<[^>]+>", "", text)
+    return text.strip()
+
+
+def build_comparison(ai_rows: list[dict], feedback_rows: list[dict]) -> list[dict]:
+    """Join AI and human-feedback rows on (userid, slot); compute marks and deltas."""
+    ai_by_key = {(int(r["userid"]), int(r["slot"])): r for r in ai_rows}
 
     comparison = []
-    unmatched = []
+    unmatched_ai = []
 
-    for hrow in human_rows:
-        qaid = int(hrow["questionattemptid"])
-        ai_row = ai_by_qaid.get(qaid)
+    for fb_row in feedback_rows:
+        userid = int(fb_row["userid"])
+        slot = int(fb_row["slot"])
+        key = (userid, slot)
 
-        if ai_row is None:
-            unmatched.append(qaid)
-            continue
-
-        slot = int(ai_row["slot"]) if ai_row.get("slot") else QUESTIONATTEMPTID_TO_SLOT.get(qaid)
         max_mark = SLOT_MAX_MARKS.get(slot)
         if max_mark is None:
-            log.warning("No max_mark known for slot=%s (questionattemptid=%s) — skipping", slot, qaid)
+            log.warning("No max_mark known for slot=%s — skipping", slot)
             continue
 
-        human_fraction = float(hrow["fraction"])
+        ai_row = ai_by_key.get(key)
+        if ai_row is None:
+            unmatched_ai.append(key)
+            continue
+
+        human_fraction = float(fb_row["fraction"])
         ai_fraction = float(ai_row["fraction"])
 
         human_mark = round(human_fraction * max_mark, 2)
         ai_mark = round(ai_fraction * max_mark, 2)
         delta = round(ai_mark - human_mark, 2)
 
-        userid = int(hrow["userid"])
         learner_id = USERID_TO_LEARNER.get(userid, f"userid_{userid}")
 
         comparison.append({
             "learner_id": learner_id,
-            "attempt_id": hrow["quiz_attempt_id"],
+            "attempt_id": fb_row["quiz_attempt_id"],
             "slot": slot,
             "max_mark": max_mark,
             "human_mark": human_mark,
             "ai_mark": ai_mark,
             "delta_ai_minus_human": delta,
-            "human_fraction": round(human_fraction, 4),
-            "ai_fraction": round(ai_fraction, 4),
+            "human_feedback": strip_html(fb_row["feedback_comment"]),
+            "ai_feedback": strip_html(ai_row.get("feedback_comment", "")),
         })
 
-    if unmatched:
-        log.warning(
-            "%d human-grade row(s) had no matching AI row (questionattemptid not found in AI CSV): %s",
-            len(unmatched), unmatched,
-        )
+    if unmatched_ai:
+        log.warning("%d (userid, slot) pair(s) had no matching AI row: %s", len(unmatched_ai), unmatched_ai)
 
     comparison.sort(key=lambda r: (r["attempt_id"], r["slot"]))
     return comparison
@@ -163,7 +169,6 @@ def print_summary(rows: list[dict]) -> None:
     print(f"Mean absolute delta      : {statistics.mean(abs_deltas):.2f}")
     print(f"Max absolute delta       : {max(abs_deltas):.2f}")
 
-    # Per-learner breakdown
     by_learner: dict = {}
     for r in rows:
         by_learner.setdefault(r["learner_id"], []).append(r["delta_ai_minus_human"])
@@ -172,22 +177,23 @@ def print_summary(rows: list[dict]) -> None:
     for learner, ds in sorted(by_learner.items()):
         print(f"  {learner:22s}: {statistics.mean(ds):+.2f}  (n={len(ds)})")
 
-    # Biggest disagreements
     biggest = sorted(rows, key=lambda r: abs(r["delta_ai_minus_human"]), reverse=True)[:5]
-    print("\nLargest disagreements (top 5):")
+    print("\nLargest disagreements (top 5) — with both feedback texts:")
     for r in biggest:
         print(
-            f"  attempt={r['attempt_id']} slot={r['slot']} learner={r['learner_id']:22s} "
+            f"\n  attempt={r['attempt_id']} slot={r['slot']} learner={r['learner_id']} "
             f"human={r['human_mark']}/{r['max_mark']} ai={r['ai_mark']}/{r['max_mark']} "
             f"delta={r['delta_ai_minus_human']:+.2f}"
         )
+        print(f"    Human feedback: {r['human_feedback'][:200]}")
+        print(f"    AI feedback:    {r['ai_feedback'][:200]}")
     print()
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Compare human vs AI grades (score-only) for Quiz 7")
-    parser.add_argument("--human", required=True, help="Path to the human-grades backup CSV")
-    parser.add_argument("--ai", required=True, help="Path to the AI-grades backup CSV")
+    parser = argparse.ArgumentParser(description="Compare human vs AI grades AND feedback for Quiz 7")
+    parser.add_argument("--ai", required=True, help="Path to the AI-grades backup CSV (marks + feedback)")
+    parser.add_argument("--human-feedback", required=True, help="Path to the recovered human feedback CSV (from restored course)")
     parser.add_argument("--output", default="human_vs_ai_comparison_quiz7.csv", help="Output comparison CSV path")
     return parser.parse_args()
 
@@ -196,13 +202,13 @@ def main() -> None:
     args = parse_args()
 
     try:
-        human_rows = load_csv(args.human)
         ai_rows = load_csv(args.ai)
+        feedback_rows = load_csv(args.human_feedback)
     except FileNotFoundError as e:
         log.error("%s", e)
         sys.exit(1)
 
-    comparison = build_comparison(human_rows, ai_rows)
+    comparison = build_comparison(ai_rows, feedback_rows)
     write_comparison(comparison, args.output)
     print_summary(comparison)
 
