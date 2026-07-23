@@ -41,6 +41,12 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 QUEUE_NAME = "grading_jobs"
+# Jobs that fail after grade_submission()'s internal retries are exhausted
+# are moved here instead of being discarded. See the failure handling in
+# process_job() below for why (short version: immediate re-queue onto
+# QUEUE_NAME would just fail again in a loop for most causes, e.g. a daily
+# API quota that won't clear for hours).
+FAILED_QUEUE_NAME = "grading_jobs_failed"
 
 # ---------------------------------------------------------------------------
 # Quiz grade accumulator
@@ -268,12 +274,24 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                     elif moodle_quiz_id is not None and moodle_attempt_id is not None:
 
                         # Grade this essay question in Moodle immediately.
-                        moodle_client.save_quiz_essay_grade(
+                        # save_quiz_essay_grade() now returns a dict with
+                        # the Moodle result (mark, maxmark, sumgrades,
+                        # quizgrade, status) plus the feedback text that
+                        # was sent — capture it instead of discarding it,
+                        # so we can attach it to the saved result below.
+                        moodle_grade_result = moodle_client.save_quiz_essay_grade(
                             attempt_id=moodle_attempt_id,
                             slot=moodle_slot,
                             grade=grading.get("score"),
                             feedback_html=feedback_html,
                         )
+
+                        # Record the Moodle push-back result (including
+                        # feedback) alongside the grading result on disk,
+                        # so it's not just visible in the logs.
+                        result["moodle_grade_result"] = moodle_grade_result
+                        save_result(result, output_path, course_name=course_name, assignment_name=assignment_name)
+
                         key = (moodle_userid, moodle_quiz_id, moodle_attempt_id)
                         expected = QUIZ_ESSAY_COUNT.get(moodle_quiz_id, 1)
 
@@ -286,7 +304,7 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                         acc = _quiz_grade_accumulator[key]
 
                         acc["scores"].append(grading.get("score", 0))
-                        acc["feedbacks"].append(feedback_text)
+                        acc["feedbacks"].append(moodle_grade_result.get("feedback", feedback_text))
 
                         log.info(
                             "[QUIZ] Accumulated %d/%d essay grades for attempt=%s userid=%s",
@@ -300,24 +318,31 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                             total = essay_total + objective_score
 
                             log.info(
-                                "[QUIZ] Essay total: %s + Objective score: %s = Grand total: %s",
+                                "[QUIZ] Essay total: %s + Objective score: %s = Grand total (approx, Python-side): %s",
                                 essay_total,
                                 objective_score,
                                 total,
                             )
 
-                            # NOTE: this only LOGS the computed grand total.
-                            # It does not currently write `total` to Moodle's
-                            # gradebook — only the per-slot essay grades
-                            # (via save_quiz_essay_grade above) are actually
-                            # pushed to Moodle. If a combined quiz gradebook
-                            # entry is needed, add the appropriate
-                            # moodle_client call here (e.g. a grade-item
-                            # write via the gradebook API or a custom
-                            # local_grades endpoint) before this log line.
+                            # No separate push-back call is needed here.
+                            # local_grades_set_essay_grade (the PHP endpoint
+                            # called via save_quiz_essay_grade above) already
+                            # calls Moodle's own
+                            # get_grade_calculator()->recompute_final_grade()
+                            # after every single essay slot is graded. That
+                            # recalculates the attempt's sumgrades, converts
+                            # it to the quiz's grade scale, and writes the
+                            # result into the gradebook (mdl_grade_grades) —
+                            # confirmed against a live gradebook entry
+                            # (Annah Masunga: 30.70, matching this Python
+                            # total exactly). The `total` computed above is
+                            # therefore just a diagnostic echo of what
+                            # Moodle already wrote, not a value we still
+                            # need to push ourselves.
                             log.info(
-                                "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, final=%s)",
-                                learner_id, moodle_userid, moodle_quiz_id, total,
+                                "[MOODLE] All %d essay slots graded for %s (userid=%s, quiz=%s) — "
+                                "Moodle has already recalculated and saved the gradebook total.",
+                                acc["expected"], learner_id, moodle_userid, moodle_quiz_id,
                             )
                             del _quiz_grade_accumulator[key]
 
@@ -344,6 +369,45 @@ def make_callback(client, gen_config, model_name, output_path, log_path):
                 error_message=error_msg,
                 log_path=log_path,
             )
+
+            # Park the job in a separate failed-jobs queue instead of
+            # discarding it. grade_submission() already retries internally
+            # (503/429 with backoff) before raising, so by the time we're
+            # here the failure is usually something that won't clear on an
+            # immediate retry (e.g. a daily quota). Re-publishing to the
+            # same queue would just fail again in a tight loop; parking it
+            # here keeps the job safely reviewable and re-runnable later
+            # (e.g. via a separate script that re-publishes FAILED_QUEUE_NAME
+            # messages back onto QUEUE_NAME once the underlying issue, such
+            # as quota reset, has cleared) instead of being lost silently.
+            try:
+                channel.queue_declare(queue=FAILED_QUEUE_NAME, durable=True)
+                channel.basic_publish(
+                    exchange="",
+                    routing_key=FAILED_QUEUE_NAME,
+                    body=body,
+                    properties=pika.BasicProperties(
+                        delivery_mode=pika.DeliveryMode.Persistent,
+                        content_type="application/json",
+                        headers={
+                            "x-original-queue": QUEUE_NAME,
+                            "x-failure-reason": error_msg,
+                            "x-failed-learner-id": learner_id,
+                        },
+                    ),
+                )
+                log.warning(
+                    "[QUEUE] Job for %s moved to '%s' for later review/retry.",
+                    learner_id, FAILED_QUEUE_NAME,
+                )
+            except Exception as requeue_err:
+                # If we can't even park it, log loudly — this is the one
+                # case where the job really is at risk of being lost.
+                log.critical(
+                    "[QUEUE] Could not move failed job for %s to '%s': %s. "
+                    "Original error was: %s",
+                    learner_id, FAILED_QUEUE_NAME, requeue_err, error_msg,
+                )
 
         finally:
             channel.basic_ack(delivery_tag=method.delivery_tag)
@@ -383,6 +447,7 @@ def start_worker(
 
     channel = connection.channel()
     channel.queue_declare(queue=QUEUE_NAME, durable=True)
+    channel.queue_declare(queue=FAILED_QUEUE_NAME, durable=True)
     channel.basic_qos(prefetch_count=1)
 
     callback = make_callback(client, gen_config, model_name, output_path, log_path)

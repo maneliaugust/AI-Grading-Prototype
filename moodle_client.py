@@ -405,9 +405,32 @@ def save_quiz_essay_grade(
     slot: int,
     grade: float,
     feedback_html: str = "",
-) -> None:
+) -> dict:
     """
     Grade one essay question using the custom Moodle web service.
+
+    Returns a dict combining Moodle's response with the feedback that
+    was sent, so the caller can access the feedback text alongside the
+    grade result instead of it being discarded:
+
+        {
+            "attemptid": int,
+            "slot": int,
+            "mark": float,
+            "maxmark": float,
+            "sumgrades": float,
+            "quizgrade": float,
+            "status": str,
+            "feedback": str,   # <- the feedback_html that was sent
+        }
+
+    NOTE: Moodle's local_grades_set_essay_grade web service itself does
+    NOT echo feedback text back in its response (its execute_returns()
+    only defines attemptid/slot/mark/maxmark/sumgrades/quizgrade/status)
+    — so "feedback" here is attached locally from the `feedback_html`
+    argument, not round-tripped through the API. If you need to confirm
+    what Moodle actually stored (rather than what was sent), that would
+    require a separate read call, which isn't implemented here.
     """
 
     params = {
@@ -424,10 +447,14 @@ def save_quiz_essay_grade(
         method="POST",
     )
 
+    result["feedback"] = feedback_html
+
     log.info(
         "Essay question graded: attempt=%s slot=%s result=%s",
         attempt_id, slot, result,
     )
+
+    return result
 
 def get_objective_score_from_attempt(attempt_id: int) -> float:
     """
