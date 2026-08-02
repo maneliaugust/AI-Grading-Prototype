@@ -312,9 +312,28 @@ def get_quiz_attempts(quiz_id: int, userid: int) -> list[dict]:
     return data.get("attempts", [])
 
 
-def extract_essay_responses_from_attempt(attempt_id: int) -> list[dict]:
+def extract_essay_responses_from_attempt(attempt_id: int, force: bool = False) -> list[dict]:
     """
     Fetch a finished quiz attempt and extract essay question responses.
+
+    STATE FILTER: by default (force=False), any essay slot whose current
+    Moodle state is NOT one of "needsgrading", "manualgraded", or
+    "complete" is skipped — this is meant to exclude already-graded
+    slots. NOTE: Moodle's actual post-grading states are more varied
+    than that tuple suggests — e.g. "mangrright" (manually graded,
+    correct), "mangrpartial" (manually graded, partially correct),
+    "mangrwrong" (manually graded, incorrect) all indicate an
+    already-graded slot too, but are NOT in the allowed tuple, so they
+    get skipped by default same as "manualgraded" would.
+
+    If force=True, this state filter is bypassed entirely and every
+    essay-type question is extracted regardless of its current grading
+    state. This matches moodle_quiz_producer.py's --force flag, which
+    is documented to "queue all essay slots regardless of whether
+    they've already been graded" — previously this flag only bypassed
+    the producer's OWN slot-state dedup check and never reached this
+    function, so already-graded attempts (state="mangrright" etc.)
+    still silently returned 0 essays even with --force passed.
 
     Returns a list of dicts, one per essay question:
         {
@@ -337,7 +356,7 @@ def extract_essay_responses_from_attempt(attempt_id: int) -> list[dict]:
     for q in data.get("questions", []):
         if q.get("type") != "essay":
             continue
-        if q.get("state") not in ("needsgrading", "manualgraded", "complete"):
+        if not force and q.get("state") not in ("needsgrading", "manualgraded", "complete"):
             continue
 
         html = q.get("html", "")

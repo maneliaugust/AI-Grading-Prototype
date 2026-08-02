@@ -2,11 +2,12 @@
 
 A Python service that automatically grades **essay questions within Moodle quizzes** using the Google Gemini AI model.
 
-The system retrieves completed quiz attempts from Moodle, extracts essay responses while preserving automatically graded objective questions (such as multiple-choice and true/false), sends each essay to Gemini for grading through RabbitMQ, then writes the marks back into Moodle using a custom web service.
+The system retrieves completed quiz attempts from Moodle, extracts essay responses while preserving automatically graded objective questions (such as multiple-choice and true/false), sends each essay to Gemini for grading through RabbitMQ, then writes the marks back into Moodle using a custom web service. Every grading attempt is also logged to the Grading Dashboard for monitoring and troubleshooting.
 
 The complete grading pipeline is:
 
 **Moodle Quiz → Producer → RabbitMQ → AI Worker → Moodle Gradebook**
+**(with every attempt also logged to the Grading Dashboard)**
 
 ---
 
@@ -17,12 +18,16 @@ AI-Grading-Prototype/
 ├── worker.py
 ├── moodle_quiz_producer.py
 ├── moodle_client.py
+├── grader.py
 ├── grading_logger.py
-├── grading_guide_quiz.json              
+├── grading_guide_quiz7.json
 ├── output.json
 ├── grading_log.json
+├── flagged_for_review.json
 ├── requirements.txt
 ├── .env
+├── app.py                    # local mock of the Grading Dashboard, for dev/testing
+├── test_send_log.py          # test client for the mock dashboard
 └── README.md
 ```
 
@@ -38,6 +43,8 @@ AI-Grading-Prototype/
 * Pushes essay grades back into Moodle
 * Recalculates the final quiz grade
 * Writes grading logs and JSON audit reports
+* **Persists every grading attempt (success or failure) to the Grading Dashboard**, so admins can monitor and troubleshoot grading activity without reading server logs directly
+* `--force` flag to re-queue and re-grade attempts regardless of current Moodle grading state
 * Uses RabbitMQ for asynchronous grading
 
 ---
@@ -50,6 +57,7 @@ AI-Grading-Prototype/
 | RabbitMQ       | Local or Docker  |
 | Moodle         | 5.x              |
 | Gemini API Key | Google AI Studio |
+| Grading Dashboard API Key | Local mock (dev) or real dashboard (prod) |
 
 ---
 
@@ -78,6 +86,13 @@ GEMINI_API_KEY=xxxxxxxx
 MOODLE_BASE_URL=http://localhost:8080
 
 MOODLE_TOKEN=xxxxxxxx
+
+# Grading Dashboard logging
+# Points at the local mock server by default (app.py in this same folder).
+# Swap both values for the real dashboard's endpoint/key once available —
+# no code changes are needed elsewhere in the pipeline.
+DASHBOARD_LOG_URL=http://localhost:5001/api/logs
+DASHBOARD_API_KEY=xxxxxxxx
 ```
 
 The Moodle token should belong to a dedicated service account with access only to the required grading web services.
@@ -85,6 +100,16 @@ The Moodle token should belong to a dedicated service account with access only t
 ---
 
 # Usage
+
+## Step 0 — (Local testing only) Start the mock Grading Dashboard
+
+If the real Grading Dashboard isn't available yet, run the local mock server so grading logs have somewhere to go:
+
+```bash
+python app.py
+```
+
+Serves on `http://localhost:5001` by default, with a live-updating dashboard page at `http://localhost:5001/` and the log-ingestion endpoint at `http://localhost:5001/api/logs`. Leave this running in its own terminal alongside the worker.
 
 ## Step 1 — Produce grading jobs
 
@@ -107,6 +132,8 @@ This command:
 * calculates the objective score
 * queues each essay for grading
 
+Add `--force` to re-queue essay slots regardless of whether they've already been graded (e.g. to re-grade with an updated rubric or prompt).
+
 ---
 
 ## Step 2 — Start the grading worker
@@ -123,6 +150,7 @@ The worker:
 * writes grades back to Moodle
 * recalculates the quiz total
 * updates the Moodle gradebook
+* logs the attempt (success or failure) to the Grading Dashboard
 
 ---
 
@@ -139,18 +167,23 @@ The worker:
 | --subject-area  | Subject area               |
 | --grading-guide | JSON grading rubric        |
 | --userids       | Moodle user IDs to process |
-| --host          | RabbitMQ host              |
+| --host          | RabbitMQ host               |
+| --force         | Skip deduplication and re-queue all essay slots regardless of current grading state |
 
 ---
 
 ### worker.py
 
-| Option   | Description   |
-| -------- | ------------- |
-| --host   | RabbitMQ host |
-| --model  | Gemini model  |
-| --output | Output JSON   |
-| --log    | Log JSON      |
+| Option            | Description                              |
+| ----------------- | ----------------------------------------- |
+| --host            | RabbitMQ host                             |
+| --model           | Gemini model                              |
+| --output          | Output JSON                               |
+| --log             | Log JSON                                  |
+| --flagged-log     | File for submissions flagged for human review |
+| --pace-seconds    | Delay between grading calls (rate-limit pacing) |
+
+Grading Dashboard settings (`DASHBOARD_LOG_URL`, `DASHBOARD_API_KEY`) are read from `.env`, not passed as CLI flags.
 
 ---
 
@@ -183,6 +216,9 @@ Manual grading
 Quiz total recalculated
           ▼
 Updated Moodle Gradebook
+          │
+          ▼
+Grading Dashboard log entry
 ```
 
 ---
@@ -232,6 +268,7 @@ For each learner:
 4. Essay marks are written back into Moodle.
 5. Objective marks are added to essay marks.
 6. Moodle updates the final quiz grade.
+7. The attempt (success or failure) is logged to the Grading Dashboard.
 
 Final score:
 
@@ -290,13 +327,17 @@ The system records:
 * Moodle synchronisation
 * grading timestamps
 
-Logs are written to:
+Local logs are written to:
 
 ```
 grading_log.json
 
 output.json
+
+flagged_for_review.json
 ```
+
+Every grading attempt is also POSTed to the **Grading Dashboard** (`DASHBOARD_LOG_URL`), recording `status` (`success`/`fail`), `details` (outcome or error message), and `attempt` number — so grading activity can be monitored centrally rather than by reading local log files. Dashboard logging is non-blocking: if the dashboard is unreachable, grading continues and the failure is logged locally instead.
 
 ---
 
@@ -347,6 +388,9 @@ Moodle
                  │
                  ▼
          Moodle Gradebook
+                 │
+                 ▼
+        Grading Dashboard
 ```
 
 ---
@@ -359,5 +403,7 @@ Moodle
 * RabbitMQ
 * Google Gemini API
 * BeautifulSoup
+* Flask (local Grading Dashboard mock)
+* python-dotenv
 * JSON
 * Docker (for Moodle)

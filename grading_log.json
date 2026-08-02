@@ -3718,5 +3718,101 @@
     "grade_label": "Excellent",
     "requires_human_review": false,
     "error": null
+  },
+  {
+    "timestamp": "2026-08-02T21:14:32.056212+02:00",
+    "status": "success",
+    "learner_id": "nosimilo-mtshali",
+    "course_name": "Business Analysis",
+    "assignment_name": "Implementing a Data Analytics Platform — Q1",
+    "score": 5.0,
+    "max_grade": 5.0,
+    "grade_label": "Excellent",
+    "requires_human_review": false,
+    "error": null
+  },
+  {
+    "timestamp": "2026-08-02T21:15:00.102721+02:00",
+    "status": "success",
+    "learner_id": "nosimilo-mtshali",
+    "course_name": "Business Analysis",
+    "assignment_name": "Implementing a Data Analytics Platform — Q2",
+    "score": 5.0,
+    "max_grade": 5.0,
+    "grade_label": "Full Marks",
+    "requires_human_review": false,
+    "error": null
+  },
+  {
+    "timestamp": "2026-08-02T21:15:28.115334+02:00",
+    "status": "success",
+    "learner_id": "nosimilo-mtshali",
+    "course_name": "Business Analysis",
+    "assignment_name": "Implementing a Data Analytics Platform — Q3",
+    "score": 4.0,
+    "max_grade": 4.0,
+    "grade_label": "Excellent",
+    "requires_human_review": false,
+    "error": null
+  },
+  {
+    "timestamp": "2026-08-02T21:15:56.169849+02:00",
+    "status": "success",
+    "learner_id": "nosimilo-mtshali",
+    "course_name": "Business Analysis",
+    "assignment_name": "Implementing a Data Analytics Platform — Q4",
+    "score": 4.0,
+    "max_grade": 4.0,
+    "grade_label": "Excellent",
+    "requires_human_review": false,
+    "error": null
+  },
+  {
+    "timestamp": "2026-08-02T21:16:30.449920+02:00",
+    "status": "success",
+    "learner_id": "nosimilo-mtshali",
+    "course_name": "Business Analysis",
+    "assignment_name": "Implementing a Data Analytics Platform — Q5",
+    "score": 3.2,
+    "max_grade": 5.0,
+    "grade_label": "Good",
+    "requires_human_review": false,
+    "error": null
+  },
+  {
+    "timestamp": "2026-08-02T21:16:54.485991+02:00",
+    "status": "success",
+    "learner_id": "nosimilo-mtshali",
+    "course_name": "Business Analysis",
+    "assignment_name": "Implementing a Data Analytics Platform — Q6",
+    "score": 4.0,
+    "max_grade": 4.0,
+    "grade_label": "Full Marks",
+    "requires_human_review": false,
+    "error": null
+  },
+  {
+    "timestamp": "2026-08-02T21:17:17.044662+02:00",
+    "status": "success",
+    "learner_id": "nosimilo-mtshali",
+    "course_name": "Business Analysis",
+    "assignment_name": "Implementing a Data Analytics Platform — Q7",
+    "score": 4.0,
+    "max_grade": 4.0,
+    "grade_label": "Excellent",
+    "requires_human_review": false,
+    "error": null
+  },
+  {
+    "timestamp": "2026-08-02T21:17:40.239992+02:00",
+    "status": "success",
+    "learner_id": "nosimilo-mtshali",
+    "course_name": "Business Analysis",
+    "assignment_name": "Implementing a Data Analytics Platform — Q8",
+    "score": 3.0,
+    "max_grade": 3.0,
+    "grade_label": "Excellent",
+    "requires_human_review": false,
+    "error": null
   }
 ]

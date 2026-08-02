@@ -103,6 +103,14 @@
       "total_submissions": 28,
       "graded_count": 28,
       "error_count": 0
+    },
+    {
+      "course_name": "Business Analysis",
+      "assignment_name": "Implementing a Data Analytics Platform — Q1",
+      "graded_at": "2026-08-02T21:17:40.198990+02:00",
+      "total_submissions": 8,
+      "graded_count": 8,
+      "error_count": 0
     }
   ],
   "results": [
@@ -7609,6 +7617,208 @@
             "marks_awarded": 4.0,
             "marks_available": 4.0,
             "comment": "The answer provides a clear, well-reasoned explanation of why these distinctions are crucial, linking it to project success and stakeholder satisfaction. Specific examples and their relevance to the BRD are provided, fully meeting the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "nosimilo-mtshali",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "The response clearly explains stakeholder selection with detailed reasoning for each choice and effectively applies the Power-Interest Grid to determine influence and interest.",
+        "strengths": [
+          "Demonstrates a deep understanding of stakeholder selection and influence-interest analysis."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer demonstrates a deep understanding of stakeholder selection, includes the use of an influence-interest matrix (Power-Interest Grid), and clearly explains the reasoning behind the choices. The response also provides clear details about the relevance and impact of each stakeholder, fully meeting the 5-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "nosimilo-mtshali",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Full Marks",
+        "feedback": "The response clearly outlines a targeted strategy for high-power, low-interest stakeholders, supported by specific examples. It also provides strong reasoning for the importance of this engagement approach.",
+        "strengths": [
+          "Comprehensive strategy with clear steps and solid reasoning for its importance"
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer provides a comprehensive strategy with clear steps for engaging high-power, low-interest stakeholders (e.g., concise updates, seeking input only when required, demonstrating value with metrics). The importance is explained with solid reasoning (securing backing, preventing resistance, ensuring resources and alignment) and includes relevant examples of benefits."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "nosimilo-mtshali",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response offers a comprehensive and well-structured approach, detailing steps from initial listening and assessment to escalation, adjustment, and future stakeholder integration. This clearly addresses all aspects of managing late stakeholder concerns.",
+        "strengths": [
+          "Provides a comprehensive and well-structured approach to managing late stakeholder concerns."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a well-structured and detailed approach, including listening, assessment, escalation to stakeholders, potential adjustments, and future integration, fully meeting the 4-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "nosimilo-mtshali",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "The response clearly details how stakeholder engagement prevents risks, improves outcomes, and aligns stakeholders with the DAP project, demonstrating a comprehensive understanding of its impact.",
+        "strengths": [
+          "Clearly details how stakeholder engagement prevents risks, improves outcomes, and aligns stakeholders with the DAP project."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation, providing a logical explanation of how engagement can prevent risks, improve outcomes, and align stakeholders with the project, fully meeting the 4-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "nosimilo-mtshali",
+      "status": "graded",
+      "grading": {
+        "score": 3.2,
+        "max_grade": 5.0,
+        "percentage": 64.0,
+        "grade_label": "Good",
+        "feedback": "The response clearly explains how requirements were derived from client goals. To improve, articulate the specific methodology for client review and confirmation of these alignments.",
+        "strengths": [
+          "Clearly explains how business, functional, and non-functional requirements were derived from client goals and pain points."
+        ],
+        "improvements": [
+          "Articulate the specific methodology for client review and confirmation of these alignments, such as client meetings or stakeholder feedback."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 3.2,
+            "marks_available": 4.0,
+            "comment": "The response clearly explains how requirements were derived from client goals and provides specific examples for each type. However, it lacks a detailed methodology for review and confirmation with the client, such as client meetings or stakeholder feedback, to ensure alignment. This aligns with the '4 marks' description in the rubric, which translates to 3.2 marks out of 4.0 for this criterion."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "nosimilo-mtshali",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Full Marks",
+        "feedback": "The response clearly identifies multiple specific challenges in defining functional requirements and provides concrete, actionable strategies to overcome each, aligning with detailed expectations.",
+        "strengths": [
+          "Clearly identifies specific challenges and provides concrete, detailed steps to overcome them."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The learner provides a clear, detailed explanation of specific challenges (unclear stakeholder expectations, limited technical understanding, scope creep, translating business needs) and presents concrete steps taken to resolve each (workshops, visual aids, change control, collaboration). This fully meets the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "nosimilo-mtshali",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "The response clearly explains why distinguishing between requirement types is crucial, linking it to project success and stakeholder clarity with relevant examples.",
+        "strengths": [
+          "Provides a clear, well-reasoned explanation of the importance of distinguishing between business, functional, and non-functional requirements, linking it to project success and stakeholder satisfaction."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, well-reasoned explanation of why these distinctions are crucial, linking it to project success (guiding direction, building the system, ensuring quality) and stakeholder satisfaction (clarity for different stakeholders). Specific examples for each requirement type and their relevance to the BRD are provided."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "nosimilo-mtshali",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "The response outlines a clear and practical approach, covering all key steps from impact assessment to communication and BRD updates. It effectively addresses the prompt with actionable information.",
+        "strengths": [
+          "Outlines a clear, practical, and comprehensive approach to addressing the missing requirement."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The answer outlines a clear, practical approach, including assessing impact, communicating with stakeholders, initiating a change request, updating the BRD, and informing parties, fully meeting the criteria."
           }
         ]
       }

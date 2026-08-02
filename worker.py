@@ -22,6 +22,12 @@ HUMAN REVIEW HOLD-BACK (new):
   state in Moodle — so it naturally appears in Moodle's own manual grading
   queue for a teacher to check, rather than silently receiving an AI grade
   that hasn't actually been reviewed.
+
+GRADING DASHBOARD LOGGING (new):
+  Every grading attempt (success or fail) is also POSTed to the Grading
+  Dashboard's log-ingestion API (see log_to_dashboard()), so admins can
+  monitor and troubleshoot grading activity from the dashboard. This never
+  raises — a dashboard-logging failure must not break actual grading.
 """
 
 import time
@@ -31,6 +37,7 @@ import json
 import logging
 import os
 import sys
+import requests
 
 import pika
 from dotenv import load_dotenv
@@ -51,6 +58,31 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 QUEUE_NAME = "grading_jobs"
+
+# ---------------------------------------------------------------------------
+# Grading Dashboard logging config
+# ---------------------------------------------------------------------------
+DASHBOARD_LOG_URL = os.getenv("DASHBOARD_LOG_URL", "http://localhost:5001/api/logs")
+API_KEY = os.getenv("API_KEY", "test-api-key-123")
+
+
+def log_to_dashboard(data: str, status: str, details: str, attempt: int) -> None:
+    """
+    Send a grading execution log entry to the Grading Dashboard.
+
+    Never raises — a dashboard-logging failure must not break grading.
+    Any connection/request error is caught and logged locally instead.
+    """
+    try:
+        requests.post(
+            DASHBOARD_LOG_URL,
+            headers={"apiKey": API_KEY, "Content-Type": "application/json"},
+            json={"data": data, "status": status, "details": details, "attempt": attempt},
+            timeout=5,
+        )
+    except requests.RequestException as e:
+        log.warning("Failed to log to dashboard: %s", e)
+
 
 # ---------------------------------------------------------------------------
 # Quiz grade accumulator
@@ -288,6 +320,14 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
                 error_message=error_msg,
                 log_path=log_path,
             )
+
+            log_to_dashboard(
+                data=learner_id,
+                status="fail",
+                details=error_msg,
+                attempt=1,
+            )
+
             channel.basic_ack(delivery_tag=method.delivery_tag)
             return
 
@@ -310,6 +350,13 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
             grade_label=grading.get("grade_label"),
             requires_human_review=grading.get("requires_human_review", False),
             log_path=log_path,
+        )
+
+        log_to_dashboard(
+            data=learner_id,
+            status="success",
+            details=f"score={grading.get('score')}/{grading.get('max_grade')} ({grading.get('grade_label')})",
+            attempt=1,
         )
 
         log.info(
@@ -489,6 +536,7 @@ def start_worker(
     log.info("Output      : %s", output_path)
     log.info("Log         : %s", log_path)
     log.info("Flagged log : %s", flagged_log_path)
+    log.info("Dashboard   : %s", DASHBOARD_LOG_URL)
     log.info("Pace        : %.1fs between calls", pace_seconds)
     log.info("Host        : %s", rabbitmq_host)
     log.info("Waiting for grading jobs... (Ctrl+C to stop)")

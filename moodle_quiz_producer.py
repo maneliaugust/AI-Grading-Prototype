@@ -29,7 +29,12 @@ DEDUPLICATION — two layers, catching two different situations:
        slot whose Moodle state is no longer "needsgrading" (e.g. it was
        already graded by a previous run, or a teacher graded it
        manually). This protects you if you re-run the producer AFTER
-       a previous batch has finished grading.
+       a previous batch has finished grading. --force now also bypasses
+       THIS check (passed through to extract_essay_responses_from_attempt),
+       not just the queue-depth check below — previously --force only
+       skipped the local slot_states check in this file, so an
+       already-graded attempt (state e.g. "mangrright", "mangrpartial")
+       would still silently return 0 essay responses even with --force.
 
     2. STILL BEING PROCESSED (queue-depth check): if you re-run the
        producer WHILE the worker is still mid-batch on a previous run,
@@ -166,7 +171,16 @@ def build_jobs(
         else:
             slot_states = get_slot_states(attempt_id)
 
-        essay_responses = moodle_client.extract_essay_responses_from_attempt(attempt_id)
+        # NOTE: force is now also passed through here — previously this
+        # call had no force parameter at all, so extract_essay_responses_
+        # from_attempt()'s own internal state filter (which excludes
+        # already-graded states like "mangrright"/"mangrpartial", not
+        # just the literal string "needsgrading") would still silently
+        # drop every essay response for an already-graded attempt, even
+        # when --force was passed on the command line.
+        essay_responses = moodle_client.extract_essay_responses_from_attempt(
+            attempt_id, force=force
+        )
 
         objective_score = moodle_client.get_objective_score_from_attempt(attempt_id)
 

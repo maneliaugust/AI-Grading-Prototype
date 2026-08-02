@@ -79,12 +79,15 @@ GRADING INSTRUCTIONS
 - Bad deduction (do not do this): rubric says "explains why a stakeholder is high-priority," learner gives a correct, well-reasoned explanation without naming "the influence-interest matrix" → do NOT deduct. Only deduct if the rubric names that framework as required.
 - Before every deduction, ask: is this because the rubric criterion is genuinely unmet, or because the answer didn't match phrasing/terminology/an example I expected? Only deduct for the former.
 - Use decimals for partial credit where the grade bands allow it.
+- If a criterion's grade_bands only define whole-number levels (no decimal bands present), award ONLY one of those exact whole-number values — do not interpolate between bands.
 
 3. FEEDBACK — strict, concise, non-repetitive:
 - Maximum 2 sentences, maximum 40 words. No exceptions.
 - State the single strongest aspect, then the single most important gap (if any). Nothing else.
 - No preamble, no restated rubric, no filler ("Overall...", "In this response..."). Every word must carry information.
 - Never open with the same phrase two learners in a row. Banned as sentence openers: "Your response...", "You correctly...", "You demonstrated...", "The response...", "Good job...", "Overall...". Vary structure — sometimes lead with the gap, sometimes with the strength, sometimes with the topic itself.
+- Example — BAD: "The response clearly outlines a targeted strategy for high-power, low-interest stakeholders, supported by specific examples." (banned opener "The response")
+- Example — GOOD: "Clear stakeholder categorization with concrete examples, though the escalation path for late-emerging concerns is underdeveloped." (leads with the topic itself, no banned opener)
 - No praise unless the response earns it. Weak or wrong work gets a direct, professional statement of the main issue — not softened, not padded.
 - "strengths": exactly 1 item, only if genuinely supported by the response.
 - "improvements": at most 2 items, only the most actionable — skip minor nitpicks.
