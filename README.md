@@ -92,7 +92,7 @@ MOODLE_TOKEN=xxxxxxxx
 # Swap both values for the real dashboard's endpoint/key once available —
 # no code changes are needed elsewhere in the pipeline.
 DASHBOARD_LOG_URL=http://localhost:5001/api/logs
-DASHBOARD_API_KEY=xxxxxxxx
+API_KEY=xxxxxxxx
 ```
 
 The Moodle token should belong to a dedicated service account with access only to the required grading web services.
@@ -183,7 +183,7 @@ The worker:
 | --flagged-log     | File for submissions flagged for human review |
 | --pace-seconds    | Delay between grading calls (rate-limit pacing) |
 
-Grading Dashboard settings (`DASHBOARD_LOG_URL`, `DASHBOARD_API_KEY`) are read from `.env`, not passed as CLI flags.
+Grading Dashboard settings (`DASHBOARD_LOG_URL`, `API_KEY`) are read from `.env`, not passed as CLI flags.
 
 ---
 
