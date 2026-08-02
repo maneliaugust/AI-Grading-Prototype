@@ -87,6 +87,22 @@
       "total_submissions": 11,
       "graded_count": 11,
       "error_count": 0
+    },
+    {
+      "course_name": "Business Analysis",
+      "assignment_name": "Implementing a Data Analytics Platform — Q1",
+      "graded_at": "2026-07-27T13:39:17.363293+02:00",
+      "total_submissions": 90,
+      "graded_count": 36,
+      "error_count": 54
+    },
+    {
+      "course_name": "Business Analysis",
+      "assignment_name": "Implementing a Data Analytics Platform — Q8",
+      "graded_at": "2026-07-28T20:13:09.960689+02:00",
+      "total_submissions": 28,
+      "graded_count": 28,
+      "error_count": 0
     }
   ],
   "results": [
@@ -5910,6 +5926,1692 @@
           }
         ]
       }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response demonstrates a deep understanding of stakeholder analysis, clearly explaining the rationale behind selecting each group and effectively applying a power-interest grid to determine their influence and interest. You provided excellent detail on the relevance and impact of each stakeholder, showcasing a comprehensive approach.",
+        "strengths": [
+          "Comprehensive identification and justification of diverse stakeholders, including their specific relevance and impact on the project."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer demonstrates a deep understanding of stakeholder selection, clearly explains the reasoning behind the choices, and explicitly uses a 'power-interest grid' (equivalent to an influence-interest matrix) to determine influence and interest. The response provides clear details about the relevance and impact of each stakeholder, fully meeting the 5-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly outlines effective strategies for engaging high-power, low-interest stakeholders, focusing on concise communication and selective involvement. You effectively explain the critical importance of this approach by detailing its benefits to project success and organizational support.",
+        "strengths": [
+          "The response provides a comprehensive strategy with clear steps and relevant examples for engaging high-power, low-interest stakeholders."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer provides a comprehensive strategy with clear steps for engaging high-power, low-interest stakeholders, including specific communication methods like executive summaries and dashboards. The importance is explained with solid reasoning and examples of how it benefits the project, fully meeting the 5-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a comprehensive and well-structured approach to managing late stakeholder concerns, clearly outlining steps from initial understanding to formal change management. You effectively cover the necessary actions to integrate new input while maintaining project control and stakeholder trust.",
+        "strengths": [
+          "The clear, step-by-step process for addressing concerns and integrating the stakeholder into the project."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response offers a detailed and logical sequence of actions, effectively covering stakeholder engagement, assessment, and project adjustments as required by the rubric for a 4-mark answer."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly details how active stakeholder engagement, through various methods like workshops and regular reviews, directly ensures that the Data Analytics Platform's requirements align with strategic business objectives. This approach effectively guarantees the platform delivers meaningful value and contributes to project success.",
+        "strengths": [
+          "Detailed explanation of how engagement ensures requirement alignment and value delivery"
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a clear and detailed explanation of how stakeholder engagement directly impacts DAP success by ensuring requirement alignment, improving outcomes, and implicitly preventing risks through ongoing validation and traceability. The explanation is logical and supported by specific examples of engagement activities and their results."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Full Marks",
+        "feedback": "Your response clearly outlines a comprehensive approach to aligning requirements with client goals, detailing stakeholder engagement, requirement gathering, mapping, and continuous validation. You effectively demonstrated how each step contributes to ensuring the platform delivers meaningful value.",
+        "strengths": [
+          "The response provides a clear, step-by-step methodology for ensuring requirements align with client goals, including specific examples."
+        ],
+        "improvements": [
+          "No specific improvements are needed as the response is comprehensive and fully addresses the prompt."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, step-by-step approach to ensuring requirements align with the client’s goals. The methodology for review and confirmation (workshops, interviews, regular review sessions) is well articulated and directly tied to the client’s objectives with specific examples (e.g., automated data cleaning linked to efficiency, access controls to data privacy). This fully meets the highest level described in the rubric."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response comprehensively addresses potential challenges in defining functional requirements, offering specific and actionable strategies to overcome each one. The detailed explanations for both challenges and solutions demonstrate a strong understanding of business analysis practices.",
+        "strengths": [
+          "You provided a clear, detailed explanation of multiple specific challenges and concrete steps to resolve each."
+        ],
+        "improvements": [
+          "Your submission is very thorough and effectively addresses all aspects of the prompt."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response clearly identifies multiple specific challenges (e.g., conflicting stakeholder needs, scope creep, technical constraints) and provides detailed, concrete steps to overcome each (e.g., workshops, MVP, MoSCoW, involving technical experts), fully meeting the criteria for a 4-mark response."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly articulates the rationale for stakeholder selection and effectively details the methodology for assessing influence and interest. The explanation of using the Power-Interest Grid to prioritize engagement strategies is particularly strong, demonstrating a deep understanding of the topic.",
+        "strengths": [
+          "Comprehensive explanation of stakeholder selection and the detailed methodology for assessing influence and interest."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer demonstrates a deep understanding of stakeholder selection, clearly explains the reasoning behind choices for influence and interest, and explicitly uses and explains the purpose of the Power-Interest Grid (influence-interest matrix). Clear details about the relevance and impact of each stakeholder are provided through examples."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly outlines a comprehensive strategy for engaging high-power, low-interest stakeholders, providing specific and actionable steps. You effectively explain the critical importance of these strategies by linking them to project success and risk mitigation.",
+        "strengths": [
+          "The detailed and actionable strategies provided for managing high-power, low-interest stakeholders."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer provides a comprehensive strategy with clear steps for engaging high-power, low-interest stakeholders, including brief updates, executive summaries, and critical component reviews. The importance is explained with solid reasoning, highlighting how it reduces project risk and maintains alignment."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear, step-by-step process for managing late stakeholder concerns. It effectively covers acknowledging concerns, assessing impact, engaging the team, and managing expectations, demonstrating a comprehensive and well-structured approach.",
+        "strengths": [
+          "The response offers a well-structured and detailed approach to handling late-stage stakeholder concerns."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a well-structured and detailed approach to managing late stakeholder concerns, addressing the issue through stakeholder meetings, assessments, and adjustments to the project, fully meeting the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear and comprehensive explanation of how stakeholder engagement is crucial for the success of DAP implementation. You effectively detailed its impact on adoption, alignment, and risk mitigation, demonstrating a strong understanding of the topic.",
+        "strengths": [
+          "Clearly articulated the multifaceted impact of stakeholder engagement on DAP implementation success, providing logical explanations for each point."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation, providing a logical explanation of how engagement can prevent risks, improve outcomes, and align stakeholders with the project. The points are well-explained and directly relevant to DAP."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear, step-by-step approach to ensuring requirements align with the client’s goals. You effectively demonstrated how stakeholder engagement and validation were integrated throughout the process to ensure the solution delivers real business value.",
+        "strengths": [
+          "The detailed, step-by-step methodology for ensuring requirements alignment with client goals."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer provides a clear, step-by-step approach, detailing how business, functional, and non-functional requirements were aligned with client goals through stakeholder engagement, validation, and the use of acceptance criteria. The methodology is well articulated and directly tied to the client’s objectives."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear, detailed explanation of several specific challenges encountered when defining functional requirements. The concrete steps outlined for overcoming each challenge are practical and demonstrate a strong understanding of effective business analysis techniques.",
+        "strengths": [
+          "The response offers a comprehensive and detailed set of challenges paired with actionable, well-explained solutions."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, detailed explanation of specific challenges (e.g., conflicting stakeholder views, unclear needs) and presents concrete steps taken to resolve them (e.g., workshops, interviews). Each challenge is well-defined, and the proposed solutions are practical and specific, fully meeting the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear and comprehensive explanation of how stakeholder engagement critically impacts the success of Data Analytics Platform implementation. You effectively detail how engagement mitigates risks, improves outcomes, and fosters alignment, leading to successful adoption and optimized ROI.",
+        "strengths": [
+          "The detailed and logical explanation of how engagement prevents risks, improves outcomes, and aligns stakeholders with the project."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation. It provides a logical explanation of how engagement prevents risks (e.g., low uptake, out of step with user demands), improves outcomes (e.g., considering requirements, insightful feedback, data-driven decision-making, seamless interaction, matching business demands), and aligns stakeholders (e.g., becoming advocates, feeling heard and involved). This fully meets the 4-mark criterion."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly articulates a comprehensive approach to aligning business, functional, and non-functional requirements with client goals. You effectively detailed the methods used for gathering and validating requirements, demonstrating a strong understanding of the process.",
+        "strengths": [
+          "Clearly articulated the step-by-step approach and methods for ensuring requirements alignment with client objectives."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, step-by-step approach to ensuring requirements align with the client’s goals. The methodology for review and confirmation (e.g., stakeholder interviews, client documentation reviews, regular stakeholder validation) is well articulated and directly tied to the client’s objectives, meeting the criteria for 5 marks in the rubric description, which translates to full marks for this criterion."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response effectively identifies key challenges in defining functional requirements, such as conflicting stakeholder views and scope creep. You also provide concrete and practical strategies, like structured workshops and change control procedures, to overcome these issues. This demonstrates a strong understanding of the topic.",
+        "strengths": [
+          "The response provides a clear, detailed explanation of specific challenges and concrete steps to resolve them."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The learner provides a clear, detailed explanation of two specific challenges (conflicting stakeholder views/unclear needs and scope creep) and presents concrete, actionable steps to resolve each, fully meeting the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear and well-reasoned explanation of why distinguishing between business, functional, and non-functional requirements is crucial. You effectively link these distinctions to project success and stakeholder satisfaction, supported by specific and relevant examples for each type.",
+        "strengths": [
+          "Provided a clear, well-reasoned explanation with specific examples for each requirement type."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, well-reasoned explanation of why these distinctions are crucial, linking it to project success and stakeholder satisfaction. Specific examples and their relevance to the BRD are provided, fully meeting the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a comprehensive and practical approach to addressing a missing requirement, detailing key steps from initial impact assessment to final BRD updates and communication. The mention of following a change management procedure and consulting stakeholders demonstrates a strong understanding of best practices.",
+        "strengths": [
+          "Outlining a clear, practical, and comprehensive approach to managing the missing requirement."
+        ],
+        "improvements": [
+          "To further enhance, briefly consider the specific types of risks (e.g., technical, financial, reputational) that might arise from the missing requirement during the initial evaluation phase."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The response outlines a clear, practical approach, including stakeholder consultations, updating the BRD, and communicating with affected parties, fully meeting the criteria for 3 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Good",
+        "feedback": "Your response clearly explains the use of the Power-Interest grid to determine stakeholder influence and interest, providing strong examples. To achieve a higher score, consider elaborating further on the specific relevance and impact of each chosen stakeholder in the initial selection.",
+        "strengths": [
+          "Excellent explanation of the Power-Interest grid and its application with relevant examples."
+        ],
+        "improvements": [
+          "Provide more specific details on the relevance and impact of each chosen stakeholder during the initial selection phase."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 4.0,
+            "marks_available": 5.0,
+            "comment": "The response effectively explains stakeholder selection criteria and demonstrates a strong understanding of the Power-Interest grid with good examples. However, it lacks some depth or detail in the analysis of specific stakeholders and their individual relevance/impact during the initial selection, which is needed for the highest mark band."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a comprehensive and practical approach to addressing a missing requirement. You clearly outline the necessary steps from analysis and impact assessment to prioritization and stakeholder engagement, demonstrating a strong understanding of the process.",
+        "strengths": [
+          "The response offers a clear, structured, and actionable plan for managing a newly identified requirement."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The response outlines a clear, practical approach to addressing the missing requirement, including stakeholder engagement, impact assessment, and documentation, which aligns perfectly with the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "graded",
+      "grading": {
+        "score": 2.0,
+        "max_grade": 5.0,
+        "percentage": 40.0,
+        "grade_label": "Needs Improvement",
+        "feedback": "You clearly articulated how you determined stakeholder influence and interest, providing good examples. To strengthen your response, explicitly integrate and explain the use of an influence-interest matrix, a key tool for this analysis. Providing more specific reasoning for *why* these particular stakeholders were chosen would also add depth.",
+        "strengths": [
+          "Clearly explained the criteria used to determine stakeholder influence and interest."
+        ],
+        "improvements": [
+          "Explicitly incorporate and explain the use of an influence-interest matrix.",
+          "Provide more specific reasoning for the selection of particular stakeholders."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 2.0,
+            "marks_available": 5.0,
+            "comment": "The response provides an overview of stakeholder selection and explains how influence and interest were determined, with relevant examples. However, it does not mention or explain the use of an influence-interest matrix, which is a key component for higher marks as per the rubric. The reasoning for overall stakeholder selection could also be more detailed."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides clear and relevant strategies for engaging high-power, low-interest stakeholders, along with a good explanation of why their support is crucial. To achieve a higher score, consider adding specific examples that illustrate how these strategies directly benefit the project in action.",
+        "strengths": [
+          "Clearly outlines effective strategies for engaging high-power, low-interest stakeholders."
+        ],
+        "improvements": [
+          "Include specific examples demonstrating how the proposed strategies directly benefit the project."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 4.0,
+            "marks_available": 5.0,
+            "comment": "The answer presents a clear strategy with good reasoning for its importance. However, it lacks specific examples showing the strategy in action or how it directly benefits the project, which would elevate it to the 5-mark level."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly identifies specific challenges in defining functional requirements, such as unclear user needs and technical limitations. You also provided concrete and effective strategies, like conducting workshops and collaborating with developers, to overcome these issues.",
+        "strengths": [
+          "Clearly identifying specific challenges and providing concrete, actionable solutions for each."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear explanation of specific challenges (unclear user needs, technical limits) and presents concrete steps to resolve them (workshops/interviews, early developer collaboration), fully meeting the 4-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response accurately defines business, functional, and non-functional requirements, and includes relevant examples for non-functional requirements. To strengthen your answer, elaborate on *why* distinguishing these types is crucial for project success and stakeholder alignment within the BRD.",
+        "strengths": [
+          "Clearly defines the different types of requirements and provides relevant examples for non-functional requirements."
+        ],
+        "improvements": [
+          "Elaborate on the specific reasons why distinguishing these requirements is crucial for project success and stakeholder satisfaction.",
+          "Connect the importance of these distinctions more directly to the impact on the Business Requirements Document (BRD)."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The response provides good definitions for each requirement type and includes examples for non-functional requirements. The importance of distinguishing them is stated, but the explanation lacks thorough elaboration on its cruciality for project success, stakeholder satisfaction, or direct impact on the BRD, aligning with the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear and practical approach to addressing a missing requirement, effectively covering stakeholder communication, BRD updates, and impact analysis. This demonstrates a strong grasp of change management within a project.",
+        "strengths": [
+          "Clearly outlines a practical, multi-step approach for managing missing requirements."
+        ],
+        "improvements": [
+          "No specific improvements are needed for this response as it fully meets the rubric criteria."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The response outlines a clear, practical approach including reviewing with the project team (stakeholder consultation), updating the BRD, informing all stakeholders (communicating with affected parties), and checking for impacts on timelines/resources/features, which aligns perfectly with the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungiswa-mzolo",
+      "status": "graded",
+      "grading": {
+        "score": 2.5,
+        "max_grade": 5.0,
+        "percentage": 50.0,
+        "grade_label": "Pass",
+        "feedback": "Your response effectively identifies key stakeholders and provides clear reasons for their selection. To enhance your analysis, consider using a structured tool like an influence-interest matrix and explicitly applying your criteria to each stakeholder to determine their specific levels of influence and interest.",
+        "strengths": [
+          "Identified relevant stakeholders and provided clear, concise reasons for their selection."
+        ],
+        "improvements": [
+          "Incorporate a structured approach like an influence-interest matrix to clearly categorize and analyze each stakeholder's level of influence and interest.",
+          "Apply the criteria you listed (involvement, decision-making, knowledge, business impact) to each specific stakeholder to demonstrate how you determined their individual influence and interest levels."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 2.5,
+            "marks_available": 5.0,
+            "comment": "The learner successfully identified relevant stakeholders and provided logical reasons for their selection, addressing the first part of the question. They also listed general criteria for determining importance, which is an attempt to address the second part. However, the response lacks the explicit mention and application of an influence-interest matrix, which is a key requirement for higher marks. Additionally, the criteria for influence/interest were not applied specifically to each stakeholder, preventing a higher score."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungiswa-mzolo",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 5.0,
+        "percentage": 60.0,
+        "grade_label": "Pass",
+        "feedback": "Your response correctly identifies Leadership as a high-power stakeholder and suggests a relevant tactic of regular updates and demos. To improve, focus on developing a more comprehensive strategy with clear steps tailored specifically for high-power, low-interest stakeholders, and explain the importance of this particular engagement approach in more detail.",
+        "strengths": [
+          "Identifying a relevant tactic (regular updates and demos) for a high-power stakeholder group."
+        ],
+        "improvements": [
+          "Develop a more detailed strategy with clear steps for engaging high-power, low-interest stakeholders.",
+          "Explain the importance of this specific engagement strategy, focusing on how it addresses their power and low interest."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 3.0,
+            "marks_available": 5.0,
+            "comment": "The response mentions a strategy ('Regular updates and demos to show benefits' for 'Leadership'), but it is incomplete and lacks specific examples of how this would be executed as a comprehensive strategy for high-power, low-interest stakeholders. The explanation of why this engagement is important is generalised to the overall project rather than specifically addressing the unique considerations for this stakeholder group, aligning with the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungiswa-mzolo",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides a clear and logical sequence of steps for addressing late stakeholder concerns, covering all essential phases from understanding to plan adjustment. To further strengthen your approach, consider elaborating on the specific methods or considerations within each step.",
+        "strengths": [
+          "Provides a clear and logical sequence of actionable steps."
+        ],
+        "improvements": [
+          "Elaborate on the specific actions or methods within each step.",
+          "Detail how to formally engage the stakeholder and manage potential conflicts."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The response clearly outlines the necessary steps to manage late stakeholder concerns, including listening, assessing impact, team discussion, finding solutions, and updating the plan. However, it lacks the detailed elaboration required for a full score, particularly regarding the specific methods or considerations within each step, aligning with the 'lacks a few details' criterion for 3 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungiswa-mzolo",
+      "status": "graded",
+      "grading": {
+        "score": 3.5,
+        "max_grade": 4.0,
+        "percentage": 87.5,
+        "grade_label": "Excellent",
+        "feedback": "Your response effectively outlines several crucial impacts of stakeholder engagement on project success. To further strengthen your answer, consider elaborating on the specific mechanisms through which engagement achieves each outcome and providing more detailed examples relevant to a Data Analytics Platform.",
+        "strengths": [
+          "Clearly identifies multiple critical ways stakeholder engagement contributes to project success."
+        ],
+        "improvements": [
+          "Elaborate on the 'how' behind each impact of engagement.",
+          "Include more specific examples directly related to Data Analytics Platform implementation."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 3.5,
+            "marks_available": 4.0,
+            "comment": "The response clearly explains several key connections between stakeholder engagement and project success, covering improved outcomes, risk reduction, and alignment. While the connections are logical, further elaboration on the mechanisms of engagement and more specific examples related to DAP implementation would provide the 'detailed' aspect required for full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungiswa-mzolo",
+      "status": "graded",
+      "grading": {
+        "score": 3.6,
+        "max_grade": 5.0,
+        "percentage": 72.0,
+        "grade_label": "Good",
+        "feedback": "Your response clearly outlines a step-by-step approach to aligning requirements with client goals, effectively demonstrating client engagement and feedback integration. To enhance your answer further, consider elaborating on the specific methods or techniques used for validation and objective checking.",
+        "strengths": [
+          "The response provides a clear, step-by-step approach that directly addresses client goals and feedback."
+        ],
+        "improvements": [
+          "Elaborate on the specific methods used for validating requirements.",
+          "Detail how project objectives were checked against requirements."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 3.6,
+            "marks_available": 4.0,
+            "comment": "The response provides a clear, step-by-step approach to aligning requirements with client goals, explicitly mentioning client interaction and feedback integration. It effectively addresses the core of the question, though further depth in articulating the specific methodologies for validation and objective checking would elevate it to full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungiswa-mzolo",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response effectively identifies key challenges in defining functional requirements, such as unclear needs and changing requirements. To enhance your answer, consider providing more specific and detailed strategies for overcoming these challenges, moving beyond general actions to concrete techniques.",
+        "strengths": [
+          "Clearly identifies relevant challenges like unclear stakeholder needs and changing requirements."
+        ],
+        "improvements": [
+          "Provide more concrete and detailed steps or techniques for resolving the identified challenges, such as specific methods for clarifying needs or managing changes.",
+          "Elaborate on the 'technical issues' challenge to make it more specific and distinct from general complexity."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The answer identifies clear challenges such as 'unclear needs' and 'changes'. The steps to overcome them are relevant but lack the specific details or depth (e.g., 'workshops, interviews') required for full marks, aligning with the 3-mark description."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungiswa-mzolo",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response correctly identifies several key reasons why distinguishing between requirement types is important, such as clarifying goals and guiding development. To enhance your answer, consider elaborating on how these distinctions directly contribute to project success and stakeholder satisfaction, perhaps with a brief example for each type.",
+        "strengths": [
+          "Clearly identifies valid reasons for distinguishing between requirement types"
+        ],
+        "improvements": [
+          "Elaborate on how distinguishing these requirements directly impacts project success and stakeholder satisfaction",
+          "Provide specific examples to illustrate the importance of these distinctions within a BRD"
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a good explanation of why the distinctions are important by listing key benefits (clarifies goals, helps development, reduces misunderstandings) and correctly defining each requirement type. However, it lacks the thorough elaboration, explicit links to project success and stakeholder satisfaction, and specific examples required for a full score, aligning with the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungiswa-mzolo",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Missing Key Requirement",
+        "feedback": "Your response clearly outlines a practical, step-by-step approach to addressing a missing requirement, covering identification, impact assessment, stakeholder communication, and plan adjustments. This demonstrates a solid understanding of the necessary actions.",
+        "strengths": [
+          "The response provides a clear and practical sequence of steps for managing a missing requirement."
+        ],
+        "improvements": [
+          "For even greater detail, consider explicitly mentioning the importance of formal documentation of the updated BRD and the outcomes of stakeholder consultations."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The response outlines a clear, practical approach including identifying the gap, assessing impact, informing stakeholders, updating the plan (BRD), and adjusting timelines, directly aligning with the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 5.0,
+        "percentage": 60.0,
+        "grade_label": "Good",
+        "feedback": "Your response effectively identifies a comprehensive list of internal and external stakeholders, clearly outlining their individual interests and levels of influence. To enhance your analysis, explicitly incorporating and explaining the use of an influence-interest matrix would demonstrate a deeper understanding of this key analytical tool.",
+        "strengths": [
+          "Clear identification of diverse stakeholders and their individual levels of interest and influence."
+        ],
+        "improvements": [
+          "Explicitly mention and explain the use of an influence-interest matrix to demonstrate the methodology for determining influence and interest."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 3.0,
+            "marks_available": 5.0,
+            "comment": "The learner provides a good overview of stakeholder selection and clearly describes the interest and influence for each. However, the use of an influence-interest matrix as a methodology is not mentioned or explained, which is a key component for higher marks as per the rubric."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Good",
+        "feedback": "Your response effectively identifies strategies like biweekly updates and virtual meetings, clearly explaining their importance for busy, high-power stakeholders. To further strengthen your answer, consider providing more specific examples of the content shared or the practical steps involved in these engagement methods.",
+        "strengths": [
+          "Clearly identifies appropriate communication frequency and content tailored for busy, high-power stakeholders."
+        ],
+        "improvements": [
+          "Provide more specific examples of the information shared or decisions made during engagement.",
+          "Elaborate on the practical steps for implementing the proposed engagement strategies."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 4.0,
+            "marks_available": 5.0,
+            "comment": "The response presents a clear strategy (biweekly updates on important decisions, virtual meetings) with good reasoning for engaging high-power, low-interest stakeholders, aligning well with the 4-mark criteria. It lacks some important details or specific examples of the strategy in action to achieve full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "graded",
+      "grading": {
+        "score": 3.5,
+        "max_grade": 4.0,
+        "percentage": 87.5,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear and logical sequence for addressing late stakeholder concerns, including initial engagement and impact assessment. To further strengthen your answer, consider elaborating on the specific mechanisms for integrating solutions into project adjustments and ensuring ongoing communication with the newly identified stakeholder.",
+        "strengths": [
+          "The response effectively identifies key steps like holding a meeting and assessing the impact of concerns."
+        ],
+        "improvements": [
+          "Detail the process for integrating decided solutions into concrete project adjustments.",
+          "Describe how the newly identified stakeholder would be continuously engaged after the initial meeting and decision."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 3.5,
+            "marks_available": 4.0,
+            "comment": "The response covers key steps like stakeholder meetings and impact assessment, and implies adjustments through brainstorming and decision-making. However, it lacks some detail on the explicit process for integrating these adjustments into the project and the ongoing engagement with the newly identified stakeholder, preventing it from being a fully 'well-structured and detailed approach' for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly explains how stakeholder engagement is crucial for DAP implementation success. You effectively highlight how engagement prevents risks like project delays or opposition and ensures stakeholders understand the project and its features.",
+        "strengths": [
+          "Clearly articulating how engagement prevents project risks and ensures stakeholder alignment."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation, providing a logical explanation of how engagement can prevent risks, improve outcomes, and align stakeholders with the project, directly matching the 4-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a comprehensive and practical approach to addressing a missing key requirement. You clearly outline the necessary steps from stakeholder engagement to final validation, ensuring project control and alignment.",
+        "strengths": [
+          "The detailed, step-by-step process covers all critical phases of addressing a missing requirement, including impact assessment and formal change management."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The answer outlines a clear, practical approach to addressing the missing requirement, including stakeholder consultations, impact assessment, formal change requests, updating the BRD, and communicating with affected parties. The steps are detailed and logical."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly and concisely explains the importance of identifying business, functional, and non-functional requirements. You effectively link each type to project success and stakeholder satisfaction, supported by relevant examples.",
+        "strengths": [
+          "Clearly articulated the importance of each requirement type with relevant examples."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a clear, well-reasoned explanation for the importance of each requirement type, effectively linking them to project success and stakeholder satisfaction. Specific and relevant examples are provided for each, fully meeting the criteria for 4 marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response outlines a highly clear, practical, and comprehensive approach to addressing a missing requirement. The detailed steps, from stakeholder consultation and impact assessment to formal change management, demonstrate a strong understanding of the process.",
+        "strengths": [
+          "The comprehensive and practical step-by-step approach to managing the change."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The learner provided a clear, practical, and detailed approach that fully addresses the missing requirement, including stakeholder consultations, impact assessment, communication, BRD updates, and formal change management processes, aligning perfectly with the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly articulates the rationale for selecting each stakeholder and effectively demonstrates how their influence and interest were determined. Your categorization of stakeholders based on their decision-making power and project impact shows a strong grasp of stakeholder analysis principles.",
+        "strengths": [
+          "Clearly explained the rationale for selecting each specific stakeholder and their relevance to the project."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The learner demonstrated a deep understanding of stakeholder selection, providing clear reasoning and detailed relevance for each. The response effectively included the use of an influence-interest analysis by clearly defining and categorizing stakeholders based on their influence and interest levels, fully meeting the 5-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly outlines effective strategies for engaging high-power, low-interest stakeholders, focusing on concise, high-level communication and strategic involvement. You also provide a strong rationale for why this engagement is critical to project success and avoiding potential roadblocks.",
+        "strengths": [
+          "The response provides a comprehensive strategy with clear, actionable steps for engaging high-power, low-interest stakeholders."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The answer provides a comprehensive strategy with clear steps (e.g., executive summaries, ROI reports, milestone briefings, involving in crucial decisions) for engaging high-power, low-interest stakeholders. The importance is explained with solid reasoning, detailing how it benefits the project by maintaining support, preventing disengagement/obstruction, and avoiding funding reductions or priority changes."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Full Marks",
+        "feedback": "Your response offers a clear and logical process for managing late stakeholder concerns, demonstrating a strong understanding of the necessary steps from initial assessment to project adjustments. You effectively outline how to integrate new feedback while maintaining project integrity.",
+        "strengths": [
+          "Provides a well-structured and detailed approach to managing late stakeholder concerns."
+        ],
+        "improvements": [
+          "To further enhance your response, consider explicitly outlining the criteria you would use to prioritize the newly identified concerns."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a well-structured and detailed approach to managing late stakeholder concerns, addressing the issue through stakeholder meetings, assessments, and adjustments to the project, fully meeting the 4-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly outlines effective strategies for engaging high-power, low-interest stakeholders, focusing on concise communication and targeted involvement. The explanation of why these strategies are important is well-reasoned, highlighting key benefits like preventing delays and ensuring compliance.",
+        "strengths": [
+          "Clearly articulated strategies for managing high-power, low-interest stakeholders"
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The response provides a comprehensive strategy with clear steps for engaging high-power, low-interest stakeholders. The importance of the strategy is explained with solid reasoning and examples of how it benefits the project, fully meeting the 5-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response outlines a well-structured and detailed approach to managing late stakeholder concerns, effectively covering acknowledgment, impact assessment, team discussion, and communication. This demonstrates a strong grasp of how to integrate new input into a project.",
+        "strengths": [
+          "The clear, sequential steps for addressing the stakeholder's concerns."
+        ],
+        "improvements": [
+          "Consider explicitly mentioning a formal prioritization process for the new concerns against existing project objectives."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The response provides a well-structured and detailed approach, covering acknowledgment, assessment of impact, team discussion for adjustments, communication with the stakeholder, and documentation, aligning perfectly with the 4-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly and comprehensively explains how stakeholder engagement is critical for DAP implementation success. You effectively detailed how engagement leads to better alignment, risk mitigation, and improved outcomes, demonstrating a strong understanding of the topic.",
+        "strengths": [
+          "Clearly articulates the multifaceted impact of stakeholder engagement on DAP success."
+        ],
+        "improvements": [
+          "None at this time, as the response fully met the rubric criteria."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation. It provides a logical explanation of how engagement prevents risks (pinpoint potential risks), improves outcomes (tailor to business needs, refine features, better decision-making, higher user satisfaction), and aligns stakeholders (fosters trust, encourages adoption, overcomes resistance, ensures compliance), fully meeting the 4-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "graded",
+      "grading": {
+        "score": 1.6,
+        "max_grade": 5.0,
+        "percentage": 32.0,
+        "grade_label": "Needs Improvement",
+        "feedback": "Your response effectively connects the outlined business requirements to the client's stated goals. To improve, elaborate on the specific methods you would employ to actively ensure and validate this alignment, beyond the initial outlining phase.",
+        "strengths": [
+          "Clearly identified client goals and linked business requirements to them"
+        ],
+        "improvements": [
+          "Detail the specific steps or methodologies for reviewing and confirming requirements alignment",
+          "Explain how client and stakeholder feedback would be integrated into the alignment process"
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 1.6,
+            "marks_available": 4.0,
+            "comment": "The learner provides a basic explanation of how requirements were initially aligned with client goals by reviewing objectives and outlining requirements. However, it lacks key steps and sufficient detail on how alignment was actively ensured, verified, or confirmed through feedback or review processes, aligning with the '2 marks' band of the rubric (2/5 * 4.0 = 1.6)."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "graded",
+      "grading": {
+        "score": 3.75,
+        "max_grade": 4.0,
+        "percentage": 93.75,
+        "grade_label": "Excellent",
+        "feedback": "Your response effectively identifies several key challenges in defining functional requirements and offers practical, concrete strategies to address them. You clearly articulate how to manage stakeholder expectations and ensure user involvement. To enhance your response further, consider elaborating on specific methods to mitigate or adapt to technical system limitations beyond just understanding them.",
+        "strengths": [
+          "Clearly identifying specific challenges and providing actionable solutions for stakeholder management and user engagement."
+        ],
+        "improvements": [
+          "For technical issues, consider elaborating on specific methods to mitigate or adapt to system limitations beyond just understanding them, such as exploring workarounds or phased implementations."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 3.75,
+            "marks_available": 4.0,
+            "comment": "The response clearly identifies specific challenges such as unclear stakeholder expectations, lack of user involvement, and technical limitations. The proposed solutions for managing stakeholders and engaging users are concrete and detailed. The solution for technical issues is a valid step towards understanding the problem but could offer more specific actions for actively overcoming or adapting to the limitations."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "graded",
+      "grading": {
+        "score": 2.5,
+        "max_grade": 4.0,
+        "percentage": 62.5,
+        "grade_label": "Pass",
+        "feedback": "Your response correctly defines functional and non-functional requirements and links their synchronization to client goals. To enhance your explanation, delve deeper into *how* separating these requirements types specifically benefits the project, such as aiding in scope definition or test planning.",
+        "strengths": [
+          "Correctly identifies the primary difference between functional and non-functional requirements and connects requirements synchronization to client goals."
+        ],
+        "improvements": [
+          "Elaborate on *how* distinguishing these requirement types specifically contributes to project success (e.g., improving clarity, scope management, or testing).",
+          "Provide examples that illustrate the *impact of making these distinctions* within a BRD."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 2.5,
+            "marks_available": 4.0,
+            "comment": "The learner provides a basic explanation of functional vs. non-functional requirements and states a high-level reason for distinguishing them (sync with client goals). However, the explanation of *why* these distinctions are crucial is not thoroughly elaborated, and specific examples illustrating the *importance of the distinctions* (rather than just examples of requirements) are missing. This places the response above a basic explanation but below a good, well-elaborated one."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response outlines a clear, practical, and comprehensive approach to addressing a missing key requirement. You effectively cover stakeholder engagement, impact assessment, documentation updates, and communication, ensuring the project remains aligned with client needs.",
+        "strengths": [
+          "The response provides a clear, practical, and comprehensive approach to addressing the missing requirement."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The answer outlines a clear, practical approach to addressing the missing requirement, including stakeholder consultations, updating the BRD, and communicating with affected parties, fully meeting the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "graded",
+      "grading": {
+        "score": 2.5,
+        "max_grade": 5.0,
+        "percentage": 50.0,
+        "grade_label": "Developing",
+        "feedback": "You clearly identified relevant stakeholders and provided strong justifications for their selection, detailing their roles and impact on the project. To enhance your response, explicitly explain the methodology used to determine stakeholder influence and interest, such as an influence-interest matrix, as requested by the question and rubric.",
+        "strengths": [
+          "Clearly identified relevant stakeholders and justified their selection with detailed roles and impact."
+        ],
+        "improvements": [
+          "Explicitly explain the methodology for determining stakeholder influence and interest, such as an influence-interest matrix."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Analysis",
+            "marks_awarded": 2.5,
+            "marks_available": 5.0,
+            "comment": "The learner effectively identified key stakeholders and provided clear reasoning for their selection, detailing their relevance and impact on the project. However, the response did not include or explain the use of an influence-interest matrix, which is a key component for demonstrating how influence and interest were determined, as explicitly required by the rubric for higher scores (5, 4, and 3 marks). This omission significantly impacts the score for the methodological aspect of the question, placing it between the 1-mark and 3-mark descriptions."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "graded",
+      "grading": {
+        "score": 3.5,
+        "max_grade": 5.0,
+        "percentage": 70.0,
+        "grade_label": "Good",
+        "feedback": "Your response provides excellent, actionable strategies for engaging high-power, low-interest stakeholders, detailing specific methods like executive-level updates and strategic check-ins. To enhance your answer, explicitly explain *why* these strategies are important, detailing the benefits to the project and stakeholder relationships.",
+        "strengths": [
+          "The strategies provided are clear, specific, and highly relevant to engaging high-power, low-interest stakeholders."
+        ],
+        "improvements": [
+          "Explicitly explain the importance of these strategies, detailing the benefits to the project and stakeholder relationships."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "High-Power, Low-Interest Stakeholders",
+            "marks_awarded": 3.5,
+            "marks_available": 5.0,
+            "comment": "The learner provides clear and specific strategies for engaging high-power, low-interest stakeholders, including actionable steps and examples like executive-level updates and strategic check-ins. This aligns well with the 'clear strategy' aspect of the 4-mark band. However, the response largely omits an explicit explanation of *why* these strategies are important, which is a direct part of the question and a key differentiator for higher marks (e.g., 'solid reasoning' for 5 marks, 'reasoning' for 4 marks). The importance is implied but not explicitly explained or justified with solid reasoning, preventing a higher score."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response clearly outlines initial steps for engaging a new stakeholder, focusing on active listening and transparent communication. To enhance the approach, consider detailing how to formally assess the impact of their concerns and integrate necessary project adjustments.",
+        "strengths": [
+          "Clearly outlines the importance of acknowledging concerns and transparent communication"
+        ],
+        "improvements": [
+          "Detail how to formally assess the impact of new concerns",
+          "Elaborate on potential project adjustments"
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The response covers the steps to address stakeholder concerns through acknowledging, listening, and communicating transparently. However, it lacks a few details regarding formal assessments and adjustments to the project, which are key components of a well-structured and detailed approach for managing late stakeholder concerns."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly articulates how stakeholder engagement is crucial for DAP implementation success, providing specific examples of benefits. You effectively explained how engagement ensures the platform meets real needs, improves adoption, and mitigates risks.",
+        "strengths": [
+          "Clearly connecting engagement to tangible project benefits like meeting user needs and reducing risks."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation, providing a logical explanation of how engagement can prevent risks, improve outcomes, and align stakeholders with the project. The points on meeting real needs, improving buy-in, and reducing risks directly address the rubric criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "graded",
+      "grading": {
+        "score": 5.0,
+        "max_grade": 5.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly outlines a robust approach to aligning requirements with client goals. You effectively demonstrated how stakeholder engagement and direct mapping to business objectives ensure requirements reflect actual needs. This provides a strong foundation for successful project delivery.",
+        "strengths": [
+          "Clearly articulated the methods for gathering and validating requirements against client objectives."
+        ],
+        "improvements": [
+          "No specific improvements needed as the response fully meets the rubric criteria."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 5.0,
+            "marks_available": 5.0,
+            "comment": "The response provides a clear, step-by-step approach through stakeholder interviews/workshops and mapping requirements to business objectives. The methodology is well articulated and directly tied to client goals, fully meeting the top-tier rubric description of '5 marks'."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly identifies specific challenges in defining functional requirements and offers a comprehensive set of concrete, actionable strategies to overcome them. The detailed approach to stakeholder engagement and requirement clarification is excellent.",
+        "strengths": [
+          "The detailed and actionable strategies provided for overcoming each identified challenge."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, detailed explanation of specific challenges (e.g., stakeholders struggling to articulate needs, assumptions about internal terms) and presents concrete, detailed steps taken to resolve them (e.g., workshops, agile principles, probing questions, glossaries, visual aids)."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Proficient",
+        "feedback": "Your response clearly articulates the importance of distinguishing between business, functional, and non-functional requirements for project clarity and successful delivery. To further strengthen your answer, consider providing specific examples for each requirement type and explicitly detailing how their clear separation in a BRD prevents issues like scope creep or miscommunication.",
+        "strengths": [
+          "Clearly explains the overall importance of distinguishing requirement types and their impact on project success."
+        ],
+        "improvements": [
+          "Include specific examples for each requirement type (business, functional, non-functional).",
+          "Elaborate on how these distinctions directly impact the BRD's effectiveness and stakeholder satisfaction."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The explanation clearly states the importance of distinguishing requirements for clarity, alignment, and successful project delivery, linking it to avoiding scope creep and miscommunication. However, it does not provide specific examples or elaborate on their direct relevance to the BRD as required for full marks."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 4.0,
+        "percentage": 75.0,
+        "grade_label": "Good",
+        "feedback": "Your response correctly identifies the key actions for addressing late stakeholder concerns: listening, assessing impact, and adjusting plans. To enhance your approach, consider outlining a more structured process, such as specific meeting types or a formal impact analysis, to demonstrate a detailed management strategy.",
+        "strengths": [
+          "Clearly identifies the core actions of listening, assessing, and adjusting"
+        ],
+        "improvements": [
+          "Provide more detail on the process for conducting stakeholder meetings",
+          "Elaborate on how the project team would assess the impact and implement adjustments"
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Unidentified Stakeholder",
+            "marks_awarded": 3.0,
+            "marks_available": 4.0,
+            "comment": "The response covers the essential steps to address stakeholder concerns (listening, assessing, adjusting) but lacks the detailed and well-structured approach required for full marks. It aligns well with the 3-mark description of covering steps but lacking a few details or clear structure."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly and logically explains how stakeholder engagement contributes to the success of a DAP implementation. You effectively highlight how engagement builds support, reduces resistance, and ensures the platform meets business needs.",
+        "strengths": [
+          "Clearly articulates the logical connection between stakeholder engagement and project success by covering risk prevention, outcome improvement, and stakeholder alignment."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Stakeholder Engagement",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer makes a clear and detailed connection between stakeholder engagement and the success of DAP implementation. It provides a logical explanation of how engagement can prevent risks (reducing resistance, solving problems early), improve outcomes (meeting business needs, useful feedback), and align stakeholders with the project (building support, feeling ownership)."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Good",
+        "feedback": "Your response clearly states your approach to aligning requirements with client goals and provides relevant examples. To enhance your answer, consider detailing the specific methods you used to validate this alignment with the client and integrate their feedback.",
+        "strengths": [
+          "Clearly linked requirements to client goals with specific examples"
+        ],
+        "improvements": [
+          "Describe the specific steps taken for review and confirmation of requirements",
+          "Explain how client feedback was actively integrated into the alignment process"
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 3.2,
+            "marks_available": 4.0,
+            "comment": "The answer mentions a clear alignment process (studying goals, matching requirements) and provides specific examples, directly linking them to client objectives. However, it lacks details on the methodology for review and confirmation, specifically how client feedback was integrated, aligning with the '4 marks' description in the rubric (3.2 out of 4.0 available marks for this criterion)."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 5.0,
+        "percentage": 80.0,
+        "grade_label": "Proficient",
+        "feedback": "Your response effectively outlines how requirements were derived from the client's problem and business needs, providing a good foundation. To enhance your approach, consider detailing the specific methods used to confirm these requirements with the client, such as stakeholder reviews or feedback sessions, to explicitly ensure alignment.",
+        "strengths": [
+          "Clearly linking business requirements to the client's problem"
+        ],
+        "improvements": [
+          "Elaborate on the specific methods used for client review and confirmation of requirements",
+          "Detail how client feedback was integrated to ensure alignment across all requirement types"
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Requirements Alignment",
+            "marks_awarded": 4.0,
+            "marks_available": 5.0,
+            "comment": "The response outlines an alignment process for each requirement type but lacks explicit details on how client feedback was integrated or how formal review and confirmation with the client were conducted to ensure alignment, fitting the 4-mark description."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly identifies several common challenges in defining functional requirements and provides concrete, actionable steps to address each one. The proposed solutions, such as using user stories, conducting interviews, and defining scope early, are highly relevant and demonstrate a strong grasp of the topic.",
+        "strengths": [
+          "Effectively identified specific challenges and offered practical, concrete solutions for each."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Functional Requirements Challenges",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, detailed explanation of specific challenges (vague, conflicting, changing requirements) and presents concrete steps taken to resolve them (user stories, interviews, meetings, well-defined scope, iterative/Agile)."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Full Marks",
+        "feedback": "Your response clearly explains the importance of distinguishing between business, functional, and non-functional requirements by highlighting how each addresses different aspects of a project and prevents misunderstandings. You effectively describe the purpose and content of each requirement type within a BRD, linking them to stakeholder understanding and project success.",
+        "strengths": [
+          "Clearly explains the importance of distinguishing requirements and their unique contributions to project clarity and stakeholder alignment."
+        ],
+        "improvements": [
+          "No specific improvements are needed as the response fully meets the criteria for a well-reasoned explanation."
+        ],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, well-reasoned explanation of why these distinctions are crucial, linking it to project success ('no misunderstandings') and stakeholder satisfaction ('convince and make the stakeholders understand the value'). The descriptions of what each requirement type entails serve as specific examples of their relevance to the BRD."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "graded",
+      "grading": {
+        "score": 3.0,
+        "max_grade": 3.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response provides a clear and practical approach to addressing a missing requirement in a BRD. You effectively outlined the crucial steps of identifying the issue, engaging stakeholders, updating documentation, and communicating changes, which is essential for project success.",
+        "strengths": [
+          "Outlining a clear, practical, and comprehensive approach to addressing a missing requirement."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Missing Key Requirement",
+            "marks_awarded": 3.0,
+            "marks_available": 3.0,
+            "comment": "The answer outlines a clear, practical approach covering stakeholder consultations, updating the BRD, and communicating with affected parties, fully meeting the 3-mark criteria."
+          }
+        ]
+      }
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "graded",
+      "grading": {
+        "score": 4.0,
+        "max_grade": 4.0,
+        "percentage": 100.0,
+        "grade_label": "Excellent",
+        "feedback": "Your response clearly explains the importance of distinguishing between business, functional, and non-functional requirements, effectively linking it to clarity, stakeholder alignment, and overall project success. The specific examples provided for each requirement type significantly strengthen your explanation.",
+        "strengths": [
+          "The response provides a clear, well-reasoned explanation of why these distinctions are crucial, directly linking them to project success and stakeholder understanding."
+        ],
+        "improvements": [],
+        "requires_human_review": false,
+        "human_review_reason": null,
+        "rubric_breakdown": [
+          {
+            "criterion": "Distinguish Between Requirements",
+            "marks_awarded": 4.0,
+            "marks_available": 4.0,
+            "comment": "The answer provides a clear, well-reasoned explanation of why these distinctions are crucial, linking it to project success and stakeholder satisfaction. Specific examples and their relevance to the BRD are provided, fully meeting the criteria for 4 marks."
+          }
+        ]
+      }
     }
   ],
   "errors": [
@@ -6132,6 +7834,276 @@
       "learner_id": "christopher-mothuli",
       "status": "error",
       "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 8.265408334s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '8s'}]}}"
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 43.048587604s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}"
+    },
+    {
+      "learner_id": "anelisa-mjoni",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 42.215091218s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}"
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 41.85986549s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '41s'}]}}"
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 41.029127027s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '41s'}]}}"
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 40.601103935s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}"
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 39.776775341s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}"
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 39.381137586s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}"
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 38.639305159s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '38s'}]}}"
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 38.066692015s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '38s'}]}}"
+    },
+    {
+      "learner_id": "annah-masunga",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 37.354008004s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}"
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 49.815568608s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '49s'}]}}"
+    },
+    {
+      "learner_id": "david-vuma",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 48.987557533s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '48s'}]}}"
+    },
+    {
+      "learner_id": "kagiso-mathoko",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 48.510944489s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '48s'}]}}"
+    },
+    {
+      "learner_id": "kagiso-mathoko",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 47.821842234s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '47s'}]}}"
+    },
+    {
+      "learner_id": "kagiso-mathoko",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 47.354548187s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '47s'}]}}"
+    },
+    {
+      "learner_id": "kagiso-mathoko",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 46.561541027s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '46s'}]}}"
+    },
+    {
+      "learner_id": "kagiso-mathoko",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 46.097264301s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '46s'}]}}"
+    },
+    {
+      "learner_id": "kagiso-mathoko",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 45.349480884s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '45s'}]}}"
+    },
+    {
+      "learner_id": "kagiso-mathoko",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 44.872999211s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44s'}]}}"
+    },
+    {
+      "learner_id": "kagiso-mathoko",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 44.170413578s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44s'}]}}"
+    },
+    {
+      "learner_id": "kgothatso-mogale",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 43.614342172s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}"
+    },
+    {
+      "learner_id": "kgothatso-mogale",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 42.949828101s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}"
+    },
+    {
+      "learner_id": "kgothatso-mogale",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 42.297775793s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}"
+    },
+    {
+      "learner_id": "kgothatso-mogale",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 41.737619344s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '41s'}]}}"
+    },
+    {
+      "learner_id": "kgothatso-mogale",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 40.9777131s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}"
+    },
+    {
+      "learner_id": "kgothatso-mogale",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 40.516949305s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}"
+    },
+    {
+      "learner_id": "kgothatso-mogale",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 39.83289964s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}"
+    },
+    {
+      "learner_id": "kgothatso-mogale",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 39.290331991s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}"
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 38.555312755s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '38s'}]}}"
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 37.930954794s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}"
+    },
+    {
+      "learner_id": "kulani-letsoalo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 37.32938087s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}"
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 45.718384301s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '45s'}]}}"
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 44.891493738s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44s'}]}}"
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 44.52634997s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44s'}]}}"
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 43.707856697s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}"
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 43.22205917s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}"
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 42.436019912s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}"
+    },
+    {
+      "learner_id": "lethabo-mokwatlo",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 41.982695156s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '41s'}]}}"
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 41.156841683s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '41s'}]}}"
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 40.708641767s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}"
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 39.883134893s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}"
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 39.505098163s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}"
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 38.741030157s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '38s'}]}}"
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 38.136565092s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '38s'}]}}"
+    },
+    {
+      "learner_id": "linda-ndima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 37.319035371s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}"
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 3.392199556s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '3s'}]}}"
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 2.576597501s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '2s'}]}}"
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 2.109144876s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '2s'}]}}"
+    },
+    {
+      "learner_id": "lungile-makhalima",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 56.489153122s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}"
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 4.273121549s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '4s'}]}}"
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 57.18059064s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '57s'}]}}"
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 57.053249133s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '57s'}]}}"
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 57.258316119s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '57s'}]}}"
+    },
+    {
+      "learner_id": "luntukazi-didi",
+      "status": "error",
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 56.957662871s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}"
     }
   ]
 }

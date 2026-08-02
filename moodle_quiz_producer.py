@@ -15,19 +15,35 @@ Usage:
         --quiz-name "Business Strategy Fundamentals Quiz" \\
         --subject-area "Business Strategy" \\
         --grading-guide grading_guide_quiz.json \\
-        [--host localhost]
+        [--host localhost] \\
+        [--force]
 
 Each essay question in the quiz becomes a SEPARATE grading job per
 learner — so if there are 2 essay questions and 2 learners, 4 jobs
 are published.
 
-Learner identification: each learner is keyed by their Moodle idnumber
-if one is set on their account. If idnumber is blank, the learner's
-Moodle username is used instead as a fallback so they aren't silently
-skipped. Check the logs for "using username" warnings if you want to
-know which learners fell back to username — worth setting proper
-idnumbers on those accounts eventually for consistency downstream
-(e.g. gradebook write-back, reporting).
+DEDUPLICATION — two layers, catching two different situations:
+
+    1. ALREADY GRADED (Moodle-state check): moodle_client's
+       extract_essay_responses_from_attempt() already skips any essay
+       slot whose Moodle state is no longer "needsgrading" (e.g. it was
+       already graded by a previous run, or a teacher graded it
+       manually). This protects you if you re-run the producer AFTER
+       a previous batch has finished grading.
+
+    2. STILL BEING PROCESSED (queue-depth check): if you re-run the
+       producer WHILE the worker is still mid-batch on a previous run,
+       nothing has been graded in Moodle yet — so check #1 above can't
+       catch it, since everything still looks "needsgrading". Instead,
+       publish_jobs() checks RabbitMQ's own queue depth before
+       publishing: if there are still unprocessed messages waiting, it
+       refuses to publish and tells you to wait, rather than silently
+       adding duplicates on top of an unfinished batch.
+
+    Use --force to bypass BOTH checks and queue everything again
+    regardless of current state (e.g. if you deliberately want to
+    re-grade with an updated rubric/prompt, or you're certain the
+    queue depth reading is stale).
 
 Environment variables expected (.env):
     MOODLE_BASE_URL=http://localhost:8080
@@ -60,6 +76,11 @@ QUIZ_QUESTION_TEXTS = {
     12: "Choose ONE of the following businesses: Capitec Bank, Pick n Pay, or MTN. Briefly describe the business strategy you think they use and explain why you believe it gives them a competitive advantage in South Africa.",
 }
 
+# States that mean "this question has already been graded" (either by a
+# previous AI run or by a teacher manually). Anything NOT in this "still
+# needs grading" state gets skipped unless --force is passed.
+STILL_NEEDS_GRADING_STATE = "needsgrading"
+
 
 def load_grading_guide(path: str) -> list:
     """Load the grading rubric JSON array from a file."""
@@ -70,6 +91,37 @@ def load_grading_guide(path: str) -> list:
         return json.load(f)
 
 
+def get_slot_states(attempt_id: int) -> dict:
+    """
+    Fetch the current grading state of every question slot in an attempt,
+    via mod_quiz_get_attempt_review (already available to the token used
+    by this pipeline). Returns {slot_number: state_string}.
+
+    Used to skip essay slots that have already been graded, so re-running
+    the producer doesn't queue duplicate jobs for the same slot.
+    """
+    try:
+        review_data = moodle_client._call(
+            "mod_quiz_get_attempt_review",
+            {"attemptid": attempt_id},
+        )
+    except Exception as e:
+        log.warning(
+            "Could not fetch attempt review for attempt=%s (%s) — "
+            "proceeding WITHOUT deduplication for this attempt.",
+            attempt_id, e,
+        )
+        return {}
+
+    states = {}
+    for q in review_data.get("questions", []):
+        slot = q.get("slot")
+        state = q.get("state")
+        if slot is not None:
+            states[slot] = state
+    return states
+
+
 def build_jobs(
     quiz_id: int,
     course_name: str,
@@ -77,31 +129,25 @@ def build_jobs(
     subject_area: str,
     grading_guide_by_question: dict,
     learner_userids: list[int],
+    force: bool = False,
 ) -> list[dict]:
     """
     For each learner, fetch their finished quiz attempt, extract essay
-    responses, and build one job per essay question per learner.
+    responses, and build one job per essay question per learner —
+    skipping any essay slot that's already been graded (unless --force).
     """
     user_cache: dict = {}
     jobs = []
+    skipped_count = 0
 
     for moodle_userid in learner_userids:
-        # Prefer idnumber; fall back to username if idnumber isn't set
-        # on this account, rather than skipping the learner entirely.
-        learner_id, source = moodle_client.get_learner_id_for_userid(moodle_userid, user_cache)
-
-        if source == "none":
+        idnumber = moodle_client.get_idnumber_for_userid(moodle_userid, user_cache)
+        if not idnumber:
             log.warning(
-                "Skipping userid=%s — no idnumber or username available on this Moodle account.",
+                "Skipping userid=%s — no idnumber set on this Moodle account.",
                 moodle_userid,
             )
             continue
-
-        if source == "username":
-            log.warning(
-                "userid=%s has no idnumber set — using username '%s' as learner_id instead.",
-                moodle_userid, learner_id,
-            )
 
         attempts = moodle_client.get_quiz_attempts(quiz_id, moodle_userid)
         if not attempts:
@@ -111,19 +157,35 @@ def build_jobs(
         # Use the most recent finished attempt
         latest_attempt = sorted(attempts, key=lambda a: a["timefinish"])[-1]
         attempt_id = latest_attempt["id"]
-        log.info("Processing attempt %s for userid=%s (%s)", attempt_id, moodle_userid, learner_id)
+        log.info("Processing attempt %s for userid=%s (%s)", attempt_id, moodle_userid, idnumber)
+
+        # --- Deduplication: check current state of every slot up front ---
+        if force:
+            slot_states = {}
+            log.info("  --force passed: skipping deduplication check for this attempt.")
+        else:
+            slot_states = get_slot_states(attempt_id)
 
         essay_responses = moodle_client.extract_essay_responses_from_attempt(attempt_id)
-
-        # review_data = moodle_client._call(
-        #     "mod_quiz_get_attempt_review",
-        #     {"attemptid": attempt_id}
-        #     )
 
         objective_score = moodle_client.get_objective_score_from_attempt(attempt_id)
 
         for essay in essay_responses:
             q_num = essay["question_number"]
+            slot = essay.get("slot", q_num)
+
+            # Skip slots already graded, unless --force
+            if not force:
+                current_state = slot_states.get(slot)
+                if current_state is not None and current_state != STILL_NEEDS_GRADING_STATE:
+                    log.info(
+                        "  [skip] Q%s (slot=%s) for userid=%s already graded "
+                        "(state=%s) — not re-queuing.",
+                        q_num, slot, moodle_userid, current_state,
+                    )
+                    skipped_count += 1
+                    continue
+
             question_text = QUIZ_QUESTION_TEXTS.get(q_num, essay["question_text"])
             grading_guide = grading_guide_by_question.get(q_num, grading_guide_by_question.get("default", []))
 
@@ -135,7 +197,7 @@ def build_jobs(
                 continue
 
             submission_payload = {
-                "learner_id": learner_id,
+                "learner_id": idnumber,
                 "question_text": question_text,
                 "learner_response": essay["response_text"],
                 "max_grade": essay["max_marks"],
@@ -147,7 +209,6 @@ def build_jobs(
                 "_moodle_slot": essay["slot"],
                 "_moodle_question_number": q_num,
                 "_moodle_objective_score": objective_score,
-                "_moodle_learner_id_source": source,  # "idnumber" or "username"
                 # Note: quiz essay grades are pushed back manually/via
                 # Moodle's gradebook rather than per-slot REST — see
                 # moodle_client_quiz_additions.py for details.
@@ -161,21 +222,74 @@ def build_jobs(
             })
             log.info(
                 "  [+] Job queued: %s | Q%s | attempt=%s",
-                learner_id, q_num, attempt_id,
+                idnumber, q_num, attempt_id,
             )
+
+    if skipped_count:
+        log.info(
+            "Deduplication: skipped %d already-graded slot(s). "
+            "Use --force to re-queue everything regardless of current state.",
+            skipped_count,
+        )
 
     return jobs
 
 
-def publish_jobs(jobs: list[dict], rabbitmq_host: str = "localhost") -> None:
-    """Publish job messages to the grading_jobs queue."""
+def publish_jobs(jobs: list[dict], rabbitmq_host: str = "localhost", force: bool = False) -> None:
+    """
+    Publish job messages to the grading_jobs queue.
+
+    Before publishing, checks whether the queue already has messages
+    waiting (i.e. a previous producer run's jobs haven't all been
+    consumed by the worker yet). This catches the race condition where
+    you re-run the producer while the worker is still mid-batch — the
+    Moodle-side state check alone can't catch this, since nothing has
+    been graded yet from Moodle's point of view, so it looks identical
+    to a fresh run.
+
+    Use --force to publish anyway even if the queue isn't empty.
+    """
     if not jobs:
         log.warning("No jobs to publish.")
         return
 
     connection = pika.BlockingConnection(pika.ConnectionParameters(host=rabbitmq_host))
     channel = connection.channel()
-    channel.queue_declare(queue=QUEUE_NAME, durable=True)
+
+    # passive=True just checks the existing queue's state without
+    # creating/modifying it, and gives us message_count.
+    try:
+        declare_result = channel.queue_declare(queue=QUEUE_NAME, durable=True, passive=True)
+        pending_count = declare_result.method.message_count
+    except Exception:
+        # Queue doesn't exist yet (first-ever run) — nothing pending.
+        connection.close()
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host=rabbitmq_host))
+        channel = connection.channel()
+        channel.queue_declare(queue=QUEUE_NAME, durable=True)
+        pending_count = 0
+
+    if pending_count > 0 and not force:
+        log.error(
+            "[BLOCKED] Queue '%s' already has %d unprocessed message(s) waiting. "
+            "This usually means a previous producer run's jobs haven't all been "
+            "graded yet by the worker — publishing now would create duplicates.",
+            QUEUE_NAME, pending_count,
+        )
+        log.error(
+            "Wait for the worker to finish (check its log output / queue depth "
+            "in the RabbitMQ management UI), or pass --force to publish anyway."
+        )
+        connection.close()
+        raise SystemExit(1)
+
+    if pending_count > 0 and force:
+        log.warning(
+            "[FORCED] Queue already has %d unprocessed message(s), but --force "
+            "was passed — publishing anyway. This WILL create duplicate jobs "
+            "for anything still unprocessed.",
+            pending_count,
+        )
 
     for job in jobs:
         learner_id = job["submission"]["learner_id"]
@@ -208,6 +322,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--userids", nargs="+", type=int, default=[5, 6],
                         help="Moodle user IDs to process (default: 5 6)")
     parser.add_argument("--host", default="localhost", help="RabbitMQ host (default: localhost)")
+    parser.add_argument("--force", action="store_true",
+                        help="Skip deduplication check and queue all essay slots regardless "
+                             "of whether they've already been graded")
     return parser.parse_args()
 
 
@@ -236,13 +353,14 @@ def main() -> None:
             subject_area=args.subject_area,
             grading_guide_by_question=grading_guide_by_question,
             learner_userids=args.userids,
+            force=args.force,
         )
     except RuntimeError as e:
         log.error("Moodle API error: %s", e)
         sys.exit(1)
 
     try:
-        publish_jobs(jobs, args.host)
+        publish_jobs(jobs, args.host, force=args.force)
     except pika.exceptions.AMQPConnectionError as e:
         log.error("Could not connect to RabbitMQ at '%s': %s", args.host, e)
         sys.exit(1)

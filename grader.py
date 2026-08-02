@@ -10,7 +10,6 @@ import argparse
 import json
 import logging
 import os
-import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -20,6 +19,18 @@ load_dotenv()
 
 from google import genai
 from google.genai import types
+
+
+class DailyQuotaExceededError(Exception):
+    """
+    Raised when Gemini's PER-DAY request quota is exhausted (as opposed to
+    the per-minute rate limit). Retrying is futile until the quota resets
+    (typically at midnight Pacific for the free tier) — callers should NOT
+    retry this, and should instead stop processing and preserve the job
+    for later (e.g. re-queue it) rather than burning time on doomed retries.
+    """
+    pass
+
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -33,10 +44,20 @@ log = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # Grading prompt template
+#
+# CHANGES vs previous version (per supervisor feedback):
+# 1. Added an explicit RUBRIC-ONLY constraint. The model was observed
+#    deducting marks for missing specific terminology/methodologies/examples
+#    that the rubric never actually required — this is now called out and
+#    forbidden directly, with a worked example of the failure mode to avoid.
+# 2. Tightened feedback length and reduced templated repetition: feedback
+#    field is capped to 2-3 sentences, strengths to exactly 1 item,
+#    improvements to at most 2 items, and the model is told to vary its
+#    phrasing rather than reuse the same praise/structure boilerplate.
 # ---------------------------------------------------------------------------
 GRADING_PROMPT_TEMPLATE = """You are an expert academic grader for {subject_area}.  
 Your task is to fairly, consistently, and constructively grade a learner's written response 
-using the provided rubric. 
+using ONLY the provided rubric. 
 
 ASSESSMENT CONTEXT 
 - **Course Name**: {course_name}
@@ -49,30 +70,42 @@ LEARNER SUBMISSION
 {learner_response}
  
 GRADING INSTRUCTIONS 
-1. ANALYZE: Carefully read the question and learner response. Identify what the question is asking and whether the response addresses it.
- 
-2. RUBRIC APPLICATION: Apply the grading guide point-by-point. For each criterion: 
-- Note evidence from the response that meets or misses the criterion 
-- Assign partial credit where appropriate (use decimals if needed) 
 
-3. FEEDBACK GENERATION: Write constructive feedback that: 
-- Starts with 1 strength (specific praise) - Identifies 1-2 actionable areas for improvement (with guidance) 
-- Avoids vague phrases like "good job" or "needs work" 
-- Uses a supportive, professional tone appropriate for entry-level learner 
-
-4. SCORE CALCULATION: Calculate a final score out of {max_grade}. Justify the score briefly based on rubric alignment.
+1. ANALYZE: Read the question and learner response carefully. Identify what the question is asking and whether the response addresses it.
  
-5. SELF-CHECK: Before finalizing, verify: 
-- Did I apply the rubric consistently, not my personal opinion? 
-- Is feedback specific, kind, and useful for learning? 
-- Is the score mathematically consistent with the rubric breakdown?
+2. RUBRIC APPLICATION — STRICT RUBRIC-ONLY RULE:
+- Award or deduct marks ONLY for what the rubric explicitly states. Nothing more, nothing less.
+- Never deduct marks for a missing term, framework name, methodology, or example unless the rubric text explicitly names that requirement. A correct explanation in the learner's own words, or using a different valid example, fully satisfies a criterion written in general terms.
+- Bad deduction (do not do this): rubric says "explains why a stakeholder is high-priority," learner gives a correct, well-reasoned explanation without naming "the influence-interest matrix" → do NOT deduct. Only deduct if the rubric names that framework as required.
+- Before every deduction, ask: is this because the rubric criterion is genuinely unmet, or because the answer didn't match phrasing/terminology/an example I expected? Only deduct for the former.
+- Use decimals for partial credit where the grade bands allow it.
+
+3. FEEDBACK — strict, concise, non-repetitive:
+- Maximum 2 sentences, maximum 40 words. No exceptions.
+- State the single strongest aspect, then the single most important gap (if any). Nothing else.
+- No preamble, no restated rubric, no filler ("Overall...", "In this response..."). Every word must carry information.
+- Never open with the same phrase two learners in a row. Banned as sentence openers: "Your response...", "You correctly...", "You demonstrated...", "The response...", "Good job...", "Overall...". Vary structure — sometimes lead with the gap, sometimes with the strength, sometimes with the topic itself.
+- No praise unless the response earns it. Weak or wrong work gets a direct, professional statement of the main issue — not softened, not padded.
+- "strengths": exactly 1 item, only if genuinely supported by the response.
+- "improvements": at most 2 items, only the most actionable — skip minor nitpicks.
+- Two learners with the same score must still read as two different pieces of writing. If your feedback could be pasted onto another learner's submission unchanged, it's too generic — rewrite it with a detail specific to this response.
+
+4. SCORE CALCULATION: Calculate a final score out of {max_grade}. Put the full rubric-based justification in rubric_breakdown comments, NOT in the feedback field — feedback stays a summary, not a breakdown.
+ 
+5. SELF-CHECK before finalizing — verify all of the following:
+- Every deduction traces to an explicit rubric requirement, not an assumption of mine.
+- Feedback is ≤2 sentences, ≤40 words, and contains no banned opening phrase.
+- Feedback would NOT work unchanged for a different learner — it references something specific to this response.
+- No unearned praise is present.
+- Score is mathematically consistent with the rubric breakdown.
              
 CONSTRAINTS & SAFEGUARDS
-- NEVER invent facts not in the learner's response or grading guide 
-- If the response is off-topic, blank, or nonsensical: assign 0 and explain why constructively 
-- If the rubric is ambiguous, prioritize the question's learning objective 
-- Do not grade based on writing style unless explicitly required by the rubric 
-- Flag responses that may require human review (e.g., potential plagiarism, emotional distress, edge cases)
+- NEVER invent facts not in the learner's response or grading guide.
+- If the response is off-topic, blank, or nonsensical: assign 0 and state why in one direct sentence.
+- If the rubric is ambiguous, resolve it toward the question's learning objective — never toward an unstated personal expectation.
+- Do not grade based on writing style unless the rubric explicitly requires it.
+- Flag responses that may require human review (e.g., potential plagiarism, emotional distress, edge cases) by setting requires_human_review to true and explaining why in human_review_reason.
+
 
 Respond ONLY with a valid JSON object matching this exact schema (no markdown fences, no extra text):
 {{
@@ -80,9 +113,9 @@ Respond ONLY with a valid JSON object matching this exact schema (no markdown fe
   "max_grade": {max_grade},
   "percentage": <number>,
   "grade_label": "<string>",
-  "feedback": "<string>",
-  "strengths": ["<string>", ...],
-  "improvements": ["<string>", ...],
+  "feedback": "<string, max 2 sentences, max 40 words>",
+  "strengths": ["<string, exactly 1 item>"],
+  "improvements": ["<string>", "<string, at most 2 items total>"],
   "requires_human_review": <boolean>,
   "human_review_reason": "<string or null>",
   "rubric_breakdown": [
@@ -173,56 +206,59 @@ def build_prompt(course_name: str, submission: dict, top: dict) -> str:
 def grade_submission(client: genai.Client, prompt: str, config: types.GenerateContentConfig, model_name: str) -> dict:
     """
     Send the prompt to Gemini and parse the JSON response.
-
     Retries on:
-      - 503 (model overloaded) — short, linear backoff.
-      - 429 / RESOURCE_EXHAUSTED (rate limit) — longer backoff, honoring the
-        API's own `retryDelay` when present in the error message.
-
-    Does NOT retry on a 429 that is specifically the DAILY quota
-    (GenerateRequestsPerDayPerProjectPerModel-FreeTier), since that won't
-    clear for hours — retrying just burns time. That case raises
-    immediately so the caller can decide what to do (stop, alert, requeue
-    for later, etc.).
+    - 503 (model overloaded): fixed backoff, 10s * attempt number.
+    - 429 (rate limit / quota exceeded): reads Gemini's own suggested
+      "Please retry in Xs" wait time from the error message when present,
+      and waits that long (plus a small buffer) before retrying. Falls
+      back to a fixed wait if the delay can't be parsed.
     """
-    max_retries = 5
-    response = None
+    import re as _re
 
+    max_retries = 6
+    response = None
     for attempt in range(max_retries):
         try:
             response = client.models.generate_content(model=model_name, contents=prompt, config=config)
             break
         except Exception as e:
             err_str = str(e)
-            is_overloaded = "503" in err_str
-            is_rate_limited = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
-            is_daily_quota = "GenerateRequestsPerDayPerProjectPerModel" in err_str
+            is_last_attempt = attempt >= max_retries - 1
 
-            if is_daily_quota:
-                log.error("Daily Gemini quota exhausted — not retrying. %s", err_str)
-                raise
+            if "429" in err_str:
+                # Daily quota exhaustion (GenerateRequestsPerDayPerProjectPerModel)
+                # cannot be fixed by waiting a minute — it only resets on its
+                # own schedule (typically ~24h). Retrying here just wastes
+                # time; fail fast with a distinct exception so the caller
+                # (worker.py) can preserve the job instead of discarding it.
+                if "PerDay" in err_str:
+                    raise DailyQuotaExceededError(err_str) from e
 
-            if (is_overloaded or is_rate_limited) and attempt < max_retries - 1:
-                # Prefer the API's own suggested delay if present, e.g.
-                # "'retryDelay': '39s'" in the error payload.
-                match = re.search(r"retryDelay['\"]?:\s*['\"]?(\d+(?:\.\d+)?)s", err_str)
-                if match:
-                    wait = float(match.group(1)) + 1  # small buffer
-                elif is_rate_limited:
-                    wait = 15 * (attempt + 1)  # per-minute quota needs longer waits
-                else:
-                    wait = 10 * (attempt + 1)  # 503 overloaded — shorter waits ok
+                # Try to parse Gemini's suggested wait time, e.g.
+                # "Please retry in 43.048587604s." or "retryDelay': '43s'"
+                match = _re.search(r"retry in ([\d.]+)s", err_str)
+                if not match:
+                    match = _re.search(r"retryDelay['\"]?:\s*['\"]?(\d+)s", err_str)
+                wait = float(match.group(1)) + 2 if match else 20.0  # +2s buffer
 
-                reason = "rate limited (429)" if is_rate_limited else "overloaded (503)"
-                log.warning("Model %s, retrying in %.0fs (attempt %d/%d)...", reason, wait, attempt + 1, max_retries)
+                if is_last_attempt:
+                    raise
+                log.warning(
+                    "Rate limit hit (429), waiting %.1fs before retry (attempt %d/%d)...",
+                    wait, attempt + 1, max_retries,
+                )
+                time.sleep(wait)
+            elif "503" in err_str:
+                if is_last_attempt:
+                    raise
+                wait = 10 * (attempt + 1)
+                log.warning("Model overloaded, retrying in %ds (attempt %d/%d)...", wait, attempt + 1, max_retries)
                 time.sleep(wait)
             else:
                 raise
 
     if response is None:
-        # Should be unreachable (loop always breaks or raises), but guards
-        # against a silent fall-through leaving `response` undefined.
-        raise RuntimeError("grade_submission: exhausted retries without a response or a raised exception.")
+        raise RuntimeError(f"Failed to get a response from Gemini after {max_retries} attempts.")
 
     raw_text = response.text.strip()
 
@@ -314,7 +350,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", default="output.json", help="Path to output JSON file (default: output.json)")
     parser.add_argument("--model",  default="gemini-2.5-flash", help="Gemini model name (default: gemini-2.5-flash)")
     parser.add_argument("--temperature", type=float, default=0.2,
-                        help="Generation temperature 0–1 (default: 0.2, lower = more deterministic)")
+                        help="Generation temperature 0-1 (default: 0.2, lower = more deterministic)")
     return parser.parse_args()
 
 
@@ -338,7 +374,7 @@ def main() -> None:
     log.info("Input   : %s", args.input)
     log.info("Output  : %s", args.output)
 
-    # ---- Load → Grade → Write ----
+    # ---- Load -> Grade -> Write ----
     try:
         input_data = load_input(args.input)
     except (FileNotFoundError, ValueError) as e:
@@ -349,7 +385,7 @@ def main() -> None:
     write_output(output_data, args.output)
 
     meta = output_data["metadata"]
-    log.info("=== Done — %d graded, %d errors ===", meta["graded_count"], meta["error_count"])
+    log.info("=== Done - %d graded, %d errors ===", meta["graded_count"], meta["error_count"])
     if meta["error_count"]:
         sys.exit(2)  # partial failure
 
