@@ -104,7 +104,7 @@ def create_log():
     if errors:
         return jsonify({"error": "Validation failed", "details": errors}), 400
 
-    created_at = datetime.now(timezone.utc).isoformat()
+    created_at = datetime.now().astimezone().isoformat()
 
     db = get_db()
     cur = db.execute(
