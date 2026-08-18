@@ -54,6 +54,12 @@ log = logging.getLogger(__name__)
 #    field is capped to 2-3 sentences, strengths to exactly 1 item,
 #    improvements to at most 2 items, and the model is told to vary its
 #    phrasing rather than reuse the same praise/structure boilerplate.
+# 3. Added an explicit DEPTH-IS-A-REAL-RUBRIC-DIMENSION clause, after an
+#    AI-vs-human comparison run showed the model over-crediting correct-
+#    but-generic/shallow answers to the top mark band, when the rubric's
+#    own grade bands distinguish "comprehensive/detailed" from "basic/
+#    lacks depth" - i.e. depth was being treated as an unstated expectation
+#    (forbidden by the rubric-only rule) when it was actually IN the rubric.
 # ---------------------------------------------------------------------------
 GRADING_PROMPT_TEMPLATE = """You are an expert academic grader for {subject_area}.  
 Your task is to fairly, consistently, and constructively grade a learner's written response 
@@ -78,8 +84,10 @@ GRADING INSTRUCTIONS
 - Never deduct marks for a missing term, framework name, methodology, or example unless the rubric text explicitly names that requirement. A correct explanation in the learner's own words, or using a different valid example, fully satisfies a criterion written in general terms.
 - Bad deduction (do not do this): rubric says "explains why a stakeholder is high-priority," learner gives a correct, well-reasoned explanation without naming "the influence-interest matrix" → do NOT deduct. Only deduct if the rubric names that framework as required.
 - Before every deduction, ask: is this because the rubric criterion is genuinely unmet, or because the answer didn't match phrasing/terminology/an example I expected? Only deduct for the former.
-- Use decimals for partial credit where the grade bands allow it.
-- If a criterion's grade_bands only define whole-number levels (no decimal bands present), award ONLY one of those exact whole-number values — do not interpolate between bands.
+- Use decimals for partial credit ONLY where the grading guide itself explicitly defines decimal/fractional point values (e.g. "4.5 marks" as its own named level).
+- WHOLE-NUMBER-ONLY RUBRICS — READ THIS CAREFULLY: if the grading guide lists only whole-number point values (e.g. "5 points: ...", "4 points: ...", "3 points: ..." down to "0 points: ..."), you MUST award one of those EXACT whole numbers and nothing else — no 3.5, no 4.5, no interpolating between two listed levels. This rule applies no matter how the grading guide is formatted or presented to you — a plain paragraph of text describing point levels is just as binding as a structured list. Before writing your score, re-read the grading guide and ask: "does it ever mention a non-whole number as one of its defined levels?" If not, your score for that question must be a whole number, full stop.
+- DEPTH IS A REAL RUBRIC DIMENSION, NOT AN UNSTATED EXPECTATION: when a rubric's grade bands are themselves differentiated by depth, detail, or specificity (e.g. "comprehensive, detailed explanation" vs "basic/vague explanation" as separate bands), that distinction must be applied strictly. A response that is topically on-target and factually correct but stays generic, high-level, or surface-level does NOT automatically earn the top band just because nothing in it is wrong — it earns the band matching the level of depth the rubric describes for that answer. Do not default to full marks for "not incorrect"; match the actual band description, including its depth/detail language, not just its topic.
+- Bad leniency (do not do this): rubric's top band requires "comprehensive, detailed explanation with specific examples" and a lower band requires only "basic explanation, lacks depth" — a correct-but-generic answer with no concrete examples belongs in the lower band, even though nothing it says is wrong.
 
 3. FEEDBACK — strict, concise, non-repetitive:
 - Maximum 2 sentences, maximum 40 words. No exceptions.
@@ -351,7 +359,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--input",  default="input.json",  help="Path to input JSON file  (default: input.json)")
     parser.add_argument("--output", default="output.json", help="Path to output JSON file (default: output.json)")
-    parser.add_argument("--model",  default="gemini-2.5-flash", help="Gemini model name (default: gemini-2.5-flash)")
+    parser.add_argument("--model",  default="gemini-3.6-flash", help="Gemini model name (default: gemini-3.6-flash)")
     parser.add_argument("--temperature", type=float, default=0.2,
                         help="Generation temperature 0-1 (default: 0.2, lower = more deterministic)")
     return parser.parse_args()

@@ -71,7 +71,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-QUEUE_NAME = "grading_jobs"
+QUEUE_NAME = "mqueue_grading_jobs"
 
 # Question text for Q11 and Q12 — hardcoded here since the quiz question
 # text is embedded in the attempt HTML and we already know what it is.

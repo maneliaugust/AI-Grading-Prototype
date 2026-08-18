@@ -28,7 +28,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-QUEUE_NAME = "grading_jobs"
+QUEUE_NAME = "mqueue_grading_jobs"
 
 
 def filter_queue(rabbitmq_host: str, keep_userids: set[int]) -> None:
