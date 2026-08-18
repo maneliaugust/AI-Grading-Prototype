@@ -12,10 +12,10 @@ Multiple workers can run in parallel — RabbitMQ distributes jobs between them.
 
 Supports two Moodle push-back flows:
   - Assignment: grade pushed immediately after each submission is graded.
-  - Quiz: essay scores accumulated per attempt; pushed once all essay
-    questions for that attempt are graded.
+  - Quiz: essay scores AND marks are held in memory and written to Moodle
+    together, only once ALL essay questions for that attempt are graded.
 
-HUMAN REVIEW HOLD-BACK (new):
+HUMAN REVIEW HOLD-BACK:
   If the AI grading result sets requires_human_review=true, the grade is
   NOT pushed to Moodle. Instead it's written to a separate flagged-review
   log file, and the question/submission is left in its current ungraded
@@ -23,7 +23,21 @@ HUMAN REVIEW HOLD-BACK (new):
   queue for a teacher to check, rather than silently receiving an AI grade
   that hasn't actually been reviewed.
 
-GRADING DASHBOARD LOGGING (new):
+QUIZ WRITE-BACK IS NOW FULLY ATOMIC:
+  Previously, each essay question's mark was written to Moodle immediately
+  as soon as it was graded, while only the *combined total* waited for all
+  essays in the attempt to finish. This meant a single confidently-graded
+  essay could land live in Moodle well before the rest of the attempt had
+  been reviewed - including in cases where the grading itself shouldn't be
+  trusted yet (e.g. no rubric available). Individual essay marks are now
+  held in memory in the same accumulator as the total, and ALL marks for
+  an attempt (each question's mark + the combined total) are written to
+  Moodle together, in one batch, only once every essay question for that
+  attempt has been graded. If any essay in the batch gets flagged for
+  human review first, the whole batch is discarded and NOTHING is written
+  to Moodle for that attempt - not even the other, non-flagged essays.
+
+GRADING DASHBOARD LOGGING:
   Every grading attempt (success or fail) is also POSTed to the Grading
   Dashboard's log-ingestion API (see log_to_dashboard()), so admins can
   monitor and troubleshoot grading activity from the dashboard. This never
@@ -57,7 +71,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-QUEUE_NAME = "grading_jobs"
+QUEUE_NAME = "mqueue_grading_jobs"
 
 # ---------------------------------------------------------------------------
 # Grading Dashboard logging config
@@ -86,18 +100,98 @@ def log_to_dashboard(data: str, status: str, details: str, attempt: int) -> None
 
 # ---------------------------------------------------------------------------
 # Quiz grade accumulator
-# Tracks essay scores per attempt so we push one combined grade to Moodle
-# only after ALL essay questions for that attempt have been graded.
+# Holds EVERY essay mark for an attempt in memory - nothing is written to
+# Moodle until all essay questions for that attempt have been graded, at
+# which point every mark plus the combined total are written together as
+# one atomic batch.
 # Key: (moodle_userid, moodle_quiz_id, attempt_id)
-# Value: {"scores": [...], "feedbacks": [...], "expected": int}
+# Value: {"scores": [...], "feedbacks": [...], "slots": [...],
+#         "feedback_htmls": [...], "expected": int}
+#
+# PERSISTENCE (new): this dict is also mirrored to a local JSON file
+# (ACCUMULATOR_STATE_FILE) every time it changes, so held-but-unwritten
+# marks survive a worker restart (e.g. hitting the daily Gemini quota,
+# a crash, or just closing the terminal). On startup, the file is read
+# back into memory before any new messages are consumed, so an attempt
+# that was at 5/8 when the worker stopped resumes at 5/8 instead of
+# starting over from 0 - no manual re-queuing needed.
 # ---------------------------------------------------------------------------
 _quiz_grade_accumulator: dict = {}
+
+ACCUMULATOR_STATE_FILE = "quiz_accumulator_state.json"
+
+
+def _accumulator_key_to_str(key: tuple) -> str:
+    """Tuple keys aren't valid JSON object keys - encode as a delimited string."""
+    return "|".join(str(part) for part in key)
+
+
+def _accumulator_key_from_str(key_str: str) -> tuple:
+    """Reverse of _accumulator_key_to_str()."""
+    parts = key_str.split("|")
+    return tuple(parts)
+
+
+def save_accumulator_state() -> None:
+    """
+    Persist the current in-memory accumulator to disk. Called every time
+    a mark is added to it, or an entry is removed (flagged/pushed), so the
+    file on disk always matches what's in memory.
+    """
+    try:
+        serialisable = {
+            _accumulator_key_to_str(key): value
+            for key, value in _quiz_grade_accumulator.items()
+        }
+        with open(ACCUMULATOR_STATE_FILE, "w", encoding="utf-8") as f:
+            json.dump(serialisable, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        # Persistence failing must not break live grading - log and continue.
+        log.warning("Failed to save accumulator state to disk: %s", e)
+
+
+def load_accumulator_state() -> None:
+    """
+    Load any previously-held accumulator state from disk into memory.
+    Called once at worker startup, before consuming begins. If the file
+    doesn't exist (first run, or a clean state), this is a no-op.
+    """
+    global _quiz_grade_accumulator
+
+    if not os.path.exists(ACCUMULATOR_STATE_FILE):
+        return
+
+    try:
+        with open(ACCUMULATOR_STATE_FILE, encoding="utf-8") as f:
+            raw = json.load(f)
+        _quiz_grade_accumulator = {
+            _accumulator_key_from_str(key_str): value
+            for key_str, value in raw.items()
+        }
+        if _quiz_grade_accumulator:
+            log.info(
+                "Resumed %d in-progress quiz attempt(s) from %s:",
+                len(_quiz_grade_accumulator), ACCUMULATOR_STATE_FILE,
+            )
+            for key, value in _quiz_grade_accumulator.items():
+                userid, quizid, attemptid = key
+                log.info(
+                    "  attempt=%s userid=%s: %d/%d essay(s) already held",
+                    attemptid, userid, len(value["scores"]), value["expected"],
+                )
+    except Exception as e:
+        log.warning(
+            "Failed to load accumulator state from %s (%s) - starting fresh.",
+            ACCUMULATOR_STATE_FILE, e,
+        )
+        _quiz_grade_accumulator = {}
 
 # Number of essay questions per quiz_id.
 # Update this if you add more essay questions to a quiz.
 QUIZ_ESSAY_COUNT = {
     1: 2,   # quiz_id 1 has 2 essay questions (Q11 and Q12)
     7: 8,   # quiz_id 7 (Business Analysis — Implementing a Data Analytics Platform) has 8 essay questions
+    16: 8,  # quiz_id 16 (Business Analysis copy 1 — same quiz content as quiz 7) has 8 essay questions
 }
 
 
@@ -244,14 +338,18 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
 
     Handles both Moodle push-back flows:
     - Assignment: grade pushed immediately after grading.
-    - Quiz: essay scores accumulated per attempt; combined grade pushed
-      once all essay questions for that attempt are done.
+    - Quiz: every essay mark for an attempt is held in memory and written
+      to Moodle together, in one batch, only once all essay questions for
+      that attempt have been graded.
     Jobs from the original producer.py / input.json are unaffected.
 
     HOLD-BACK RULE: if grading["requires_human_review"] is true, the grade
     is never pushed to Moodle — it's recorded in the flagged-review log
     instead, and the question is left as-is in Moodle (still shows up in
-    Moodle's own "needs grading" queue for a teacher to check).
+    Moodle's own "needs grading" queue for a teacher to check). For quizzes,
+    this also discards any other essay marks already accumulated in memory
+    for that same attempt - a flagged essay means the WHOLE attempt's batch
+    write is cancelled, not just that one question.
 
     PACING: pace_seconds is a fixed delay applied after every grading
     call (success or failure) to stay under Gemini's free-tier rate
@@ -395,24 +493,28 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
                 learner_id, grading.get("human_review_reason"),
             )
 
-            # Clean up any partial quiz accumulator state for this attempt
-            # so a later, non-flagged rerun doesn't get confused by stale
-            # partial counts.
+            # Discard any other essay marks already accumulated in memory
+            # for this attempt - since one essay needs human review, the
+            # WHOLE attempt's batch write is cancelled. Nothing for this
+            # attempt gets written to Moodle from this batch; a later
+            # re-run (e.g. via moodle_quiz_producer.py --force, or a fresh
+            # event-driven submission) starts the accumulator fresh.
             if moodle_quiz_id is not None and moodle_attempt_id is not None:
-                key = (moodle_userid, moodle_quiz_id, moodle_attempt_id)
+                key = (str(moodle_userid), str(moodle_quiz_id), str(moodle_attempt_id))
                 _quiz_grade_accumulator.pop(key, None)
+                save_accumulator_state()
 
             channel.basic_ack(delivery_tag=method.delivery_tag)
             return
 
-        # --- Push grade back to Moodle (only reached if NOT flagged) ---
+        # --- Hold or push grade, depending on job type ---
         if moodle_userid is not None:
             try:
                 import moodle_client
                 feedback_html = _build_feedback_html(grading)
                 feedback_text = grading.get("feedback", "")
 
-                # ASSIGNMENT FLOW — push grade immediately
+                # ASSIGNMENT FLOW — push grade immediately (unchanged)
                 if moodle_assignment_id is not None:
                     moodle_client.save_grade(
                         assignment_id=moodle_assignment_id,
@@ -425,53 +527,77 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
                         learner_id, moodle_userid, moodle_assignment_id,
                     )
 
-                # QUIZ FLOW — accumulate, then push when all essays done
+                # QUIZ FLOW — hold every mark in memory; write nothing to
+                # Moodle until the whole attempt is graded, then write all
+                # marks + the combined total together as one atomic batch.
                 elif moodle_quiz_id is not None and moodle_attempt_id is not None:
 
-                    # Grade this essay question in Moodle immediately.
-                    moodle_client.save_quiz_essay_grade(
-                        attempt_id=moodle_attempt_id,
-                        slot=moodle_slot,
-                        grade=grading.get("score"),
-                        feedback_html=feedback_html,
-                    )
-                    key = (moodle_userid, moodle_quiz_id, moodle_attempt_id)
-                    expected = QUIZ_ESSAY_COUNT.get(moodle_quiz_id, 1)
+                    # Cast every part to str explicitly - moodle_userid/quizid/
+                    # attemptid arrive as JSON integers from a live message,
+                    # but _accumulator_key_from_str() always reconstructs them
+                    # as strings when loading persisted state back from disk.
+                    # Without this cast, a live int-keyed lookup silently
+                    # misses a resumed string-keyed entry and starts a brand
+                    # new accumulator from 0 instead of continuing it.
+                    key = (str(moodle_userid), str(moodle_quiz_id), str(moodle_attempt_id))
+                    expected = QUIZ_ESSAY_COUNT.get(int(moodle_quiz_id), 1)
 
                     if key not in _quiz_grade_accumulator:
                         _quiz_grade_accumulator[key] = {
                             "scores": [],
                             "feedbacks": [],
+                            "slots": [],
+                            "feedback_htmls": [],
                             "expected": expected,
                         }
                     acc = _quiz_grade_accumulator[key]
 
+                    # Hold this essay's grade in memory only - do NOT write
+                    # to Moodle yet. Individual marks are written only once
+                    # the WHOLE attempt is graded, so a partial/incomplete
+                    # batch never leaves an unreviewed AI mark sitting live
+                    # in Moodle for a question graded ahead of the rest of
+                    # the attempt.
                     acc["scores"].append(grading.get("score", 0))
                     acc["feedbacks"].append(feedback_text)
+                    acc["slots"].append(moodle_slot)
+                    acc["feedback_htmls"].append(feedback_html)
+                    save_accumulator_state()
 
                     log.info(
-                        "[QUIZ] Accumulated %d/%d essay grades for attempt=%s userid=%s",
+                        "[QUIZ] Accumulated %d/%d essay grades for attempt=%s userid=%s (held - not yet written to Moodle)",
                         len(acc["scores"]), acc["expected"],
                         moodle_attempt_id, moodle_userid,
                     )
 
                     if len(acc["scores"]) >= acc["expected"]:
+                        # All essays for this attempt are now graded and
+                        # NONE were flagged for review - write every
+                        # individual mark AND the combined total together,
+                        # as one atomic batch, instead of trickling marks
+                        # in one at a time as they were graded.
+                        for i, slot_num in enumerate(acc["slots"]):
+                            moodle_client.save_quiz_essay_grade(
+                                attempt_id=moodle_attempt_id,
+                                slot=slot_num,
+                                grade=acc["scores"][i],
+                                feedback_html=acc["feedback_htmls"][i],
+                            )
+
                         essay_total = sum(acc["scores"])
                         objective_score = submission.get("_moodle_objective_score", 0.0)
                         total = essay_total + objective_score
 
                         log.info(
-                            "[QUIZ] Essay total: %s + Objective score: %s = Grand total: %s",
-                            essay_total,
-                            objective_score,
-                            total,
+                            "[QUIZ] All %d essay(s) graded for attempt=%s. Essay total: %s + Objective score: %s = Grand total: %s",
+                            acc["expected"], moodle_attempt_id, essay_total, objective_score, total,
                         )
-
                         log.info(
                             "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, final=%s)",
                             learner_id, moodle_userid, moodle_quiz_id, total,
                         )
                         del _quiz_grade_accumulator[key]
+                        save_accumulator_state()
 
             except Exception as moodle_err:
                 log.error(
@@ -528,6 +654,10 @@ def start_worker(
     channel.queue_declare(queue=QUEUE_NAME, durable=True)
     channel.basic_qos(prefetch_count=1)
 
+    # Resume any in-progress quiz attempts from a previous run that got
+    # interrupted (quota exhaustion, crash, etc.) before consuming begins.
+    load_accumulator_state()
+
     callback = make_callback(client, gen_config, model_name, output_path, log_path, flagged_log_path, pace_seconds)
     channel.basic_consume(queue=QUEUE_NAME, on_message_callback=callback)
 
@@ -557,7 +687,7 @@ def start_worker(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="RabbitMQ AI grading worker")
     parser.add_argument("--host",   default="localhost",        help="RabbitMQ host (default: localhost)")
-    parser.add_argument("--model",  default="gemini-2.5-flash", help="Gemini model (default: gemini-2.5-flash)")
+    parser.add_argument("--model",  default="gemini-3.6-flash", help="Gemini model (default: gemini-3.6-flash)")
     parser.add_argument("--output", default="output.json",      help="Output file (default: output.json)")
     parser.add_argument("--log",    default="grading_log.json", help="Log file (default: grading_log.json)")
     parser.add_argument("--flagged-log", default="flagged_for_review.json",
