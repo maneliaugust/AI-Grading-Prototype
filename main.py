@@ -1,10 +1,12 @@
 """
-worker.py - Consumes grading jobs from RabbitMQ and grades them using Gemini.
+main.py - Entry point for the AI Grading worker.
+
+Consumes grading jobs from RabbitMQ and grades them using Gemini.
 
 Usage:
-    python worker.py [--host localhost] [--model gemini-2.5-flash]
-                     [--output output.json] [--log grading_log.json]
-                     [--flagged-log flagged_for_review.json]
+    python main.py [--host localhost] [--model gemini-3.6-flash]
+                    [--output output.json] [--log grading_log.json]
+                    [--flagged-log flagged_for_review.json]
 
 Reuses all grading logic from grader.py directly.
 Logs every attempt (success or fail) to a structured JSON log file.
@@ -21,27 +23,79 @@ HUMAN REVIEW HOLD-BACK:
   log file, and the question/submission is left in its current ungraded
   state in Moodle — so it naturally appears in Moodle's own manual grading
   queue for a teacher to check, rather than silently receiving an AI grade
-  that hasn't actually been reviewed.
+  that hasn't actually been reviewed. Flagged jobs are NOT sent to the
+  dead-letter queue - this is an intentional hold, not a failure, and a
+  response missing a rubric won't fix itself on retry.
 
-QUIZ WRITE-BACK IS NOW FULLY ATOMIC:
-  Previously, each essay question's mark was written to Moodle immediately
-  as soon as it was graded, while only the *combined total* waited for all
-  essays in the attempt to finish. This meant a single confidently-graded
-  essay could land live in Moodle well before the rest of the attempt had
-  been reviewed - including in cases where the grading itself shouldn't be
-  trusted yet (e.g. no rubric available). Individual essay marks are now
-  held in memory in the same accumulator as the total, and ALL marks for
-  an attempt (each question's mark + the combined total) are written to
-  Moodle together, in one batch, only once every essay question for that
-  attempt has been graded. If any essay in the batch gets flagged for
-  human review first, the whole batch is discarded and NOTHING is written
-  to Moodle for that attempt - not even the other, non-flagged essays.
+QUIZ WRITE-BACK IS FULLY ATOMIC:
+  Individual essay marks are held in memory (and persisted to
+  quiz_accumulator_state.json) and ALL marks for an attempt, plus the
+  combined total, are written to Moodle together, in one batch, only once
+  every essay question for that attempt has been graded. If any essay in
+  the batch gets flagged for human review first, the whole batch is
+  discarded and NOTHING is written to Moodle for that attempt - not even
+  the other, non-flagged essays.
+
+DEAD-LETTER QUEUE:
+  Any failure that happens AFTER Gemini has already graded a submission -
+  most importantly, a failure to write the grade back to Moodle - no
+  longer silently reports "success" to the dashboard while losing the
+  message. Instead:
+    - a "fail" report (with the real error) is sent to the dashboard,
+    - the message's "attempt" counter is incremented,
+    - the message is re-published to a dead-letter queue
+      (f"{QUEUE_NAME}.dlq") instead of being dropped,
+    - the original message is acked off the main queue (a copy now lives
+      safely in the DLQ).
+  On startup, before consuming anything new, every message currently
+  sitting in the dead-letter queue is moved back onto the main queue, so
+  failed jobs are automatically retried the next time the worker starts -
+  matching the pattern used in the moodle-autograder-service reference
+  implementation.
+
+  For the quiz flow specifically: since marks are held until a full batch
+  of N essays is ready, a failure at the final Moodle-write step means we
+  can't safely assume which of the N essays did or didn't get written.
+  All N held essays for that attempt are dead-lettered (not just the one
+  message that triggered the batch write), each with its own incremented
+  attempt count and its own dashboard "fail" report. On retry, all N will
+  be re-graded and re-attempted as a fresh batch. This is simpler and
+  safer than trying to detect a partial write, at the cost of re-spending
+  Gemini calls on essays that may have already succeeded individually.
+
+  KNOWN LIMITATION: because the accumulator is cleared after every batch
+  outcome (success or dead-lettered failure), there's no de-dup guard for
+  a very narrow crash window - if the worker dies after
+  save_accumulator_state() persists the final essay's data to disk but
+  before that essay's message is acked or dead-lettered, RabbitMQ will
+  redeliver the un-acked message on reconnect, which would be re-graded
+  and re-appended to the accumulator restored from disk (already full),
+  triggering a premature/corrupted batch. This is accepted for now as a
+  rare edge case, not fixed, to keep the retry model simple.
+
+DASHBOARD SUCCESS REPORTS ARE DEFERRED:
+  Previously, a "success" report was sent to the dashboard as soon as
+  Gemini finished grading - before the grade had actually been confirmed
+  written to Moodle. If the Moodle write then failed, the dashboard had
+  already recorded "success" for a grade that was, in fact, lost. Success
+  is now only reported once Moodle has actually confirmed the write:
+  immediately after mod_assign_save_grade for assignments, or once per
+  essay after the full atomic batch write succeeds for quizzes.
 
 GRADING DASHBOARD LOGGING:
-  Every grading attempt (success or fail) is also POSTed to the Grading
+  Every grading attempt (success or fail) is POSTed to the Grading
   Dashboard's log-ingestion API (see log_to_dashboard()), so admins can
   monitor and troubleshoot grading activity from the dashboard. This never
   raises — a dashboard-logging failure must not break actual grading.
+
+ENVIRONMENT VARIABLES:
+    GEMINI_API_KEY      - required, Gemini API key
+    DASHBOARD_LOG_URL   - Grading Dashboard log-ingestion endpoint
+    API_KEY             - Grading Dashboard API key (no insecure default -
+                           if unset, dashboard requests go out unauthenticated
+                           and a warning is logged at startup)
+    RABBITMQ_HOST       - RabbitMQ host (overridable via --host)
+    MQ_QUEUE_NAME       - main queue name (default: mqueue_grading_jobs)
 """
 
 import time
@@ -71,13 +125,22 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-QUEUE_NAME = "mqueue_grading_jobs"
+# Queue name is env-overridable so it isn't hardcoded per lecturer feedback -
+# still defaults to the existing value so nothing breaks if unset.
+QUEUE_NAME = os.getenv("MQ_QUEUE_NAME", "mqueue_grading_jobs")
+DEAD_LETTER_QUEUE = f"{QUEUE_NAME}.dlq"
 
 # ---------------------------------------------------------------------------
 # Grading Dashboard logging config
 # ---------------------------------------------------------------------------
 DASHBOARD_LOG_URL = os.getenv("DASHBOARD_LOG_URL", "http://localhost:5001/api/logs")
-API_KEY = os.getenv("API_KEY", "test-api-key-123")
+
+# No insecure hardcoded fallback here (unlike the old "test-api-key-123"
+# default) - if API_KEY isn't set, dashboard requests go out unauthenticated
+# and will most likely be rejected server-side, but we warn loudly at
+# startup rather than silently authenticating with a placeholder that could
+# happen to work against a misconfigured dashboard.
+API_KEY = os.getenv("API_KEY")
 
 
 def log_to_dashboard(data: str, status: str, details: str, attempt: int) -> None:
@@ -99,6 +162,67 @@ def log_to_dashboard(data: str, status: str, details: str, attempt: int) -> None
 
 
 # ---------------------------------------------------------------------------
+# Dead-letter queue helpers
+# ---------------------------------------------------------------------------
+
+def send_to_dead_letter_queue(channel, message: dict, error_message: str) -> None:
+    """
+    Increment the message's attempt count and re-publish it to the
+    dead-letter queue, so it is retried on the next worker startup rather
+    than being lost. Never raises - a failure to dead-letter a message is
+    logged, not propagated, since the caller still needs to ack the
+    original message regardless.
+    """
+    try:
+        message["attempt"] = message.get("attempt", 1) + 1
+        message["mqstatus"] = "fail"
+        message["mqstatusdetail"] = error_message
+
+        channel.basic_publish(
+            exchange="",
+            routing_key=DEAD_LETTER_QUEUE,
+            body=json.dumps(message).encode("utf-8"),
+            properties=pika.BasicProperties(
+                delivery_mode=pika.DeliveryMode.Persistent,
+                content_type="application/json",
+            ),
+        )
+        log.info(
+            "Sent message to dead-letter queue '%s' (attempt now %d): %s",
+            DEAD_LETTER_QUEUE, message["attempt"], error_message,
+        )
+    except Exception as e:
+        log.error("Failed to publish message to dead-letter queue: %s", e)
+
+
+def drain_dead_letter_queue(channel) -> int:
+    """
+    Move every message currently sitting in the dead-letter queue back
+    onto the main queue, so failed jobs from a previous run are retried
+    automatically the next time the worker starts. Called once at
+    startup, before consuming any new messages.
+
+    Returns the number of messages moved.
+    """
+    moved = 0
+    while True:
+        method_frame, properties, body = channel.basic_get(queue=DEAD_LETTER_QUEUE, auto_ack=False)
+        if method_frame is None:
+            break  # DLQ is empty
+
+        channel.basic_publish(
+            exchange="",
+            routing_key=QUEUE_NAME,
+            body=body,
+            properties=properties,
+        )
+        channel.basic_ack(delivery_tag=method_frame.delivery_tag)
+        moved += 1
+
+    return moved
+
+
+# ---------------------------------------------------------------------------
 # Quiz grade accumulator
 # Holds EVERY essay mark for an attempt in memory - nothing is written to
 # Moodle until all essay questions for that attempt have been graded, at
@@ -106,9 +230,16 @@ def log_to_dashboard(data: str, status: str, details: str, attempt: int) -> None
 # one atomic batch.
 # Key: (moodle_userid, moodle_quiz_id, attempt_id)
 # Value: {"scores": [...], "feedbacks": [...], "slots": [...],
-#         "feedback_htmls": [...], "expected": int}
+#         "feedback_htmls": [...], "messages": [...], "learner_ids": [...],
+#         "expected": int}
 #
-# PERSISTENCE (new): this dict is also mirrored to a local JSON file
+# "messages" holds each essay's ORIGINAL raw message dict (including its
+# current "attempt" count), so that if the final batch write to Moodle
+# fails, every held essay can be re-published to the dead-letter queue
+# individually, with its own incremented attempt count - not just the one
+# message that happened to trigger the batch write.
+#
+# PERSISTENCE: this dict is also mirrored to a local JSON file
 # (ACCUMULATOR_STATE_FILE) every time it changes, so held-but-unwritten
 # marks survive a worker restart (e.g. hitting the daily Gemini quota,
 # a crash, or just closing the terminal). On startup, the file is read
@@ -135,8 +266,8 @@ def _accumulator_key_from_str(key_str: str) -> tuple:
 def save_accumulator_state() -> None:
     """
     Persist the current in-memory accumulator to disk. Called every time
-    a mark is added to it, or an entry is removed (flagged/pushed), so the
-    file on disk always matches what's in memory.
+    a mark is added to it, or an entry is removed (flagged/pushed/dead-
+    lettered), so the file on disk always matches what's in memory.
     """
     try:
         serialisable = {
@@ -187,7 +318,11 @@ def load_accumulator_state() -> None:
         _quiz_grade_accumulator = {}
 
 # Number of essay questions per quiz_id.
-# Update this if you add more essay questions to a quiz.
+# Update this if you add more essay questions to a quiz. Any quiz id
+# missing from this dict silently defaults to 1, which causes the worker
+# to push a grade after the FIRST essay it grades rather than waiting for
+# the rest - always add an entry here before grading a quiz for the first
+# time, including duplicate/copy courses (each copy has its own quiz id).
 QUIZ_ESSAY_COUNT = {
     1: 2,   # quiz_id 1 has 2 essay questions (Q11 and Q12)
     7: 8,   # quiz_id 7 (Business Analysis — Implementing a Data Analytics Platform) has 8 essay questions
@@ -207,7 +342,7 @@ def save_result(result: dict, output_path: str, course_name: str = "", assignmen
     "metadata" is a LIST of per-day snapshots. A new entry is created the
     first time save_result() runs on a given calendar date (local time); on
     that same date, subsequent calls update that day's existing entry in
-    place (totals accumulate across multiple worker.py restarts on the same
+    place (totals accumulate across multiple main.py restarts on the same
     day). The next calendar day, a fresh entry is appended instead.
     """
     try:
@@ -337,19 +472,22 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
     Called once per message received from the queue.
 
     Handles both Moodle push-back flows:
-    - Assignment: grade pushed immediately after grading.
+    - Assignment: grade pushed immediately after grading, once Moodle
+      confirms the write. On failure, the message is dead-lettered.
     - Quiz: every essay mark for an attempt is held in memory and written
       to Moodle together, in one batch, only once all essay questions for
-      that attempt have been graded.
+      that attempt have been graded. On a batch-write failure, every held
+      essay for that attempt is dead-lettered individually.
     Jobs from the original producer.py / input.json are unaffected.
 
     HOLD-BACK RULE: if grading["requires_human_review"] is true, the grade
     is never pushed to Moodle — it's recorded in the flagged-review log
     instead, and the question is left as-is in Moodle (still shows up in
-    Moodle's own "needs grading" queue for a teacher to check). For quizzes,
-    this also discards any other essay marks already accumulated in memory
-    for that same attempt - a flagged essay means the WHOLE attempt's batch
-    write is cancelled, not just that one question.
+    Moodle's own "needs grading" queue for a teacher to check). This is
+    NOT dead-lettered - it's an intentional hold, not a failure. For
+    quizzes, this also discards any other essay marks already accumulated
+    in memory for that same attempt - a flagged essay means the WHOLE
+    attempt's batch write is cancelled, not just that one question.
 
     PACING: pace_seconds is a fixed delay applied after every grading
     call (success or failure) to stay under Gemini's free-tier rate
@@ -365,6 +503,10 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
         learner_id       = submission.get("learner_id", "unknown")
         course_name      = message.get("course_name", "")
         assignment_name  = message.get("assignment_name", "")
+        # How many times this exact job has been attempted, including this
+        # one. Present on messages coming back from the dead-letter queue;
+        # defaults to 1 for a job's first-ever attempt.
+        attempt          = message.get("attempt", 1)
 
         # Moodle-specific fields — present only on Moodle-sourced jobs
         moodle_userid        = submission.get("_moodle_userid")
@@ -373,7 +515,7 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
         moodle_attempt_id    = submission.get("_moodle_attempt_id")
         moodle_slot          = submission.get("_moodle_slot")
 
-        log.info("[->] Received grading job for learner: %s", learner_id)
+        log.info("[->] Received grading job for learner: %s (attempt %d)", learner_id, attempt)
 
         try:
             top_level = {
@@ -389,7 +531,9 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
             # (requeue=True) so it isn't lost, and stop the worker entirely
             # rather than burning through every remaining job hitting the
             # same wall. Resume by just restarting the worker once the
-            # quota resets (typically ~24h for the free tier).
+            # quota resets (typically ~24h for the free tier). This is
+            # deliberately NOT dead-lettered - it's not a per-job failure,
+            # it's a global "stop everything for now" condition.
             log.error(
                 "[DAILY QUOTA EXCEEDED] Gemini's daily request quota is exhausted. "
                 "Re-queuing this job for %s and stopping the worker so nothing "
@@ -401,6 +545,9 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
             return
 
         except Exception as e:
+            # Grading itself failed (e.g. Gemini API error, malformed
+            # response). Report the failure honestly, then dead-letter the
+            # job with an incremented attempt count instead of losing it.
             error_msg = str(e)
             log.error("[FAIL] Could not grade %s: %s", learner_id, error_msg)
             time.sleep(pace_seconds)  # pace even on failure to avoid burst-retrying
@@ -419,17 +566,24 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
                 log_path=log_path,
             )
 
+            send_to_dead_letter_queue(channel, message, error_msg)
+
             log_to_dashboard(
                 data=learner_id,
                 status="fail",
                 details=error_msg,
-                attempt=1,
+                attempt=message.get("attempt", attempt + 1),
             )
 
             channel.basic_ack(delivery_tag=method.delivery_tag)
             return
 
-        # --- Grading succeeded — pace, then record + push back ---
+        # --- Grading succeeded — pace, then record locally ---
+        # NOTE: no dashboard report yet. Success is only reported once the
+        # grade has actually been confirmed written to Moodle, further
+        # down - reporting it here (before that's known) is exactly the
+        # premature "success" bug that let failed Moodle writes vanish
+        # silently in earlier versions of this worker.
         time.sleep(pace_seconds)  # proactive rate-limit pacing
 
         result = {
@@ -450,13 +604,6 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
             log_path=log_path,
         )
 
-        log_to_dashboard(
-            data=learner_id,
-            status="success",
-            details=f"score={grading.get('score')}/{grading.get('max_grade')} ({grading.get('grade_label')})",
-            attempt=1,
-        )
-
         log.info(
             "[OK] %s -> %s/%s (%s%%) [%s]%s",
             learner_id,
@@ -468,7 +615,9 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
         )
 
         # -----------------------------------------------------------
-        # HOLD-BACK CHECK: flagged submissions never reach Moodle.
+        # HOLD-BACK CHECK: flagged submissions never reach Moodle, and
+        # are NOT dead-lettered - this is an intentional hold, not a
+        # failure that retrying would fix.
         # -----------------------------------------------------------
         if grading.get("requires_human_review"):
             flagged_entry = {
@@ -507,14 +656,15 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
             channel.basic_ack(delivery_tag=method.delivery_tag)
             return
 
-        # --- Hold or push grade, depending on job type ---
+        # --- Push grade to Moodle, depending on job type ---
         if moodle_userid is not None:
             try:
                 import moodle_client
                 feedback_html = _build_feedback_html(grading)
                 feedback_text = grading.get("feedback", "")
 
-                # ASSIGNMENT FLOW — push grade immediately (unchanged)
+                # ASSIGNMENT FLOW — push grade immediately, report success
+                # only once Moodle actually confirms the write.
                 if moodle_assignment_id is not None:
                     moodle_client.save_grade(
                         assignment_id=moodle_assignment_id,
@@ -526,19 +676,18 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
                         "[MOODLE] Assignment grade pushed back for %s (userid=%s, assignment=%s)",
                         learner_id, moodle_userid, moodle_assignment_id,
                     )
+                    log_to_dashboard(
+                        data=learner_id,
+                        status="success",
+                        details=f"score={grading.get('score')}/{grading.get('max_grade')} ({grading.get('grade_label')})",
+                        attempt=attempt,
+                    )
 
                 # QUIZ FLOW — hold every mark in memory; write nothing to
                 # Moodle until the whole attempt is graded, then write all
                 # marks + the combined total together as one atomic batch.
                 elif moodle_quiz_id is not None and moodle_attempt_id is not None:
 
-                    # Cast every part to str explicitly - moodle_userid/quizid/
-                    # attemptid arrive as JSON integers from a live message,
-                    # but _accumulator_key_from_str() always reconstructs them
-                    # as strings when loading persisted state back from disk.
-                    # Without this cast, a live int-keyed lookup silently
-                    # misses a resumed string-keyed entry and starts a brand
-                    # new accumulator from 0 instead of continuing it.
                     key = (str(moodle_userid), str(moodle_quiz_id), str(moodle_attempt_id))
                     expected = QUIZ_ESSAY_COUNT.get(int(moodle_quiz_id), 1)
 
@@ -548,20 +697,26 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
                             "feedbacks": [],
                             "slots": [],
                             "feedback_htmls": [],
+                            "messages": [],
+                            "learner_ids": [],
                             "expected": expected,
                         }
                     acc = _quiz_grade_accumulator[key]
 
                     # Hold this essay's grade in memory only - do NOT write
-                    # to Moodle yet. Individual marks are written only once
-                    # the WHOLE attempt is graded, so a partial/incomplete
-                    # batch never leaves an unreviewed AI mark sitting live
-                    # in Moodle for a question graded ahead of the rest of
-                    # the attempt.
+                    # to Moodle yet, and do NOT report success to the
+                    # dashboard yet. Both happen only once the WHOLE
+                    # attempt is graded and successfully written, so a
+                    # partial/incomplete batch never leaves an unreviewed
+                    # AI mark sitting live in Moodle, or a false "success"
+                    # sitting on the dashboard, for a question graded ahead
+                    # of the rest of the attempt.
                     acc["scores"].append(grading.get("score", 0))
                     acc["feedbacks"].append(feedback_text)
                     acc["slots"].append(moodle_slot)
                     acc["feedback_htmls"].append(feedback_html)
+                    acc["messages"].append(message)
+                    acc["learner_ids"].append(learner_id)
                     save_accumulator_state()
 
                     log.info(
@@ -572,37 +727,107 @@ def make_callback(client, gen_config, model_name, output_path, log_path, flagged
 
                     if len(acc["scores"]) >= acc["expected"]:
                         # All essays for this attempt are now graded and
-                        # NONE were flagged for review - write every
-                        # individual mark AND the combined total together,
-                        # as one atomic batch, instead of trickling marks
-                        # in one at a time as they were graded.
-                        for i, slot_num in enumerate(acc["slots"]):
-                            moodle_client.save_quiz_essay_grade(
-                                attempt_id=moodle_attempt_id,
-                                slot=slot_num,
-                                grade=acc["scores"][i],
-                                feedback_html=acc["feedback_htmls"][i],
+                        # NONE were flagged for review - attempt to write
+                        # every individual mark AND the combined total
+                        # together, as one atomic batch.
+                        try:
+                            for i, slot_num in enumerate(acc["slots"]):
+                                moodle_client.save_quiz_essay_grade(
+                                    attempt_id=moodle_attempt_id,
+                                    slot=slot_num,
+                                    grade=acc["scores"][i],
+                                    feedback_html=acc["feedback_htmls"][i],
+                                )
+
+                            essay_total = sum(acc["scores"])
+                            objective_score = submission.get("_moodle_objective_score", 0.0)
+                            total = essay_total + objective_score
+
+                            log.info(
+                                "[QUIZ] All %d essay(s) graded for attempt=%s. Essay total: %s + Objective score: %s = Grand total: %s",
+                                acc["expected"], moodle_attempt_id, essay_total, objective_score, total,
+                            )
+                            log.info(
+                                "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, final=%s)",
+                                learner_id, moodle_userid, moodle_quiz_id, total,
                             )
 
-                        essay_total = sum(acc["scores"])
-                        objective_score = submission.get("_moodle_objective_score", 0.0)
-                        total = essay_total + objective_score
+                            # Only now, with the batch write confirmed, do
+                            # we report success - one report per essay in
+                            # the batch, matching the per-message reporting
+                            # convention used elsewhere in the worker.
+                            for i, held_learner_id in enumerate(acc["learner_ids"]):
+                                held_attempt = acc["messages"][i].get("attempt", 1)
+                                # max_grade comes from each held message's
+                                # own submission payload, not from the
+                                # accumulator (which only stores graded
+                                # outputs, not the original question data).
+                                held_max_grade = (
+                                    acc["messages"][i]
+                                    .get("submission", {})
+                                    .get("max_grade")
+                                )
+                                log_to_dashboard(
+                                    data=held_learner_id,
+                                    status="success",
+                                    details=f"score={acc['scores'][i]}/{held_max_grade} (batch total {total})",
+                                    attempt=held_attempt,
+                                )
 
-                        log.info(
-                            "[QUIZ] All %d essay(s) graded for attempt=%s. Essay total: %s + Objective score: %s = Grand total: %s",
-                            acc["expected"], moodle_attempt_id, essay_total, objective_score, total,
-                        )
-                        log.info(
-                            "[MOODLE] Quiz grade pushed back for %s (userid=%s, quiz=%s, final=%s)",
-                            learner_id, moodle_userid, moodle_quiz_id, total,
-                        )
+                        except Exception as batch_err:
+                            # The batch write failed partway through, or
+                            # before it even started. We cannot safely
+                            # assume which (if any) of the N essays
+                            # actually landed in Moodle, so dead-letter
+                            # ALL N held essays individually, each with
+                            # its own incremented attempt count - not just
+                            # the message that happened to trigger this
+                            # batch write. On retry, all N will be
+                            # re-graded and re-attempted as a fresh batch.
+                            error_msg = str(batch_err)
+                            log.error(
+                                "[MOODLE] Batch write failed for attempt=%s userid=%s: %s. "
+                                "Dead-lettering all %d held essay(s) for retry.",
+                                moodle_attempt_id, moodle_userid, error_msg, len(acc["messages"]),
+                            )
+                            for i, held_message in enumerate(acc["messages"]):
+                                send_to_dead_letter_queue(channel, held_message, error_msg)
+                                log_to_dashboard(
+                                    data=acc["learner_ids"][i],
+                                    status="fail",
+                                    details=error_msg,
+                                    attempt=held_message.get("attempt", 1),
+                                )
+
+                        # Whether the batch succeeded or failed, this
+                        # attempt's accumulator entry is done with - either
+                        # written to Moodle, or fully dead-lettered for a
+                        # fresh retry. Either way, don't leave stale state
+                        # sitting around.
+                        # KNOWN LIMITATION: see module docstring - a crash
+                        # between save_accumulator_state() above and this
+                        # point could cause a redelivered message to be
+                        # re-appended to state restored from disk. Accepted
+                        # as a rare edge case for now.
                         del _quiz_grade_accumulator[key]
                         save_accumulator_state()
 
             except Exception as moodle_err:
+                # Something failed OUTSIDE the inner batch-write try/except
+                # above (e.g. the assignment save_grade call itself, or an
+                # error before we even got into the quiz branch). Report
+                # honestly and dead-letter rather than silently losing it.
+                error_msg = str(moodle_err)
                 log.error(
                     "[MOODLE] Failed to push grade for %s to Moodle: %s",
-                    learner_id, moodle_err,
+                    learner_id, error_msg,
+                )
+                send_to_dead_letter_queue(channel, message, error_msg)
+                log_to_dashboard(
+                    data=learner_id,
+                    status="fail",
+                    details=error_msg,
+                    attempt=message.get("attempt", attempt + 1),
                 )
 
         channel.basic_ack(delivery_tag=method.delivery_tag)
@@ -629,6 +854,12 @@ def start_worker(
         log.error("GEMINI_API_KEY not found. Add it to your .env file.")
         sys.exit(1)
 
+    if not API_KEY:
+        log.warning(
+            "API_KEY not set - dashboard log requests will be sent without "
+            "authentication and will likely be rejected. Add API_KEY to .env."
+        )
+
     client = genai.Client(api_key=api_key)
     gen_config = types.GenerateContentConfig(
         temperature=0.2,
@@ -652,11 +883,20 @@ def start_worker(
 
     channel = connection.channel()
     channel.queue_declare(queue=QUEUE_NAME, durable=True)
+    channel.queue_declare(queue=DEAD_LETTER_QUEUE, durable=True)
     channel.basic_qos(prefetch_count=1)
 
     # Resume any in-progress quiz attempts from a previous run that got
     # interrupted (quota exhaustion, crash, etc.) before consuming begins.
     load_accumulator_state()
+
+    # Move every message currently sitting in the dead-letter queue back
+    # onto the main queue, so jobs that failed in a previous run are
+    # retried automatically now, rather than sitting in the DLQ forever
+    # waiting for someone to notice.
+    moved = drain_dead_letter_queue(channel)
+    if moved:
+        log.info("Moved %d message(s) from the dead-letter queue back to the main queue for retry.", moved)
 
     callback = make_callback(client, gen_config, model_name, output_path, log_path, flagged_log_path, pace_seconds)
     channel.basic_consume(queue=QUEUE_NAME, on_message_callback=callback)
@@ -669,6 +909,8 @@ def start_worker(
     log.info("Dashboard   : %s", DASHBOARD_LOG_URL)
     log.info("Pace        : %.1fs between calls", pace_seconds)
     log.info("Host        : %s", rabbitmq_host)
+    log.info("Main queue  : %s", QUEUE_NAME)
+    log.info("Dead letter : %s", DEAD_LETTER_QUEUE)
     log.info("Waiting for grading jobs... (Ctrl+C to stop)")
 
     try:
@@ -686,7 +928,8 @@ def start_worker(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="RabbitMQ AI grading worker")
-    parser.add_argument("--host",   default="localhost",        help="RabbitMQ host (default: localhost)")
+    parser.add_argument("--host",   default=os.getenv("RABBITMQ_HOST", "localhost"),
+                        help="RabbitMQ host (default: $RABBITMQ_HOST env var, or localhost)")
     parser.add_argument("--model",  default="gemini-3.6-flash", help="Gemini model (default: gemini-3.6-flash)")
     parser.add_argument("--output", default="output.json",      help="Output file (default: output.json)")
     parser.add_argument("--log",    default="grading_log.json", help="Log file (default: grading_log.json)")
