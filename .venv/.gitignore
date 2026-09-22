@@ -1,0 +1,98 @@
+# =============================================================
+# Python (base template: https://github.com/github/gitignore/blob/main/Python.gitignore)
+# =============================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Environments
+.venv
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# =============================================================
+# Editors / OS
+# =============================================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# =============================================================
+# Project-specific: secrets, logs, generated/runtime data
+# None of this is source code - it's either sensitive (.env) or
+# regenerated automatically every time the worker/producer runs,
+# so it shouldn't be committed or reviewed as part of the codebase.
+# =============================================================
+
+# Environment variables / secrets (Gemini key, Moodle token, dashboard key)
+.env
+
+# Grading run logs and audit output (regenerated every run)
+*.log
+grading_log.json
+output.json
+flagged_for_review.json
+
+# In-progress quiz grading state (regenerated/cleared automatically by
+# the worker; only meaningful for the machine currently running it)
+quiz_accumulator_state.json
+
+# Local SQLite log store, if used
+grading_logs.db
+
+# Downloaded/temporary learner submission files pulled from Moodle
+tmp_submissions/
+temp_submissions/
